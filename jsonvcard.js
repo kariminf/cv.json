@@ -7,7 +7,7 @@
   function init(){
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", "./portfelio.json", true);
+    rawFile.open("GET", "./vcard.json", true);
 
     rawFile.onreadystatechange = function() {
       if (rawFile.readyState === 4 && rawFile.status == "200") {
@@ -23,9 +23,10 @@
     document.title = data.name + " " + data.family;
 
     var rawFile = new XMLHttpRequest();
-    addStyleSheet(data.style + "style.css");
-    var file = data.style + "template.htm";
-    rawFile.open("GET", file, true);
+    rawFile.responseType = 'text';
+    var stylePath = "./styles/" + data.style + "/";
+    addStyleSheet(stylePath + "style.css");
+    rawFile.open("GET", stylePath + "template.htm", true);
     rawFile.onreadystatechange = function() {
       if (rawFile.readyState === 4 && rawFile.status == "200") {
         process2(data, rawFile.responseText);
@@ -38,7 +39,7 @@
   function process2(data, template){
     var result = template;
     for (var e in data){
-      result = result.replace("%" + e + "%", data[e]);
+      result = result.replace("@{" + e + "}", data[e]);
     }
     document.body.innerHTML = result;
   }
@@ -62,9 +63,6 @@
       head.appendChild(link);
     }
   }
-
-
-
 
 
 }());

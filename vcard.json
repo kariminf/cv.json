@@ -1,7 +1,8 @@
 {
-  "style": "./styles/default/",
-  "name":"abdelkrime",
-  "family":"aries",
-  "pic": ""
-
+  "style": "default",
+  "name":"firstname",
+  "family":"familyname",
+  "photo": "profile.jpg",
+  "birthday": "yyyymmdd",
+  "title": "Developper"
 }
