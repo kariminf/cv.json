@@ -4,5 +4,6 @@
   "family":"familyname",
   "photo": "profile.jpg",
   "birthday": "yyyymmdd",
-  "title": "Developper"
+  "title": "Developper",
+  "bio": "bio.txt"
 }

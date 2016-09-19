@@ -1,5 +1,8 @@
 (function(){
 
+  var mutex = 0;
+  var result = "";
+
   document.addEventListener('DOMContentLoaded', function () {
     init();
   });
@@ -37,11 +40,34 @@
   }
 
   function process2(data, template){
-    var result = template;
+    result = template;
     for (var e in data){
       result = result.replace("@{" + e + "}", data[e]);
+      if (result.indexOf("@{" + e + "%read}") >= 0)
+        readFile(e, data[e]);
     }
     document.body.innerHTML = result;
+  }
+
+
+  function readFile(name, url){
+    var rawFile = new XMLHttpRequest();
+    rawFile.responseType = 'text';
+    rawFile.open("GET", url, true);
+
+    mutex++;
+
+    rawFile.onreadystatechange = function() {
+      if (rawFile.readyState === 4 && rawFile.status == "200") {
+        result = result.replace("@{" + name + "%read}", rawFile.responseText);
+        mutex--;
+        if (mutex === 0){
+          document.body.innerHTML = result;
+        }
+
+      }
+    }
+    rawFile.send(null);
   }
 
 
