@@ -42,6 +42,7 @@
   function process2(data, template){
     result = template;
     for (var e in data){
+      if (typeof data[e] !== "string") continue;
       result = result.replace("@{" + e + "}", data[e]);
       if (result.indexOf("@{" + e + "%read}") >= 0)
         readFile(e, data[e]);

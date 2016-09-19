@@ -21,7 +21,7 @@
       "job": "exp1-job",
       "org": "organization",
       "resp": [
-        "responsability 1"
+        "responsability 1",
         "responsability 2"
       ],
       "note": "url-notes"
