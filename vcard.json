@@ -4,6 +4,62 @@
   "family":"familyname",
   "photo": "profile.jpg",
   "birthday": "yyyymmdd",
+  "address": "my address",
+  "tel": ["tel1", "tel2"],
   "title": "Developper",
-  "bio": "bio.txt"
+  "bio": "bio.txt",
+  "social": {
+    "facebook": "fb-acc",
+    "twitter": "twit-acc",
+    "linkedin": "lin-acc",
+    "gplus": "gp-acc"
+  },
+  "experience": [
+    {
+      "from": "exp1-from",
+      "to": "exp1-to",
+      "job": "exp1-job",
+      "org": "organization",
+      "resp": [
+        "responsability 1"
+        "responsability 2"
+      ],
+      "note": "url-notes"
+    }
+  ],
+  "education": [
+    {
+      "from": "exp1-from",
+      "to": "exp1-to",
+      "inst": "Institution",
+      "desc": "url-description"
+    }
+  ],
+  "skils": [
+    {
+      "title": "skil1",
+      "mark": 10
+    }
+  ],
+  "languages": [
+    {
+      "name": "lang-name",
+      "prof": 5
+    }
+  ],
+  "pub": [
+    {
+      "title": "publication1 title",
+      "publisher": "publisher",
+      "date": "yyyymmdd",
+      "url": "url",
+      "authors": [
+        "author 1",
+        "author 2"
+      ],
+      "desc": "url-description"
+    }
+
+  ]
+
 }

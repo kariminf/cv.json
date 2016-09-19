@@ -1,12 +1,16 @@
 <div id="header">
   <img src="@{photo}" id="photo" ></img>
-  <div id="fullname">
-    <span id="name">@{name}</span>
-    <span id="family">@{family}</span>
+  <div if="info">
+    <div id="fullname">
+      <span id="name">@{name}</span>
+      <span id="family">@{family}</span>
+    </div>
+    <div id="birthday">@{birthday}</div>
   </div>
-</div>
-<div id="wrapper">
-<div id="content">
   <div id="bio">@{bio%read}</div>
 </div>
+<div id="wrapper">
+  <div id="content">
+
+  </div>
 </div>

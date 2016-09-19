@@ -26,6 +26,15 @@ body {
   margin-left: .5em;
 }
 
+#fullname:after {
+  /*
+  content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;*/
+}
+
 #photo {
   height: 9em;
   float: left;
@@ -39,4 +48,8 @@ body {
 
 #content {
   text-align: left;
+}
+
+#bio {
+  float: right;
 }
