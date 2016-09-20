@@ -6,6 +6,7 @@
   "birthday": "yyyymmdd",
   "address": "my address",
   "tel": ["tel1", "tel2"],
+  "email": ["email1", "email2"],
   "title": "Developper",
   "bio": "bio.txt",
   "social": {
@@ -14,7 +15,7 @@
     "linkedin": "lin-acc",
     "gplus": "gp-acc"
   },
-  "experience": [
+  "exp": [
     {
       "from": "exp1-from",
       "to": "exp1-to",
@@ -24,10 +25,10 @@
         "responsability 1",
         "responsability 2"
       ],
-      "note": "url-notes"
+      "desc": "url-description"
     }
   ],
-  "education": [
+  "educ": [
     {
       "from": "exp1-from",
       "to": "exp1-to",
