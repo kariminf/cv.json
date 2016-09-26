@@ -11,6 +11,31 @@
 </div>
 <div id="wrapper">
   <div id="content">
-    
+    <div id="exp">
+      @{exp%set_begin}
+      <div class="exp_element">
+        From @{exp.from} To @{exp.to} <br>
+        @{exp.job} <br>
+        <ul>
+        @{exp.resp%set_begin}
+        <li> @{exp.resp}</li>
+        @{exp.resp%set_end}
+      </ul>
+
+      </div>
+      @{exp%set_end}
+    </div>
+    <div id="educ">
+
+    </div>
+    <div id="pub">
+
+    </div>
+    <div id="skil">
+
+    </div>
+    <div id="lang">
+
+    </div>
   </div>
 </div>

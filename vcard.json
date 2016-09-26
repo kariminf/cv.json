@@ -17,8 +17,8 @@
   },
   "exp": [
     {
-      "from": "exp1-from",
-      "to": "exp1-to",
+      "from": "yyyymmdd",
+      "to": "yyyymmdd",
       "job": "exp1-job",
       "org": "organization",
       "resp": [
@@ -36,18 +36,6 @@
       "desc": "url-description"
     }
   ],
-  "skils": [
-    {
-      "title": "skil1",
-      "mark": 10
-    }
-  ],
-  "languages": [
-    {
-      "name": "lang-name",
-      "prof": 5
-    }
-  ],
   "pub": [
     {
       "title": "publication1 title",
@@ -61,6 +49,18 @@
       "desc": "url-description"
     }
 
+  ],
+  "skil": [
+    {
+      "title": "skil1",
+      "mark": 10
+    }
+  ],
+  "lang": [
+    {
+      "name": "lang-name",
+      "prof": 5
+    }
   ]
 
 }

@@ -3,6 +3,8 @@
   var mutex = 0;
   var result = "";
 
+  var waitTime = 300;
+
   document.addEventListener('DOMContentLoaded', function () {
     init();
   });
@@ -41,13 +43,40 @@
 
   function process2(data, template){
     result = template;
+    processObject(data);
+    document.body.innerHTML = result;
+  }
+
+  function processObject(data){
     for (var e in data){
-      if (typeof data[e] !== "string") continue;
+      if (typeof data[e] === "object"){
+        processObject(data[e]);
+        continue;
+      }
+      if (typeof data[e] !== "string"){
+        processArray(e, data[e]);
+        continue;
+      }
       result = result.replace("@{" + e + "}", data[e]);
       if (result.indexOf("@{" + e + "%read}") >= 0)
         readFile(e, data[e]);
     }
-    document.body.innerHTML = result;
+  }
+
+  function processArray(name, data){
+    var idx_begin = result.indexOf("@{" + name + "%set_begin}");
+    var idx_end = result.indexOf("@{" + name + "%set_end}");
+
+    var part = result.substring(idx_begin, idx_end);
+    var repl = part;
+
+    if (typeof data[0] === "string"){
+      for (var i = 0; i < data.length; i++){
+        repl = repl.replace("@{" + data[i] + "}", data[i]);
+      }
+      result.replace(part, repl);
+    }
+
   }
 
 
