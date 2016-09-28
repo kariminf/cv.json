@@ -1,9 +1,9 @@
 (function(){
 
   var mutex = 0;
-  var result = "";
+  var shared_result = "";
 
-  var waitTime = 300;
+  var files = [];
 
   document.addEventListener('DOMContentLoaded', function () {
     init();
@@ -42,45 +42,79 @@
   }
 
   function process2(data, template){
-    result = template;
-    processObject(data);
-    document.body.innerHTML = result;
+    shared_result = processObject("", data, template);
+    document.body.innerHTML = shared_result;
+    processFiles();
+
   }
 
-  function processObject(data){
+  function processObject(key, data, template){
+    var result = template;
+    var k = (key !== null && key.length>0)? key + ".": "";
     for (var e in data){
-      if (typeof data[e] === "object"){
-        processObject(data[e]);
-        continue;
-      }
-      if (typeof data[e] !== "string"){
-        processArray(e, data[e]);
-        continue;
-      }
-      result = result.replace("@{" + e + "}", data[e]);
-      if (result.indexOf("@{" + e + "%read}") >= 0)
-        readFile(e, data[e]);
+      result = processData(k + e, data[e], result);
     }
-  }
 
-  function processArray(name, data){
-    var idx_begin = result.indexOf("@{" + name + "%set_begin}");
-    var idx_end = result.indexOf("@{" + name + "%set_end}");
-
-    var part = result.substring(idx_begin, idx_end);
-    var repl = part;
-
-    if (typeof data[0] === "string"){
-      for (var i = 0; i < data.length; i++){
-        repl = repl.replace("@{" + data[i] + "}", data[i]);
-      }
-      result.replace(part, repl);
-    }
+    return result;
 
   }
 
+  function processData(key, value, template){
 
-  function readFile(name, url){
+    var key2 = key.replace(/&\d+/gi, "");
+
+    if (Object.prototype.toString.call(value) === '[object Array]'){
+      return processArray(key2, value, template);
+    }
+
+    if (typeof value === "object"){
+      return processObject(key2, value, template);
+    }
+
+    var result = template.replace("@{" + key + "}", value);
+
+    var marker = "@{" + key + "%read}";
+    if (result.indexOf(marker) >= 0)
+      files.push({"marker": marker, "url": value});
+
+    return result;
+  }
+
+  function processArray(key, data, template){
+
+    var begin = "@{" + key + "%set_begin}";
+    var idx_begin = template.indexOf(begin) + begin.length;
+    var end = "@{" + key + "%set_end}";
+    var idx_end = template.indexOf(end);
+
+    if (idx_begin < 0 || idx_end < 0) return template;
+
+    //console.log(key);
+
+    var part = template.substring(idx_begin, idx_end);
+
+    //console.log(part);
+    var repl = "";
+
+    for (var i = 0; i < data.length; i++){
+      var parti = part.replace("@{" + key + "}", "@{" + key + "&" + i + "}");
+      parti = processData(key + "&" + i, data[i], parti);
+      repl += parti + "\n";
+    }
+
+    part = begin + part + end;
+
+    return template.replace(part, repl);
+
+  }
+
+  function processFiles(){
+    while((file=files.pop()) != null){
+      readFile(file.marker, file.url);
+    }
+  }
+
+  function readFile(marker, url){
     var rawFile = new XMLHttpRequest();
     rawFile.responseType = 'text';
     rawFile.open("GET", url, true);
@@ -89,10 +123,10 @@
 
     rawFile.onreadystatechange = function() {
       if (rawFile.readyState === 4 && rawFile.status == "200") {
-        result = result.replace("@{" + name + "%read}", rawFile.responseText);
+        shared_result = shared_result.replace(marker, rawFile.responseText);
         mutex--;
         if (mutex === 0){
-          document.body.innerHTML = result;
+          document.body.innerHTML = shared_result;
         }
 
       }
