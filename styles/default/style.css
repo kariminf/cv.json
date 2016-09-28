@@ -13,6 +13,18 @@ body {
   overflow: hidden;
 }
 
+@media only screen and (max-width: 480px) {
+    /* For mobile phones: */
+    #header {
+      z-index: 1;
+      position:absolute;
+    }
+    #wrapper {
+      position: relative;
+    }
+
+}
+
 #wrapper {
   position: absolute;
   top: 10em;
