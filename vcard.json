@@ -26,6 +26,17 @@
         "responsability 2"
       ],
       "desc": "url-description"
+    },
+    {
+      "from": "yyyymmdd",
+      "to": "yyyymmdd",
+      "job": "exp2-job",
+      "org": "organization2",
+      "resp": [
+        "responsability 2_1",
+        "responsability 2_2"
+      ],
+      "desc": "url-description2"
     }
   ],
   "educ": [
