@@ -1,5 +1,7 @@
 (function(){
 
+  //Mutual exclusion marker:
+  //Can't write the content till all the files are processed
   var mutex = 0;
   var shared_result = "";
 
@@ -9,6 +11,10 @@
     init();
   });
 
+  /**
+   * Initialization of process; this method searches for vcard.json
+   * then when retrieved, it sends its content as a string to process(json)
+   */
   function init(){
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -22,6 +28,11 @@
     rawFile.send(null);
   }
 
+  /**
+   * This method parses the json file
+   * @param  {[type]} json [description]
+   * @return {[type]}      [description]
+   */
   function process(json){
     var data = JSON.parse(json);
 

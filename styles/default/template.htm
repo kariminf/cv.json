@@ -9,33 +9,67 @@
   </div>
   <div id="bio">@{bio%read}</div>
 </div>
-<div id="wrapper">
-  <div id="content">
-    <div id="exp">
-      @{exp%set_begin}
-      <div class="exp_element">
-        From @{exp.from} To @{exp.to} <br>
-        @{exp.job} <br>
-        <ul>
+
+<div id="content">
+
+  <div id="exp">
+    @{exp%set_begin}
+    <div class="exp_element">
+      From @{exp.from} To @{exp.to} <br>
+      @{exp.job} <br>
+      <ul>
         @{exp.resp%set_begin}
         <li> @{exp.resp}</li>
         @{exp.resp%set_end}
       </ul>
-
-      </div>
-      @{exp%set_end}
     </div>
-    <div id="educ">
+    @{exp%set_end}
+  </div>
 
+  <div id="educ">
+    @{educ%set_begin}
+    <div class="educ_element">
+      From @{educ.from} To @{educ.to} <br>
+      @{educ.inst} <br>
+      @{educ.desc}
     </div>
-    <div id="pub">
+    @{educ%set_end}
+  </div>
 
+  <div id="pub">
+    @{pub%set_begin}
+    <div class="pub_element">
+      <table>
+        <tr><td>Title</td>
+          <td>@{pub.title}</td></tr>
+        <tr><td>Publisher</td>
+          <td>@{pub.publisher}</td></tr>
+        <tr><td>Date</td>
+          <td>@{pub.date}</td></tr>
+        <tr><td>URL</td>
+          <td><a href="@{pub.url}" target = "_blank">@{pub.url}</a></td></tr>
+        <tr><td>Authors</td>
+          <td>
+            @{pub.authors%set_begin}
+            <span>@{pub.authors}</span>
+            @{pub.authors%set_begin}
+          </td></tr>
+      </table>
+      From @{educ.from} To @{educ.to} <br>
+      @{educ.inst} <br>
+      @{educ.desc}
     </div>
-    <div id="skil">
+    @{pub%set_end}
+  </div>
 
+  <div id="skill">
+    @{skill%set_begin}
+    <div class="educ_element">
+      @{skill.title}:  @{skill.mark}
     </div>
-    <div id="lang">
+    @{skill%set_end}
+  </div>
+  <div id="lang">
 
-    </div>
   </div>
 </div>
