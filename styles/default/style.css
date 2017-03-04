@@ -76,20 +76,28 @@ body {
 }
 
 #exp {
-  background-color: red;
-  margin: .5em .5em .5em .5em;
 }
 
 .exp_element {
-  display: inline-block
+  display: inline-block;
+  margin: .5em .5em .5em .5em;
+  background-color: red;
 }
 
 #educ {
+}
+
+.educ_element {
+  display: inline-block;
   background-color: blue;
   margin: .5em .5em .5em .5em;
 }
 
 #pub {
+}
+
+.pub_element {
+  display: inline-block;
   background-color: yellow;
   margin: .5em .5em .5em .5em;
 }
