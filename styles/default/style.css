@@ -1,5 +1,4 @@
 body {
-  overflow: hidden;
 }
 
 #header {
@@ -67,6 +66,7 @@ body {
   position: fixed;
   top: 10em;
   left:0;
+  overflow-y: auto;
 
   /*margin: 0em 1em 0em 0em;*/
 }
@@ -81,7 +81,7 @@ body {
 }
 
 .exp_element {
-  display:inline;
+  display: inline-block
 }
 
 #educ {
