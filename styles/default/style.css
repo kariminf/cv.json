@@ -9,7 +9,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 
@@ -58,17 +58,20 @@ body {
   position: relative;
   margin: .5em;
   display: block;
-  overflow: hidden;
+  /*overflow: hidden;*/
   /*float: left;*/
 }
 
-#content {
+/*this is used to position the content after the header*/
+#wrapper{
   position: fixed;
   top: 10em;
   left:0;
-  overflow-y: auto;
+}
 
-  /*margin: 0em 1em 0em 0em;*/
+#content {
+  overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 #bio {

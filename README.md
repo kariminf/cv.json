@@ -1,6 +1,8 @@
 # jsonVCard
-[![jsonVCard](https://img.shields.io/badge/Project-jsonVCard-yellow.svg)](https://kariminf.github.io/jsonVCard/)
-[![License](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
+[![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/jsonVCard/)
+[![Version](https://img.shields.io/badge/Version-0.0.1-FDEE00.svg)](https://github.com/kariminf/jsonVCard/releases)
+[![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 By introducing information inside a json file, you can generate a Vcard webpage (CV).
 The goal of this project is:
@@ -8,6 +10,7 @@ The goal of this project is:
 * Modify the style of your CV using a template and a stylesheet.
 
 ## How it works
+
 All you have to do is creating an HTML page such:
 ```html
 <html>
@@ -106,5 +109,17 @@ This is an enumeration of the different entries:
 Try it [here](https://kariminf.github.io/jsonVCard/)
 
 ## License
-The code is released under Apache 2.0 license.
-For more details about this license, check [LICENSE](./LICENSE) file
+
+Copyright (C) 2016-2017 Abdelkrime Aries
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
