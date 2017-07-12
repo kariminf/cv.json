@@ -7,38 +7,38 @@
     </div>
     <div id="birthday">@{birthday}</div>
   </div>
-  <div id="bio">@{bio%read}</div>
+  <div id="bio">@{bio%r}</div>
 </div>
 
 <div id="wrapper">
   <div id="content">
 
     <div id="exp">
-      @{exp%set_begin}
+      @{exp%sb}
       <div class="exp_element">
         From @{exp.from} To @{exp.to} <br>
         @{exp.job} <br>
         <ul>
-          @{exp.resp%set_begin}
+          @{exp.resp%sb}
           <li> @{exp.resp}</li>
-          @{exp.resp%set_end}
+          @{exp.resp%se}
         </ul>
       </div>
-      @{exp%set_end}
+      @{exp%se}
     </div>
 
     <div id="educ">
-      @{educ%set_begin}
+      @{educ%sb}
       <div class="educ_element">
         From @{educ.from} To @{educ.to} <br>
         @{educ.inst} <br>
         @{educ.desc}
       </div>
-      @{educ%set_end}
+      @{educ%se}
     </div>
 
     <div id="pub">
-      @{pub%set_begin}
+      @{pub%sb}
       <div class="pub_element">
         <table>
           <tr><td>Title</td>
@@ -51,22 +51,22 @@
                   <td><a href="@{pub.url}" target = "_blank">@{pub.url}</a></td></tr>
                   <tr><td>Authors</td>
                     <td>
-                      @{pub.authors%set_begin}
+                      @{pub.authors%sb}
                       <span>@{pub.authors}</span>
-                      @{pub.authors%set_begin}
+                      @{pub.authors%se}
                     </td></tr>
                   </table>
                 </div>
-                @{pub%set_end}
+                @{pub%se}
               </div>
 
 
               <div id="skill">
-                @{skill%set_begin}
+                @{skill%sb}
                 <div class="educ_element">
                   @{skill.title}:  @{skill.mark}
                 </div>
-                @{skill%set_end}
+                @{skill%se}
               </div>
               <div id="lang">
 

@@ -12,6 +12,10 @@ body {
   /*overflow: hidden;*/
 }
 
+/*#header::after{
+   clear: both;
+}*/
+
 
 @media only screen and (max-width: 480px) {
     /* For mobile phones: */
@@ -67,11 +71,13 @@ body {
   position: fixed;
   top: 10em;
   left:0;
+  width: 100%;
 }
 
 #content {
   overflow-y:scroll;
-    overflow-x:hidden;
+  overflow-x:hidden;
+  width: 100%;
 }
 
 #bio {

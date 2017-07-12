@@ -52,7 +52,7 @@
       "title": "publication1 title",
       "publisher": "publisher",
       "date": "yyyymmdd",
-      "url": "url",
+      "url": "https://github.com/kariminf/jsonVCard",
       "authors": [
         "author 1",
         "author 2"

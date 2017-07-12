@@ -1,3 +1,21 @@
+/*
+This file is part of jsonVCard project;
+a Javascript script which allows you to create simple VCard
+
+Copyright (C) 2017 Abdelkrime Aries <kariminfo0@gmail.com>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 (function(){
 
   //Mutual exclusion marker:
@@ -12,9 +30,9 @@
   });
 
   /**
-   * Initialization of process; this method searches for vcard.json
-   * then when retrieved, it sends its content as a string to process(json)
-   */
+  * Initialization of process; this method searches for vcard.json
+  * then when retrieved, it sends its content as a string to process(json)
+  */
   function init(){
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -29,10 +47,10 @@
   }
 
   /**
-   * This method parses the json file
-   * @param  {[type]} json [description]
-   * @return {[type]}      [description]
-   */
+  * This method parses the json content
+  * @param  {string} json The content of JSON file which describs
+  *
+  */
   function process(json){
     var data = JSON.parse(json);
 
@@ -82,21 +100,25 @@
       return processObject(key2, value, template);
     }
 
-    var result = template.replace("@{" + key + "}", value);
+    var exp = eval("/\@\{" + key + "\}/g");
+    var result = template.replace(exp, value);
+    //console.log(exp);
 
-    var marker = "@{" + key + "%read}";
+    var marker = "@{" + key + "%r}";
     if (result.indexOf(marker) >= 0)
-      files.push({"marker": marker, "url": value});
+    files.push({"marker": marker, "url": value});
 
     return result;
   }
 
   function processArray(key, data, template){
 
-    var begin = "@{" + key + "%set_begin}";
+    var begin = "@{" + key + "%sb}";
     var idx_begin = template.indexOf(begin) + begin.length;
-    var end = "@{" + key + "%set_end}";
+    var end = "@{" + key + "%se}";
     var idx_end = template.indexOf(end);
+
+    console.log(end + " => " +  idx_end);
 
     if (idx_begin < 0 || idx_end < 0) return template;
 
