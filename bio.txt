@@ -1,2 +1,7 @@
-I'm an engineer; I have no life :p. 
-Just kidding.
+This is an example of a long biography <br>
+Usually, biographies are not that long, 
+but we want to test this case. <br><br>
+You can use HTML here, and it will function.
+Since the owner is the responsible of the HTML content, 
+they must secure the files that allows such code.<br>
+So, use wisely :) :) :)

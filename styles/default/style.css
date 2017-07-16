@@ -1,40 +1,11 @@
-body {
-}
 
+/* For mobile phones: */
 #header {
-  width:100%;
-  min-height: 10em;
   background-color: blue;
-  z-index: 2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  /*overflow: hidden;*/
 }
-
-/*#header::after{
-   clear: both;
-}*/
-
-
-@media only screen and (max-width: 480px) {
-    /* For mobile phones: */
-    #header {
-      z-index: 1;
-      position:absolute;
-    }
-    #wrapper {
-      position: relative;
-    }
-
+#wrapper {
 }
-
-#name, #family {
-  text-transform: capitalize;
-  text-shadow: 1px 1px #ff0;
-  font-weight: bold;
-  float: left;
-  margin-left: .5em;
+#content {
 }
 
 #birthday {
@@ -43,18 +14,18 @@ body {
   border-style: solid;
   border-width: 5px;
 }
-
-#fullname:after {
+#photo-frame {
+  float: left;
+  margin: 0;
+  background-color: violet;
 }
-
 #photo {
   height: 9em;
-  float: left;
   margin: .5em;
 }
 
 #info {
-  float: left;
+  display: block;
   background-color: yellow;
 }
 
@@ -62,51 +33,119 @@ body {
   position: relative;
   margin: .5em;
   display: block;
-  /*overflow: hidden;*/
+}
+
+#name, #family {
+  text-transform: capitalize;
+  text-shadow: 1px 1px #ff0;
+  font-weight: bold;
   /*float: left;*/
+  display: block;
 }
 
-/*this is used to position the content after the header*/
-#wrapper{
-  position: fixed;
-  top: 10em;
-  left:0;
-  width: 100%;
+
+
+@media only screen and (min-width: 768px) {
+
+  #header {
+    width:100%;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 10em;
+    /*overflow: hidden;*/
+  }
+
+
+  /*this is used to position the content after the header*/
+  #wrapper{
+    position: fixed;
+    top: 10em;
+    left:0;
+    width: 100%;
+    bottom: 0em;
+  }
+
+  #content {
+    overflow-y:scroll;
+    overflow-x:hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  #bio {
+    float: right;
+  }
+
+  #exp {
+  }
+
+  .exp_element {
+    display: inline-block;
+    margin: .5em .5em .5em .5em;
+    background-color: red;
+  }
+
+  #educ {
+  }
+
+  .educ_element {
+    display: inline-block;
+    background-color: blue;
+    margin: .5em .5em .5em .5em;
+  }
+
+  #pub {
+  }
+
+  .pub_element {
+    display: inline-block;
+    background-color: yellow;
+    margin: .5em .5em .5em .5em;
+  }
+
 }
 
-#content {
-  overflow-y:scroll;
-  overflow-x:hidden;
-  width: 100%;
+
+/*************************************************************/
+.kfs {
+  border-radius: 5px;
+  border: 2px solid DarkViolet;
+  padding: 2px;
+  margin: 1.25em .25em .25em .25em;
 }
 
-#bio {
-  float: right;
+
+.kfs > h1 {
+  font: 1em normal;
+  color: DarkViolet;
+  margin: -1.25em -0.5em 0;
 }
 
-#exp {
+.kfs > h1:after {
+  content: ' ';
+  display: block;
+  height: .5em;
+  overflow: hidden;
+  position: relative;
+  top: 0.5em;
 }
 
-.exp_element {
-  display: inline-block;
-  margin: .5em .5em .5em .5em;
-  background-color: red;
+.kfs > h1:before {
+  content: ' ';
+  display: block;
+  height: .5em;
+  overflow: hidden;
+  position: relative;
+  bottom: .5em;
 }
 
-#educ {
+.kfs > h1 > span{
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px DarkViolet;
+  margin-left: 1em;
+  background-color: white;
 }
-
-.educ_element {
-  display: inline-block;
-  background-color: blue;
-  margin: .5em .5em .5em .5em;
-}
-
-#pub {
-}
-
-.pub_element {
-  display: inline-block;
-  background-color: yellow;
-  margin: .5em .5em .5em .5em;
-}
+/************************************************************/

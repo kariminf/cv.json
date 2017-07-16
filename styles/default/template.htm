@@ -1,5 +1,7 @@
 <div id="header">
-  <img src="@{photo}" id="photo" ></img>
+  <div id="photo-frame">
+    <img src="@{photo}" id="photo" ></img>
+  </div>
   <div id="info">
     <div id="fullname">
       <span id="name">@{name}</span>
@@ -13,7 +15,8 @@
 <div id="wrapper">
   <div id="content">
 
-    <div id="exp">
+    <div id="exp" class="kfs">
+      <h1><span>Experiance</span></h1>
       @{exp%sb}
       <div class="exp_element">
         From @{exp.from} To @{exp.to} <br>
@@ -27,7 +30,8 @@
       @{exp%se}
     </div>
 
-    <div id="educ">
+    <div id="educ" class="kfs">
+      <h1><span>Education</span></h1>
       @{educ%sb}
       <div class="educ_element">
         From @{educ.from} To @{educ.to} <br>
@@ -37,7 +41,8 @@
       @{educ%se}
     </div>
 
-    <div id="pub">
+    <div id="pub" class="kfs">
+      <h1><span>Publication</span></h1>
       @{pub%sb}
       <div class="pub_element">
         <table>
@@ -60,8 +65,8 @@
                 @{pub%se}
               </div>
 
-
-              <div id="skill">
+              <div id="skill" class="kfs">
+                <h1><span>Skills</span></h1>
                 @{skill%sb}
                 <div class="educ_element">
                   @{skill.title}:  @{skill.mark}
