@@ -1,15 +1,17 @@
 <div id="header">
-  <div id="photo-frame">
-    <img src="@{photo}" id="photo" ></img>
-  </div>
-  <div id="info">
-    <div id="fullname">
-      <span id="name">@{name}</span>
-      <span id="family">@{family}</span>
+  <div id="hcontent">
+    <div id="photo-frame">
+      <img src="@{photo}" id="photo" ></img>
     </div>
-    <div id="birthday">@{birthday}</div>
+    <div id="info">
+      <div id="fullname">
+        <span id="name">@{name}</span>
+        <span id="family">@{family}</span>
+      </div>
+      <div id="birthday">@{birthday}</div>
+    </div>
+    <div id="bio">@{bio%r}</div>
   </div>
-  <div id="bio">@{bio%r}</div>
 </div>
 
 <div id="wrapper">
@@ -53,7 +55,7 @@
               <tr><td>Date</td>
                 <td>@{pub.date}</td></tr>
                 <tr><td>URL</td>
-                  <td><a href="@{pub.url}" target = "_blank">@{pub.url}</a></td></tr>
+                  <td><a href="@{pub.url}" target = "_blank" class = "wrap">@{pub.url}</a></td></tr>
                   <tr><td>Authors</td>
                     <td>
                       @{pub.authors%sb}
