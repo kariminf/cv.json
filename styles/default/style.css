@@ -1,132 +1,13 @@
-
-.wrap {
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-/* For mobile phones: */
-#header {
-  background-color: blue;
-  width: 100%;
-}
-
-#birthday {
-  display: block;
-  width: 100%;
-
-  border-style: solid;
-  border-width: 5px;
-
-}
-#photo-frame {
-  float: left;
-  background-color: green;
-  text-align: center;
-  padding: .5em;
-}
-#photo {
-  height: 9em;
-
-}
-
-#info {
-  display: block;
-  background-color: yellow;
-}
-
-#fullname {
-  position: relative;
-  margin: .5em;
-  display: block;
-}
-
-#name, #family {
-  text-transform: capitalize;
-  text-shadow: 1px 1px #ff0;
-  font-weight: bold;
-  /*float: left;*/
-  display: block;
-}
-
-#exp {
-}
-
-.exp_element {
-  display: inline-block;
-  margin: .5em .5em .5em .5em;
-  background-color: red;
-}
-
-#educ {
-}
-
-.educ_element {
-  display: inline-block;
-  background-color: blue;
-  margin: .5em;
-}
-
-#pub {
-}
-
-.pub_element {
-  display: inline-block;
-  background-color: yellow;
-  margin: .5em;
-}
-
-@media only screen and (min-width: 768px) {
-
-  #info, #bio {
-    display:table-cell;
-    vertical-align: top;
-  }
-
-  #photo-frame{
-    float: none;
-    display:table-cell;
-    vertical-align: top;
-  }
-
-  #header {
-    display: table;
-    z-index: 2;
-    width: 100%;
-    min-height: 10em;
-  }
-
-  #hcontent {
-    display: table-row;
-
-  }
-
-  /*this is used to position the content after the header*/
-  #wrapper{
-    position: fixed;
-    top: 10.5em;
-    left:0;
-    width: 100%;
-    bottom: 0em;
-  }
-
-  #content {
-    overflow-y:scroll;
-    overflow-x:hidden;
-    width: 100%;
-    height: 100%;
-  }
-
-}
-
-
 /*************************************************************/
-.kfs {
+.kfs, #header, #info, #bio, .elem {
   border-radius: 5px;
   border: 2px solid DarkViolet;
+}
+
+.kfs {
   padding: 2px;
   margin: 1.25em .25em .25em .25em;
 }
-
 
 .kfs > h1 {
   font: 1em normal;
@@ -159,4 +40,122 @@
   margin-left: 1em;
   background-color: white;
 }
+
+.wrap {
+  word-wrap: break-word;
+  word-break: break-all;
+}
 /************************************************************/
+
+/* For mobile phones: */
+#header {
+  width: 100%;
+}
+
+#birth {
+  display: block;
+  width: 100%;
+  margin: .5em;
+}
+
+#pic-frm {
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  margin: 5px;
+}
+
+#pic {
+  width: 6.5em;
+  height: 9em;
+}
+
+#info {
+  width: 60%;
+  width: calc(100% - 6.5em - 25px);
+  float: right;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+
+#bio {
+  display: block;
+  padding: 5px;
+  clear: right;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+#fullname {
+  position: relative;
+  margin: .5em;
+  display: block;
+}
+
+#name, #family {
+  text-transform: capitalize;
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+  color: DarkViolet;
+  /*float: left;*/
+  display: block;
+}
+
+.elem {
+  display: inline-block;
+  margin: .5em;
+  width: calc( 100% - 20px);
+}
+
+#wrapper, #cont {
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+
+  #info, #bio {
+    display:block;
+    vertical-align: top;
+    height: 9em;
+  }
+
+  #bio {
+    float: right;
+    width: 50%;
+    width: calc(60% - 3.25em - 25px);
+    overflow-y:scroll;
+    overflow-x:hidden;
+  }
+
+  #info {
+    width:30%;
+    width: calc(40% - 3.25em - 25px);
+    float: left;
+  }
+
+  #header {
+    display:block;
+    position: fixed;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    width: 100%;
+    width: calc(100% - 17px);
+    height: 10em;
+  }
+
+  /*this is used to position the content after the header*/
+  #wrapper{
+    position: absolute;
+    top: 11em;
+    left:0;
+    right: 0;
+    bottom: 0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+  }
+
+}

@@ -1,4 +1,5 @@
 .directory
+*.log
 
 #yuido out folder
 out

@@ -1,26 +1,26 @@
 <div id="header">
-  <div id="hcontent">
-    <div id="photo-frame">
-      <img src="@{photo}" id="photo" ></img>
+  <div id="hcont">
+    <div id="pic-frm">
+      <img src="@{photo}" id="pic" ></img>
     </div>
     <div id="info">
       <div id="fullname">
         <span id="name">@{name}</span>
         <span id="family">@{family}</span>
       </div>
-      <div id="birthday">@{birthday}</div>
+      <div id="birth">@{birthday}</div>
     </div>
     <div id="bio">@{bio%r}</div>
   </div>
 </div>
 
 <div id="wrapper">
-  <div id="content">
+  <div id="cont">
 
     <div id="exp" class="kfs">
       <h1><span>Experiance</span></h1>
       @{exp%sb}
-      <div class="exp_element">
+      <div class="elem">
         From @{exp.from} To @{exp.to} <br>
         @{exp.job} <br>
         <ul>
@@ -35,7 +35,7 @@
     <div id="educ" class="kfs">
       <h1><span>Education</span></h1>
       @{educ%sb}
-      <div class="educ_element">
+      <div class="elem">
         From @{educ.from} To @{educ.to} <br>
         @{educ.inst} <br>
         @{educ.desc}
@@ -46,7 +46,7 @@
     <div id="pub" class="kfs">
       <h1><span>Publication</span></h1>
       @{pub%sb}
-      <div class="pub_element">
+      <div class="elem">
         <table>
           <tr><td>Title</td>
             <td>@{pub.title}</td></tr>
@@ -70,7 +70,7 @@
               <div id="skill" class="kfs">
                 <h1><span>Skills</span></h1>
                 @{skill%sb}
-                <div class="educ_element">
+                <div class="elem">
                   @{skill.title}:  @{skill.mark}
                 </div>
                 @{skill%se}
