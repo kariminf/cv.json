@@ -8,9 +8,9 @@
     "family":"familyname",
     "photo": "profile.jpg",
     "birthday": "yyyymmdd",
-    "email": ["email1", "email2"],
-    "tel": ["tel1", "tel2"],
-    "web": "",
+    "email": "email address",
+    "tel": "phone number",
+    "web": "website",
     "address": "my address",
     "title": "Developper",
     "bio": "bio.txt"

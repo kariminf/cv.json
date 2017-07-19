@@ -21,7 +21,7 @@
   height: .5em;
   overflow: hidden;
   position: relative;
-  top: 0.5em;
+  top: .5em;
 }
 
 .kfs > h1:before {
@@ -55,7 +55,7 @@
 #birth {
   display: block;
   width: 100%;
-  margin: .5em;
+  margin: 10px;
 }
 
 #pic-frm {
@@ -88,27 +88,23 @@
 }
 
 #fullname {
-  position: relative;
-  margin: .5em;
   display: block;
+  position: relative;
+  margin: 5px;
 }
 
-#name, #family {
+#name, #family, #title {
+  display: block;
   text-transform: capitalize;
   text-shadow: 1px 1px black;
   font-weight: bold;
   color: DarkViolet;
-  /*float: left;*/
-  display: block;
+  margin-left: 5px;
 }
 
 #title {
   text-transform:uppercase;
-  text-shadow: 1px 1px black;
-  font-weight: bold;
-  color: DarkViolet;
-  /*float: left;*/
-  display: block;
+  margin: 10px;
 }
 
 .elem {
@@ -153,6 +149,11 @@
     width: calc(50% - 3.25em - 25px);
     overflow-y:scroll;
     overflow-x:hidden;
+  }
+
+  .elem {
+    width: 46%;
+    width: calc(50% - 1.5em);
   }
 
   #name, #family {
