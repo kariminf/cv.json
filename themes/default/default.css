@@ -53,7 +53,6 @@
 }
 
 #birth {
-  display: block;
   width: 100%;
   margin: 10px;
 }
@@ -66,13 +65,13 @@
 }
 
 #pic {
-  width: 6.5em;
-  height: 9em;
+  width: 7.5em;
+  height: 11em;
 }
 
 #info {
-  width: 60%;
-  width: calc(100% - 6.5em - 25px);
+  width: 55%;
+  width: calc(100% - 7.5em - 25px);
   float: right;
   margin: 5px;
   box-sizing: border-box;
@@ -80,7 +79,6 @@
 
 
 #bio {
-  display: block;
   padding: 5px;
   clear: right;
   margin: 5px;
@@ -88,13 +86,11 @@
 }
 
 #fullname {
-  display: block;
   position: relative;
   margin: 5px;
 }
 
 #name, #family, #title {
-  display: block;
   text-transform: capitalize;
   text-shadow: 1px 1px black;
   font-weight: bold;
@@ -113,8 +109,8 @@
   width: calc( 100% - 20px);
 }
 
-#mail, #tel {
-
+#mail, #tel, #web, #address {
+  margin: 5px;
 }
 
 #mail .elem, #tel .elem {
@@ -140,7 +136,7 @@
   #info, #bio {
     display:block;
     vertical-align: top;
-    height: 9em;
+    height: 11em;
   }
 
   #bio {
@@ -179,13 +175,13 @@
     left: 5px;
     width: 100%;
     width: calc(100% - 17px);
-    height: 10em;
+    height: 12em;
   }
 
   /*this is used to position the content after the header*/
   #wrapper{
     position: absolute;
-    top: 11em;
+    top: 13em;
     left:0;
     right: 0;
     bottom: 0;
