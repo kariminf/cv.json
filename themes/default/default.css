@@ -189,4 +189,32 @@
     overflow-x:hidden;
   }
 
+  #social {
+    z-index: 2;
+    position: fixed;
+    top: 13em;
+    width: 75px;
+    bottom: 0;
+    right: 18px;
+  }
+
+  #socialc {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+    background-color: white;
+  }
+
+  #social:hover #socialc {
+    width: 100%;
+    left: 0;
+    border-radius: 5px;
+    border: 2px solid DarkViolet;
+  }
+
 }
