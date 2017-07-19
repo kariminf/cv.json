@@ -56,11 +56,11 @@ limitations under the License.
 
     document.title = data.name + " " + data.family;
 
+    var template = processTheme(data.theme);
+
     var rawFile = new XMLHttpRequest();
     rawFile.responseType = 'text';
-    var stylePath = "./styles/" + data.style + "/";
-    addStyleSheet(stylePath + "style.css");
-    rawFile.open("GET", stylePath + "template.htm", true);
+    rawFile.open("GET", template, true);
     rawFile.onreadystatechange = function() {
       if (rawFile.readyState === 4 && rawFile.status == "200") {
         process2(data, rawFile.responseText);
@@ -68,6 +68,29 @@ limitations under the License.
     }
     rawFile.send(null);
 
+  }
+
+  /**
+   * Process a theme element (json) which has a name and a style
+   * @param  {object} theme object of two strings: name of the theme and style
+   * @return {string}       path to the template
+   */
+  function processTheme(theme){
+
+    //set defaults
+    var themePath = "./themes/default/";
+    var style = "default.css";
+
+    //Verify if the values are defined by user
+    if (typeof theme.name !== 'undefined'){
+      themePath = "./themes/" + theme.name + "/";
+      if (typeof theme.style !== 'undefined') style = theme.style + ".css";
+    }
+
+    //call a function to add the stylesheet
+    addStyleSheet(themePath + style);
+    //return the path to the template featuring this theme
+    return themePath + "template.htm";
   }
 
   function process2(data, template){
@@ -155,8 +178,10 @@ limitations under the License.
     mutex++;
 
     rawFile.onreadystatechange = function() {
-      if (rawFile.readyState === 4 && rawFile.status == "200") {
-        shared_result = shared_result.replace(marker, rawFile.responseText);
+      if (rawFile.readyState === 4) {
+        var resp = "";
+        if (rawFile.status == "200") resp = rawFile.responseText;
+        shared_result = shared_result.replace(marker, resp);
         mutex--;
         if (mutex === 0){
           document.body.innerHTML = shared_result;

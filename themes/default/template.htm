@@ -1,17 +1,37 @@
 <div id="header">
   <div id="hcont">
     <div id="pic-frm">
-      <img src="@{photo}" id="pic" ></img>
+      <img src="@{perso.photo}" id="pic" ></img>
     </div>
     <div id="info">
       <div id="fullname">
-        <span id="name">@{name}</span>
-        <span id="family">@{family}</span>
+        <span id="name">@{perso.name}</span>
+        <span id="family">@{perso.family}</span>
       </div>
-      <div id="birth">@{birthday}</div>
+      <div id="title">@{perso.title}</div>
+      <div id="birth">@{perso.birthday}</div>
+      <div id="mail">
+        @{perso.email%sb}
+        <div class="elem">
+          @{perso.email}
+        </div>
+        @{perso.email%se}
+      </div>
+      <div id="tel">
+        @{perso.tel%sb}
+        <div class="elem">
+          @{perso.tel}
+        </div>
+        @{perso.tel%se}
+      </div>
+      <div id="web">@{perso.web}</div>
+      <div id="address">@{perso.address}</div>
     </div>
-    <div id="bio">@{bio%r}</div>
+    <div id="bio">@{perso.bio%r}</div>
   </div>
+</div>
+
+<div id="social">
 </div>
 
 <div id="wrapper">
@@ -38,7 +58,7 @@
       <div class="elem">
         From @{educ.from} To @{educ.to} <br>
         @{educ.inst} <br>
-        @{educ.desc}
+        @{educ.desc%r}
       </div>
       @{educ%se}
     </div>

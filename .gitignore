@@ -1,5 +1,7 @@
 .directory
 *.log
+node_modules/
+yarn.lock
 
 #yuido out folder
 out

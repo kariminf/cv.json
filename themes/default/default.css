@@ -102,10 +102,35 @@
   display: block;
 }
 
+#title {
+  text-transform:uppercase;
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+  color: DarkViolet;
+  /*float: left;*/
+  display: block;
+}
+
 .elem {
   display: inline-block;
   margin: .5em;
   width: calc( 100% - 20px);
+}
+
+#mail, #tel {
+
+}
+
+#mail .elem, #tel .elem {
+  all: initial;
+}
+
+#mail .elem::before, #tel .elem::before {
+  content: "[";
+}
+
+#mail .elem::after, #tel .elem::after {
+  content: "]";
 }
 
 #wrapper, #cont {
@@ -124,15 +149,24 @@
 
   #bio {
     float: right;
-    width: 50%;
-    width: calc(60% - 3.25em - 25px);
+    width: 40%;
+    width: calc(50% - 3.25em - 25px);
     overflow-y:scroll;
     overflow-x:hidden;
   }
 
+  #name, #family {
+    float: left;
+    margin-left: 5px;
+  }
+
+  #title {
+    clear: both;
+  }
+
   #info {
-    width:30%;
-    width: calc(40% - 3.25em - 25px);
+    width:40%;
+    width: calc(50% - 3.25em - 25px);
     float: left;
   }
 

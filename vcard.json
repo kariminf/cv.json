@@ -1,14 +1,20 @@
 {
-  "style": "default",
-  "name":"firstname",
-  "family":"familyname",
-  "photo": "profile.jpg",
-  "birthday": "yyyymmdd",
-  "address": "my address",
-  "tel": ["tel1", "tel2"],
-  "email": ["email1", "email2"],
-  "title": "Developper",
-  "bio": "bio.txt",
+  "theme": {
+    "name": "default",
+    "style": "default"
+  },
+  "perso": {
+    "name":"firstname",
+    "family":"familyname",
+    "photo": "profile.jpg",
+    "birthday": "yyyymmdd",
+    "email": ["email1", "email2"],
+    "tel": ["tel1", "tel2"],
+    "web": "",
+    "address": "my address",
+    "title": "Developper",
+    "bio": "bio.txt"
+  },
   "social": {
     "facebook": "fb-acc",
     "twitter": "twit-acc",
@@ -70,7 +76,9 @@
   "lang": [
     {
       "name": "lang-name",
-      "prof": 5
+      "read": 5,
+      "write": 7,
+      "ustnd": 8
     }
   ]
 

@@ -1,17 +1,33 @@
 # jsonVCard
 
 [![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/jsonVCard/)
-[![Version](https://img.shields.io/badge/Version-0.0.1-FDEE00.svg)](https://github.com/kariminf/jsonVCard/releases)
+[![Version](https://img.shields.io/badge/Version-0.3.0-FDEE00.svg)](https://github.com/kariminf/jsonVCard/releases)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-By introducing information inside a json file, you can generate a Vcard webpage (CV).
+When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
+Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
+
+So, this project meant to:
+* Create a client side VCard
+* Separate information and design.
+* Create many themes
+
+As consequences:
+* The application can be hosted widely and doesn't need any special
+* The page is built locally and dynamically in the user side
+* The themes can be changed easily without
+
+
 The goal of this project is:
 * Generate dynamically a CV from a json file, without being forced to generate static webpages everytime you modify an information.
 * Modify the style of your CV using a template and a stylesheet.
 
+See a demo [here](https://kariminf.github.io/jsonVCard/)
+
 ## How it works
 
-All you have to do is creating an HTML page such:
+By introducing information inside a json file ("vcard.json"), you can generate a Vcard webpage (CV).
+This can be done using javascript ("jsonvcard.js") which is called as follows:
 ```html
 <html>
 <head>
@@ -24,89 +40,64 @@ All you have to do is creating an HTML page such:
 </body>
 </html>
 ```
-The json file *jsoncard.js* must be in the same folder as *jsonvcard.js*. It contains information about the one for whom we want to generate a CV.
+The json file ("jsoncard.js") must be in the same folder as the script ("jsonvcard.js").
+It contains information about the one for whom we want to generate a CV.
 This is an enumeration of the different entries:
-```json
-{
-  "style": "the style name",
-  "name":"first name",
-  "family":"family name ()",
-  "photo": "a link to the profile picture",
-  "birthday": "the birthday, must be: yyyymmdd",
-  "address": "The address ",
-  "tel": ["phone number 1", "phone number 2"],
-  "email": ["email1", "email2"],
-  "title": "The title of the CV owner",
-  "bio": "a link to a file containing the biography",
-  "social": {
-    "facebook": "fb-acc",
-    "twitter": "twit-acc",
-    "linkedin": "lin-acc",
-    "gplus": "gp-acc"
-  },
-  "exp": [ // a table of experiences
-    {
-      "from": "yyyymmdd",
-      "to": "yyyymmdd",
-      "job": "exp1-job",
-      "org": "organization",
-      "resp": [
-        "responsability 1",
-        "responsability 2"
-      ],
-      "desc": "url-description"
-    },
-    {
-      "from": "yyyymmdd",
-      "to": "yyyymmdd",
-      "job": "exp2-job",
-      "org": "organization2",
-      "resp": [
-        "responsability 2_1",
-        "responsability 2_2"
-      ],
-      "desc": "url-description2"
-    }
-  ],
-  "educ": [ //a table of education
-    {
-      "from": "educ1-from",
-      "to": "educ1-to",
-      "inst": "Institution1",
-      "desc": "url-description1"
-    }
-  ],
-  "pub": [ // a table of publications
-    {
-      "title": "publication1 title",
-      "publisher": "publisher1",
-      "date": "yyyymmdd",
-      "url": "url1",
-      "authors": [
-        "author 1-1",
-        "author 1-2"
-      ],
-      "desc": "url-description1"
-    }
+* theme: contains information about the theme used to present the page
+  * name: the name of the theme
+  * style: the style applied to this theme
 
-  ],
-  "skill": [ // a table of skills
-    {
-      "title": "skill1",
-      "mark": 10
-    }
-  ],
-  "lang": [ // a table of languages
-    {
-      "name": "lang-name",
-      "prof": 5
-    }
-  ]
+* perso: personal information
+  * name: the first name
+  * family: the last name
+  * photo: a link to profile photo
+  * birthday: birthday in the format "yyyymmdd"
+  * email: a list of email addresses
+  * tel: a list of phone numbers
+  * web: web-page link
+  * address: the address of your home or office
+  * title: Your current title
+  * bio: a link to an HTML file containing a little biography
 
-}
-```
+* social: social networks such as "facebook", "twitter", "linkedin"and "gplus"
 
-Try it [here](https://kariminf.github.io/jsonVCard/)
+* exp: a list of experiences, where each contains these information:
+  * from : a date formated as "yyyymmdd"
+  * to: a date formated as "yyyymmdd"
+  * job: the job title
+  * org: where did you work
+  * resp: responsibilities which is a list of strings
+  * desc: a link to a description of the job
+
+* educ: a list of education experiences, where each one contains:
+  * from : a date formated preferably as "yyyymmdd"
+  * to: a date formated preferably as "yyyymmdd"
+  * inst: the institution
+  * desc: a link to a description of the studies
+
+* pub: a list of publications, where each one contains:
+  * title: publication title
+  * publisher: the publisher
+  * date: date of publication as "yyyymmdd"
+  * url: a link to the publication
+  * authors: a list of authors
+  * desc: a link to a description of the publication
+
+* skill: a list of skills
+  * title: the name of the skill
+  * mark: a number from 1 to 10 expressing how experienced you are
+
+* lang: a list of natural languages, where each contains
+  * name: the language's name
+  * read: a number from 1 to 10 expressing your capacity of reading
+  * write: a number from 1 to 10 expressing your capacity of writing
+  * ustnd: a number from 1 to 10 expressing your capacity of understanding
+
+## Credits
+
+* Me: for may hair became as white as snow programming this
+* [Zlatko Najdenovski](https://www.iconfinder.com/zlaten): for the social media icons called  
+[logotypes](https://www.iconfinder.com/iconsets/logotypes), licenced under [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/)
 
 ## License
 
