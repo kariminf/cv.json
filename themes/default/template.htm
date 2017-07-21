@@ -58,35 +58,45 @@
       @{pub%sb}
       <div class="elem">
         <table>
-          <tr><td>Title</td>
-            <td>@{pub.title}</td></tr>
-            <tr><td>Publisher</td>
-              <td>@{pub.publisher}</td></tr>
-              <tr><td>Date</td>
-                <td>@{pub.date}</td></tr>
-                <tr><td>URL</td>
-                  <td><a href="@{pub.url}" target = "_blank" class = "wrap">@{pub.url}</a></td></tr>
-                  <tr><td>Authors</td>
-                    <td>
-                      @{pub.authors%sb}
-                      <span>@{pub.authors}</span>
-                      @{pub.authors%se}
-                    </td></tr>
-                  </table>
-                </div>
-                @{pub%se}
-              </div>
+          <tr>
+            <td>Title</td>
+            <td>@{pub.title}</td>
+          </tr>
+          <tr>
+            <td>Publisher</td>
+            <td>@{pub.publisher}</td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>@{pub.date}</td>
+          </tr>
+          <tr>
+            <td>URL</td>
+            <td><a href="@{pub.url}" target = "_blank" class = "wrap">@{pub.url}</a></td>
+          </tr>
+          <tr>
+            <td>Authors</td>
+            <td>
+              @{pub.authors%sb}
+              <span>@{pub.authors}</span>
+              @{pub.authors%se}
+            </td>
+          </tr>
+        </table>
+      </div>
+      @{pub%se}
+    </div>
+    
+    <div id="skill" class="kfs">
+      <h1><span>Skills</span></h1>
+      @{skill%sb}
+      <div class="elem">
+        @{skill.title}:  @{skill.mark}
+      </div>
+      @{skill%se}
+    </div>
+    <div id="lang">
 
-              <div id="skill" class="kfs">
-                <h1><span>Skills</span></h1>
-                @{skill%sb}
-                <div class="elem">
-                  @{skill.title}:  @{skill.mark}
-                </div>
-                @{skill%se}
-              </div>
-              <div id="lang">
-
-              </div>
-            </div>
-          </div>
+    </div>
+  </div>
+</div>
