@@ -1,5 +1,5 @@
 /*************************************************************/
-.kfs, #header, #info, #bio, .elem {
+.kfs, #header, #info, #bio, .elem, #social .wrapper {
   border-radius: 5px;
   border: 2px solid DarkViolet;
 }
@@ -50,11 +50,6 @@
 /* For mobile phones: */
 #header {
   width: 100%;
-}
-
-#birth {
-  width: 100%;
-  margin: 10px;
 }
 
 #pic-frm {
@@ -109,26 +104,49 @@
   width: calc( 100% - 20px);
 }
 
-#mail, #tel, #web, #address {
-  margin: 5px;
+#birth, #mail, #tel, #web, #address {
+  margin: 3px 0 0 10px;
 }
 
-#mail .elem, #tel .elem {
-  all: initial;
-}
-
-#mail .elem::before, #tel .elem::before {
-  content: "[";
-}
-
-#mail .elem::after, #tel .elem::after {
-  content: "]";
-}
 
 #wrapper, #cont {
   padding: 0;
   width: 100%;
   display: block;
+}
+
+#social {
+  margin: 10px;
+  text-align: center;
+}
+
+#scontent a {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 5px;
+  border: 0;
+}
+
+#scontent a:hover {
+  transform: rotate(360deg);
+  transition: transform 0.2s ease;
+}
+
+#facebook {
+  background-image: url("../_img_/violet/facebook.png");
+}
+
+#twitter {
+  background-image: url("../_img_/violet/twitter.png");
+}
+
+#linkedin {
+  background-image: url("../_img_/violet/linkedin.png");
+}
+
+#gplus {
+  background-image: url("../_img_/violet/gplus.png");
 }
 
 @media only screen and (min-width: 768px) {
@@ -191,30 +209,51 @@
 
   #social {
     z-index: 2;
+    height:auto;
     position: fixed;
+    right: 14px;
     top: 13em;
+    bottom: 5px;
     width: 75px;
-    bottom: 0;
-    right: 18px;
   }
 
-  #socialc {
+  #social .wrapper {
     position: absolute;
-    bottom: 0;
-    left: 100%;
-    right: 0;
-    overflow: hidden;
-    width: 0;
-    height: 100%;
+    height: 1.5em;
+    top: 0;
+    left: 0;
+    width: 95%;
     transition: .5s ease;
+  }
+
+  #social .wrapper #scontent {
+    opacity: 0;
+    transition: .1s ease;
+  }
+
+  #shead {
+    width: 100%;
+    height: 1.5em;
+    background-color: DarkViolet;
+    color: white;
+    vertical-align: middle;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  #shead::after{
+    content: "Social"
+  }
+
+  #social .wrapper:hover {
+    bottom: 0;
+    height: 100%;
     background-color: white;
   }
 
-  #social:hover #socialc {
-    width: 100%;
-    left: 0;
-    border-radius: 5px;
-    border: 2px solid DarkViolet;
+  #social .wrapper:hover #scontent {
+    opacity: 100;
+    transition: 2s ease;
   }
 
 }

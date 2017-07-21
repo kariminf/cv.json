@@ -18,16 +18,23 @@ limitations under the License.
 */
 (function(){
 
+  if ( typeof module === "object" && module && typeof module.exports === "object" ) {
+    module.exports = this;
+  } else {
+    window.jsonVCard = this;
+  }
+
   //========================================================
   //                 INDEX
   //                 =====
   // Topic                                        Line
   // ------------------                           ----------
-  // Global variables                             34
-  // Initializers                                 47
-  // Theme processors                             130
-  // Template-data mergers                        188
-  // Files processors                             323
+  // Global variables                             40
+  // Initializers                                 53
+  // Theme processors                             135
+  // Template-data mergers                        193
+  // Files processors                             328
+  // Special functions
   //========================================================
 
 
@@ -116,8 +123,7 @@ limitations under the License.
    * This function is used to initiate the process of binding the
    * data with the template
    * @param  {object} data     the data structure recovered from json file
-   * @param  {string} template [description]
-   * @return {[type]}          [description]
+   * @param  {string} template the HTML template used to create the final HTML code
    */
   function cookTemplate(data, template){
     //After processing all
@@ -226,6 +232,17 @@ limitations under the License.
    */
   function processData(key, value, template){
 
+    //Special functions:
+    //This can lead to a disfunction if the function doesn't exist
+    //The template designer must know what special functions are there
+    var marker = "@{" + key + "%s}";
+
+    if (template.indexOf(marker) >= 0){
+      var result;
+      eval('result = process_' + key + '(value, template);');
+      return result;
+    }
+
     //Used with arrays and objects
     //If this object is an element of an array, its key will be
     //coded as <array-key>&<rank-in-the-array>
@@ -259,9 +276,9 @@ limitations under the License.
 
     //If the element is meant to be an URL into some other file
     //we add this file to the files list to be processed lately
-    var marker = "@{" + key + "%r}";
-    if (template.indexOf(marker) >= 0)
-    files.push({"marker": marker, "url": value});
+    marker = "@{" + key + "%r}";
+    if (template.indexOf(marker) >= 0) files.push({"marker": marker, "url": value});
+
 
     //We create a RegEx element to replace parts of the template
     //with the values specified in the data
@@ -373,6 +390,26 @@ limitations under the License.
       }
     }
     rawFile.send(null);
+  }
+
+  //========================================================
+  //                 SPECIAL FUNCTIONS
+  //========================================================
+
+  /**
+   * Special function to process social media links
+   * @param  {object} data     an object containing the name of the social network as a key and
+   * the link as a value
+   * @param  {string} template the HTML template to be replaced
+   * @return {string}          the HTML content after replacement
+   */
+  function process_social(data, template){
+    var replacement = "";
+    for (var ekey in data){ //element key
+      replacement += '<a href="' + data[ekey] + '" id="' + ekey;
+      replacement += '" target="_blank"></a>';
+    }
+    return template.replace("@{social%s}", replacement);
   }
 
 }());

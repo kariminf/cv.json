@@ -1,0 +1,13 @@
+{
+  "name": "jsonVCard API",
+  "description": "json CV website",
+  "version": "0.3.0",
+  "url": "https://github.com/kariminf/jsonVCard",
+  "options": {
+    "linkNatives": "true",
+    "ignorePaths": [ "docs", "themes", ".git" ],
+    "outdir": "./docs",
+    "themedir": "node_modules/yuidoc-lucid-theme",
+    "helpers": ["node_modules/yuidoc-lucid-theme/helpers/helpers.js"]
+  }
+}
