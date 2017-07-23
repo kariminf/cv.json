@@ -98,6 +98,7 @@ This is an enumeration of the different entries:
 * Me: for may hair became as white as snow programming this
 * [Zlatko Najdenovski](https://www.iconfinder.com/zlaten): for the social media icons called  
 [logotypes](https://www.iconfinder.com/iconsets/logotypes), licenced under [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/)
+* https://commons.wikimedia.org/wiki/File:Phone_icon_rotated.svg
 
 ## License
 

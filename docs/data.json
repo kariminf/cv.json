@@ -1,0 +1,322 @@
+{
+    "project": {
+        "name": "jsonVCard API",
+        "description": "json CV website",
+        "version": "0.3.0",
+        "url": "https://github.com/kariminf/jsonVCard"
+    },
+    "files": {
+        "docs/assets/vendor/bootstrap/js/bootstrap.min.js": {
+            "name": "docs/assets/vendor/bootstrap/js/bootstrap.min.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "jsonvcard.js": {
+            "name": "jsonvcard.js",
+            "modules": {
+                "jsonvcard": 1
+            },
+            "classes": {
+                "JsonVCard": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "jsonvcard": {
+            "name": "jsonvcard",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "JsonVCard": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "jsonvcard.js",
+            "line": 40,
+            "description": "Provides the scripts to generate a CV"
+        }
+    },
+    "classes": {
+        "JsonVCard": {
+            "name": "JsonVCard",
+            "shortname": "JsonVCard",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "jsonvcard",
+            "namespace": "",
+            "file": "jsonvcard.js",
+            "line": 40,
+            "description": "This class doesn't do anything, it is here just to force YuiDoc\ngenerating the documentation",
+            "is_constructor": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "docs/assets/vendor/bootstrap/js/bootstrap.min.js",
+            "line": 1,
+            "description": "Bootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
+            "class": "JsonVCard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 78,
+            "description": "Initialization of process; this method searches for \"vcard.json\"\nin the javascript location \"jsonvcard.js\".\nThen when retrieved, it sends its content as a string to process(json)\nWhere it will be processed",
+            "itemtype": "method",
+            "name": "init",
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 100,
+            "description": "This method parses the json content",
+            "itemtype": "method",
+            "name": "processJSON",
+            "static": 1,
+            "params": [
+                {
+                    "name": "json",
+                    "description": "The content of JSON file",
+                    "type": "String"
+                }
+            ],
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 133,
+            "description": "This function is used to initiate the process of binding the\ndata with the template",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "the data structure recovered from json file",
+                    "type": "Object"
+                },
+                {
+                    "name": "template",
+                    "description": "the HTML template used to create the final HTML code",
+                    "type": "String"
+                }
+            ],
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 151,
+            "description": "Process a theme element (json) which has a name and a style",
+            "params": [
+                {
+                    "name": "theme",
+                    "description": "object of two strings: theme name and style name.\nIt's format is as follows:\n<pre>\n  {\n     \"name\": \"\",\n     \"style\": \"\"\n  }\n</pre>",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "path to the template constructed from the theme name, or\nthe dafault one",
+                "type": "String"
+            },
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 183,
+            "description": "Link a stylsheet to the current document",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "the URL of the tageted CSS",
+                    "type": "String"
+                }
+            ],
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 210,
+            "description": "Process an object which contains many elements in it",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "the name of this object, for example\n<pre>\n  \"perso\": {\n     \"name\": \"Karim\",\n     \"family\": \"Aries\"\n  }\n</pre>\n\"perso\" is the key, and the object is the data",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "the object to be processed",
+                    "type": "Object"
+                },
+                {
+                    "name": "template",
+                    "description": "the HTML templated used to push the data",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the HTML content after merging with the data",
+                "type": "String"
+            },
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 235,
+            "description": "Process the data of an object. It detects if the data is\nan object, a list of elements or a simple element",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "the name or key of the element; for example \"perso.name\"",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "the value of the data: it may be an object, a list, or a simple element.\nIn our example, it is a simple string: \"Karim\"",
+                    "type": "Object"
+                },
+                {
+                    "name": "template",
+                    "description": "the HTML template used to push the data",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the HTML content after merging with the data",
+                "type": "String"
+            },
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 304,
+            "description": "Process the data of an array.\nIt recovers the begining and ending of this array in the template.\nThen, it pushes each element of the array into that area.",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "the name or key of the array; for example \"skill\"",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "the value of the data: it may be an object, a list, or a simple element.\nIn our example, it is a simple string: \"javascript\"",
+                    "type": "Object"
+                },
+                {
+                    "name": "template",
+                    "description": "the HTML template used to push the data",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the HTML content after merging with the data",
+                "type": "String"
+            },
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 355,
+            "description": "Process the files stored in a global variable (files) while processing\nthe json data and the template",
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 365,
+            "description": "Read a file and push the content into its reserved area in the template.\nHere, the content is pushed into a global variable containing the template.\nWe can't use the template as an argument, nor return the merged html, because\nthe files call is asynchronious. <br>\nA mutex is used so the html code is pushed into the browser once all the\nfiles are being processed",
+            "params": [
+                {
+                    "name": "marker",
+                    "description": "the marker which defines where in the template the content\nshould be pushed",
+                    "type": "String"
+                },
+                {
+                    "name": "url",
+                    "description": "the URL where to find the file",
+                    "type": "String"
+                }
+            ],
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 410,
+            "description": "Special function to process social media links",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "an object containing the name of the social network as a key and\nthe link as a value",
+                    "type": "Object"
+                },
+                {
+                    "name": "template",
+                    "description": "the HTML template to be replaced",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the HTML content after replacement",
+                "type": "String"
+            },
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nBootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
+            "line": " docs/assets/vendor/bootstrap/js/bootstrap.min.js:1"
+        },
+        {
+            "message": "Missing item type\nThis function is used to initiate the process of binding the\ndata with the template",
+            "line": " jsonvcard.js:133"
+        },
+        {
+            "message": "Missing item type\nProcess a theme element (json) which has a name and a style",
+            "line": " jsonvcard.js:151"
+        },
+        {
+            "message": "Missing item type\nLink a stylsheet to the current document",
+            "line": " jsonvcard.js:183"
+        },
+        {
+            "message": "Missing item type\nProcess an object which contains many elements in it",
+            "line": " jsonvcard.js:210"
+        },
+        {
+            "message": "Missing item type\nProcess the data of an object. It detects if the data is\nan object, a list of elements or a simple element",
+            "line": " jsonvcard.js:235"
+        },
+        {
+            "message": "Missing item type\nProcess the data of an array.\nIt recovers the begining and ending of this array in the template.\nThen, it pushes each element of the array into that area.",
+            "line": " jsonvcard.js:304"
+        },
+        {
+            "message": "Missing item type\nProcess the files stored in a global variable (files) while processing\nthe json data and the template",
+            "line": " jsonvcard.js:355"
+        },
+        {
+            "message": "Missing item type\nRead a file and push the content into its reserved area in the template.\nHere, the content is pushed into a global variable containing the template.\nWe can't use the template as an argument, nor return the merged html, because\nthe files call is asynchronious. <br>\nA mutex is used so the html code is pushed into the browser once all the\nfiles are being processed",
+            "line": " jsonvcard.js:365"
+        },
+        {
+            "message": "Missing item type\nSpecial function to process social media links",
+            "line": " jsonvcard.js:410"
+        }
+    ]
+}

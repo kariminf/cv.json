@@ -119,19 +119,19 @@
 }
 
 #mail::before{
-  background-image: url("../_img_/violet/mail.png");
+  background-image: url("../img/violet/mail.png");
 }
 
 #tel::before{
-  background-image: url("../_img_/violet/phone.png");
+  background-image: url("../img/violet/phone.png");
 }
 
 #web::before{
-  background-image: url("../_img_/violet/web.png");
+  background-image: url("../img/violet/web.png");
 }
 
 #address::before {
-  background-image: url("../_img_/violet/home.png");
+  background-image: url("../img/violet/home.png");
 }
 
 #wrapper, #cont {
@@ -159,19 +159,19 @@
 }
 
 #facebook {
-  background-image: url("../_img_/violet/facebook.png");
+  background-image: url("../img/violet/facebook.png");
 }
 
 #twitter {
-  background-image: url("../_img_/violet/twitter.png");
+  background-image: url("../img/violet/twitter.png");
 }
 
 #linkedin {
-  background-image: url("../_img_/violet/linkedin.png");
+  background-image: url("../img/violet/linkedin.png");
 }
 
 #gplus {
-  background-image: url("../_img_/violet/gplus.png");
+  background-image: url("../img/violet/gplus.png");
 }
 
 @media only screen and (min-width: 768px) {
