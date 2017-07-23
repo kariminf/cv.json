@@ -33,8 +33,8 @@ limitations under the License.
   // Initializers                                 63
   // Theme processors                             148
   // Template-data mergers                        208
-  // Files processors                             357
-  // Special functions                            414
+  // Files processors                             349
+  // Special functions                            408
   //========================================================
 
   /**
@@ -56,7 +56,7 @@ limitations under the License.
   //Can't write the content till all the files are processed
   var mutex = 0;
   //Here, we keep the template and push the information into
-  var shared_result = "";
+  var sharedResult = "";
   //Here, we keep a list of files to load in the end of parsing
   var files = [];
 
@@ -139,8 +139,8 @@ limitations under the License.
    */
   function cookTemplate(data, template){
     //After processing all
-    shared_result = processObject("", data, template);
-    document.body.innerHTML = shared_result;
+    sharedResult = processObject("", data, template);
+    document.body.innerHTML = sharedResult;
     processFiles();
   }
 
@@ -259,22 +259,13 @@ limitations under the License.
       return result;
     }
 
-    //Used with arrays and objects
-    //If this object is an element of an array, its key will be
-    //coded as <array-key>&<rank-in-the-array>
-    //So, if this object is an object or array, it has to be processed
-    //without its rank
-    var key2 = key.replace(/&\d+/gi, "");
-
-    //console.log("<<" + key + "==>" + key2);
-
     //-----------------------------------
     //Here, the value is an array object
     //-----------------------------------
     //
     //If the element is an array, we call a special function to process it
     if (Object.prototype.toString.call(value) === '[object Array]'){
-      return processArray(key2, value, template);
+      return processArray(key, value, template);
     }
 
     //-----------------------------------
@@ -283,7 +274,7 @@ limitations under the License.
     //
     //If it is an object, we call another function
     if (typeof value === "object"){
-      return processObject(key2, value, template);
+      return processObject(key, value, template);
     }
 
     //-----------------------------------
@@ -292,9 +283,10 @@ limitations under the License.
 
     //If the element is meant to be an URL into some other file
     //we add this file to the files list to be processed lately
-    marker = "@{" + key + "%r}";
-    if (template.indexOf(marker) >= 0) files.push({"marker": marker, "url": value});
-
+    {
+			var marker = "@{" + key + "%r}";
+			if (template.indexOf(marker) >= 0) files.push({"marker": marker, "url": value});
+		}
 
     //We create a RegEx element to replace parts of the template
     //with the values specified in the data
@@ -333,23 +325,23 @@ limitations under the License.
     //console.log(key);
 
     //Extract the arry area from the template
-    var array_html = template.substring(idx_begin, idx_end);
+    var arrayHTML = template.substring(idx_begin, idx_end);
 
     //console.log(part);
     var replacement = ""; // This will
-
+		var exp = eval("/\@\{" + key + "([^\}]*)\}/gi");
     for (var i = 0; i < data.length; i++){
       //To each element, we attribute a key which is the key of the array
       //combined with its rank in the array
-      var element_html = array_html.replace("@{" + key + "}", "@{" + key + "&" + i + "}");
-      element_html = processData(key + "&" + i, data[i], element_html);
-      replacement += element_html + "\n";
+      var elementHTML = arrayHTML.replace(exp, "@{" + key + "&" + i + "$1}");
+      elementHTML = processData(key + "&" + i, data[i], elementHTML);
+      replacement += elementHTML + "\n";
     }
 
     //We add the begining and ending markers to the to-be-replaced string
-    array_html = begin + array_html + end;
+    arrayHTML = begin + arrayHTML + end;
 
-    return template.replace(array_html, replacement);
+    return template.replace(arrayHTML, replacement);
 
   }
 
@@ -364,7 +356,9 @@ limitations under the License.
    * @method processFiles
    */
   function processFiles(){
+		console.log("template before adding files\n" + sharedResult);
     while((file=files.pop()) != null){
+			console.log("file marker: ", file.marker, ", url= ", file.url);
       readFile(file.marker, file.url);
     }
   }
@@ -398,12 +392,12 @@ limitations under the License.
         if (rawFile.status == "200") replacement = rawFile.responseText;
         //If there is a problem recovering the file, we just replace the marker
         //with nothing
-        shared_result = shared_result.replace(marker, replacement);
+        sharedResult = sharedResult.replace(marker, replacement);
 
         mutex--;
         if (mutex === 0){
           //When all files are being processed: browser!! behold, the code is coming
-          document.body.innerHTML = shared_result;
+          document.body.innerHTML = sharedResult;
         }
 
       }

@@ -9,13 +9,22 @@
   margin: 1.25em .25em .25em .25em;
 }
 
+.kfs::after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; 
+}
+
 .kfs > h1 {
   font: 1em normal;
   color: DarkViolet;
   margin: -1.25em -0.5em 0;
 }
 
-.kfs > h1:after {
+.kfs > h1::after {
   content: ' ';
   display: block;
   height: .5em;
@@ -24,7 +33,7 @@
   top: .5em;
 }
 
-.kfs > h1:before {
+.kfs > h1::before {
   content: ' ';
   display: block;
   height: .5em;
@@ -100,8 +109,11 @@
 
 .elem {
   display: inline-block;
+  float: left;
   margin: .5em;
   width: calc( 100% - 20px);
+  box-sizing: border-box;
+  padding: 5px;
 }
 
 #birth, #mail, #tel, #web, #address {

@@ -36,13 +36,20 @@
       <h1><span>Experiance</span></h1>
       @{exp%sb}
       <div class="elem">
-        From @{exp.from} To @{exp.to} <br>
-        @{exp.job} <br>
+        <div class="head">
+          From @{exp.from} To @{exp.to}
+        </div>
+        <div class="title">
+          @{exp.job}
+        </div>
         <ul>
           @{exp.resp%sb}
           <li> @{exp.resp}</li>
           @{exp.resp%se}
         </ul>
+        <div class="desc">
+          @{exp.desc%r}
+        </div>
       </div>
       @{exp%se}
     </div>
