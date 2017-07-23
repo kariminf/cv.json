@@ -93,6 +93,7 @@ This is an enumeration of the different entries:
   * write: a number from 1 to 10 expressing your capacity of writing
   * ustnd: a number from 1 to 10 expressing your capacity of understanding
 
+For Javascript methods, check [this YuiDoc generated documentation](docs/index.html)
 ## Credits
 
 * Me: for may hair became as white as snow programming this

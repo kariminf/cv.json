@@ -29,12 +29,12 @@ limitations under the License.
   //                 =====
   // Topic                                        Line
   // ------------------                           ----------
-  // Global variables                             40
-  // Initializers                                 53
-  // Theme processors                             135
-  // Template-data mergers                        193
-  // Files processors                             328
-  // Special functions
+  // Global variables                             51
+  // Initializers                                 63
+  // Theme processors                             148
+  // Template-data mergers                        208
+  // Files processors                             357
+  // Special functions                            414
   //========================================================
 
   /**
@@ -45,6 +45,7 @@ limitations under the License.
 	* @constructor
 	*/
 	function JsonVCard() {
+		//This is just to force YuiDoc generating the documentation
 	}
 
   //========================================================
@@ -132,6 +133,7 @@ limitations under the License.
   /**
    * This function is used to initiate the process of binding the
    * data with the template
+   * @method cookTemplate
    * @param  {object} data     the data structure recovered from json file
    * @param  {string} template the HTML template used to create the final HTML code
    */
@@ -149,14 +151,15 @@ limitations under the License.
 
   /**
    * Process a theme element (json) which has a name and a style
+   * @method processTheme
    * @param  {object} theme object of two strings: theme name and style name.
    * It's format is as follows:
-   * <pre>
+   *
    *   {
    *      "name": "",
    *      "style": ""
    *   }
-   * </pre>
+   *
    * @return {string} path to the template constructed from the theme name, or
    * the dafault one
    */
@@ -181,6 +184,7 @@ limitations under the License.
 
   /**
    * Link a stylsheet to the current document
+   * @method addStyleSheet
    * @param {string} url the URL of the tageted CSS
    */
   function addStyleSheet(url){
@@ -208,6 +212,7 @@ limitations under the License.
 
   /**
    * Process an object which contains many elements in it
+   * @method processObject
    * @param  {string} key      the name of this object, for example
    * <pre>
    *   "perso": {
@@ -234,6 +239,7 @@ limitations under the License.
   /**
    * Process the data of an object. It detects if the data is
    * an object, a list of elements or a simple element
+   * @method processData
    * @param  {string} key      the name or key of the element; for example "perso.name"
    * @param  {object} value    the value of the data: it may be an object, a list, or a simple element.
    * In our example, it is a simple string: "Karim"
@@ -304,6 +310,7 @@ limitations under the License.
    * Process the data of an array.
    * It recovers the begining and ending of this array in the template.
    * Then, it pushes each element of the array into that area.
+   * @method processArray
    * @param  {string} key      the name or key of the array; for example "skill"
    * @param  {object} data     the value of the data: it may be an object, a list, or a simple element.
    * In our example, it is a simple string: "javascript"
@@ -354,6 +361,7 @@ limitations under the License.
   /**
    * Process the files stored in a global variable (files) while processing
    * the json data and the template
+   * @method processFiles
    */
   function processFiles(){
     while((file=files.pop()) != null){
@@ -368,6 +376,7 @@ limitations under the License.
    * the files call is asynchronious. <br>
    * A mutex is used so the html code is pushed into the browser once all the
    * files are being processed
+   * @method readFile
    * @param  {string} marker the marker which defines where in the template the content
    * should be pushed
    * @param  {string} url    the URL where to find the file
@@ -408,6 +417,7 @@ limitations under the License.
 
   /**
    * Special function to process social media links
+   * @method process_social
    * @param  {object} data     an object containing the name of the social network as a key and
    * the link as a value
    * @param  {string} template the HTML template to be replaced

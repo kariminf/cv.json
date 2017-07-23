@@ -68,7 +68,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 78,
+            "line": 79,
             "description": "Initialization of process; this method searches for \"vcard.json\"\nin the javascript location \"jsonvcard.js\".\nThen when retrieved, it sends its content as a string to process(json)\nWhere it will be processed",
             "itemtype": "method",
             "name": "init",
@@ -77,11 +77,10 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 100,
+            "line": 101,
             "description": "This method parses the json content",
             "itemtype": "method",
             "name": "processJSON",
-            "static": 1,
             "params": [
                 {
                     "name": "json",
@@ -96,6 +95,8 @@
             "file": "jsonvcard.js",
             "line": 133,
             "description": "This function is used to initiate the process of binding the\ndata with the template",
+            "itemtype": "method",
+            "name": "cookTemplate",
             "params": [
                 {
                     "name": "data",
@@ -113,12 +114,14 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 151,
+            "line": 152,
             "description": "Process a theme element (json) which has a name and a style",
+            "itemtype": "method",
+            "name": "processTheme",
             "params": [
                 {
                     "name": "theme",
-                    "description": "object of two strings: theme name and style name.\nIt's format is as follows:\n<pre>\n  {\n     \"name\": \"\",\n     \"style\": \"\"\n  }\n</pre>",
+                    "description": "object of two strings: theme name and style name.\nIt's format is as follows:\n\n  {\n     \"name\": \"\",\n     \"style\": \"\"\n  }",
                     "type": "Object"
                 }
             ],
@@ -131,8 +134,10 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 183,
+            "line": 185,
             "description": "Link a stylsheet to the current document",
+            "itemtype": "method",
+            "name": "addStyleSheet",
             "params": [
                 {
                     "name": "url",
@@ -145,8 +150,10 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 210,
+            "line": 213,
             "description": "Process an object which contains many elements in it",
+            "itemtype": "method",
+            "name": "processObject",
             "params": [
                 {
                     "name": "key",
@@ -173,8 +180,10 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 235,
+            "line": 239,
             "description": "Process the data of an object. It detects if the data is\nan object, a list of elements or a simple element",
+            "itemtype": "method",
+            "name": "processData",
             "params": [
                 {
                     "name": "key",
@@ -201,8 +210,10 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 304,
+            "line": 309,
             "description": "Process the data of an array.\nIt recovers the begining and ending of this array in the template.\nThen, it pushes each element of the array into that area.",
+            "itemtype": "method",
+            "name": "processArray",
             "params": [
                 {
                     "name": "key",
@@ -229,15 +240,19 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 355,
+            "line": 361,
             "description": "Process the files stored in a global variable (files) while processing\nthe json data and the template",
+            "itemtype": "method",
+            "name": "processFiles",
             "class": "JsonVCard",
             "module": "jsonvcard"
         },
         {
             "file": "jsonvcard.js",
-            "line": 365,
+            "line": 372,
             "description": "Read a file and push the content into its reserved area in the template.\nHere, the content is pushed into a global variable containing the template.\nWe can't use the template as an argument, nor return the merged html, because\nthe files call is asynchronious. <br>\nA mutex is used so the html code is pushed into the browser once all the\nfiles are being processed",
+            "itemtype": "method",
+            "name": "readFile",
             "params": [
                 {
                     "name": "marker",
@@ -255,8 +270,10 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 410,
+            "line": 418,
             "description": "Special function to process social media links",
+            "itemtype": "method",
+            "name": "process_social",
             "params": [
                 {
                     "name": "data",
@@ -281,42 +298,6 @@
         {
             "message": "Missing item type\nBootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
             "line": " docs/assets/vendor/bootstrap/js/bootstrap.min.js:1"
-        },
-        {
-            "message": "Missing item type\nThis function is used to initiate the process of binding the\ndata with the template",
-            "line": " jsonvcard.js:133"
-        },
-        {
-            "message": "Missing item type\nProcess a theme element (json) which has a name and a style",
-            "line": " jsonvcard.js:151"
-        },
-        {
-            "message": "Missing item type\nLink a stylsheet to the current document",
-            "line": " jsonvcard.js:183"
-        },
-        {
-            "message": "Missing item type\nProcess an object which contains many elements in it",
-            "line": " jsonvcard.js:210"
-        },
-        {
-            "message": "Missing item type\nProcess the data of an object. It detects if the data is\nan object, a list of elements or a simple element",
-            "line": " jsonvcard.js:235"
-        },
-        {
-            "message": "Missing item type\nProcess the data of an array.\nIt recovers the begining and ending of this array in the template.\nThen, it pushes each element of the array into that area.",
-            "line": " jsonvcard.js:304"
-        },
-        {
-            "message": "Missing item type\nProcess the files stored in a global variable (files) while processing\nthe json data and the template",
-            "line": " jsonvcard.js:355"
-        },
-        {
-            "message": "Missing item type\nRead a file and push the content into its reserved area in the template.\nHere, the content is pushed into a global variable containing the template.\nWe can't use the template as an argument, nor return the merged html, because\nthe files call is asynchronious. <br>\nA mutex is used so the html code is pushed into the browser once all the\nfiles are being processed",
-            "line": " jsonvcard.js:365"
-        },
-        {
-            "message": "Missing item type\nSpecial function to process social media links",
-            "line": " jsonvcard.js:410"
         }
     ]
 }
