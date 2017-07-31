@@ -1,19 +1,20 @@
+@{months%v:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]}
 <div id="header">
   <div id="hcont">
     <div id="pic-frm">
       <img src="@{perso.photo}" id="pic" ></img>
     </div>
     <div id="info">
-      <div id="fullname">
+      <div id="fullname" class="elem">
         <span id="name">@{perso.name}</span>
         <span id="family">@{perso.family}</span>
       </div>
-      <div id="title">@{perso.title}</div>
-      <div id="birth">@{perso.birthday}</div>
-      <div id="mail">@{perso.email}</div>
-      <div id="tel">@{perso.tel}</div>
-      <div id="web">@{perso.web}</div>
-      <div id="address">@{perso.address}</div>
+      <div id="title" class="elem">@{perso.title}</div>
+      <div id="birth" class="elem">@{perso.birthday}</div>
+      <div id="mail" class="elem"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
+      <div id="tel" class="elem">@{perso.tel}</div>
+      <div id="web" class="elem"><a href="@{perso.web}" target="_blank">@{perso.web}</a></div>
+      <div id="address" class="elem">@{perso.address}</div>
     </div>
     <div id="bio">@{perso.bio%r}</div>
   </div>

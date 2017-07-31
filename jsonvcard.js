@@ -59,6 +59,8 @@ limitations under the License.
   var sharedResult = "";
   //Here, we keep a list of files to load in the end of parsing
   var files = [];
+	//This is used to keep the variables defined in the template
+	var vars = {};
 
   //========================================================
   //                      INITIALIZERS
@@ -139,10 +141,38 @@ limitations under the License.
    */
   function cookTemplate(data, template){
     //After processing all
-    sharedResult = processObject("", data, template);
+    sharedResult = getVariables(template);
+    sharedResult = processObject("", data, sharedResult);
     document.body.innerHTML = sharedResult;
     processFiles();
   }
+
+	/**
+	 * [getVariables description]
+	 * @param  {[type]} template [description]
+	 * @return {[type]}          [description]
+	 */
+	function getVariables(template){
+
+		var html = template;
+
+		var regex = /@\{([^%]*)%v:([^\}]*)\}/g;
+		var match = regex.exec(html);
+
+    while (match != null){
+      var result;
+			var rep = "@{" + match[1] + "%v:" + match[2] + "}";
+      html = html.replace(rep, "");
+
+			console.log(">>Before JSON parse: ", match[2]);
+
+			vars[match[1]] = JSON.parse(match[2].trim());
+
+      match = regex.exec(html);
+    }
+
+		return html;
+	}
 
 
   //========================================================

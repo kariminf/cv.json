@@ -17,5 +17,6 @@
     "vcard.json",
     "index.html",
     "styles/*"
-  ]
+  ],
+  "dependencies": {}
 }
