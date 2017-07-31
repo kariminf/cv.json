@@ -70,6 +70,14 @@
   "skill": [
     {
       "title": "skill1",
+      "mark": 8
+    },
+    {
+      "title": "skill2",
+      "mark": 2
+    },
+    {
+      "title": "skill3",
       "mark": 10
     }
   ],

@@ -1,5 +1,5 @@
 /*************************************************************/
-.kfs, #header, #info, #bio, #cont .elem, #social .wrapper {
+.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper {
   border-radius: 5px;
   border: 2px solid DarkViolet;
 }
@@ -107,6 +107,10 @@
   margin: 10px;
 }
 
+#cont :not(#skill) .elem {
+  width: calc( 100% - 20px);
+}
+
 #cont .elem {
   display: inline-block;
   float: left;
@@ -186,6 +190,19 @@
   background-image: url("../img/violet/gplus.png");
 }
 
+.barc {
+  display: inline-block;
+  width: 10em;
+  background-color: grey;
+  height: 1em;
+}
+
+.bar {
+  display: inline-block;
+  background-color: DarkViolet;
+  height: 100%;
+}
+
 @media only screen and (min-width: 768px) {
 
   #info, #bio {
@@ -205,6 +222,10 @@
   #cont .elem {
     width: 46%;
     width: calc(50% - 1.5em);
+  }
+
+  #cont #skill .elem {
+    width: initial;
   }
 
   #name, #family {

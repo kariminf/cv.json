@@ -555,6 +555,17 @@ limitations under the License.
     return template.replace(marker, pattern);
   }
 
+	function process_theme(value, template, marker, type){
+		//TODO other types
+		var rep = ' <div class="barc">';
+		var perc = parseInt(value) * 10; //persontage (scale = 10)
+		rep += '<div class="bar" style="width:' + perc + '%">'
+		rep += '</div></div>'; //barc
+
+		console.log("theme: " + rep);
+		return template.replace(marker, rep);
+	}
+
 }());
 
 // THAT'S ALL!! ... THANK YOU FOR READING

@@ -1,6 +1,7 @@
 @{months%v:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]}
 @{date1%f:date("mm dd, yyyy", vars.months)}
 @{date2%f:date("mm/yy")}
+@{theme1%f:theme("bar")}
 <div id="header">
   <div id="hcont">
     <div id="pic-frm">
@@ -106,7 +107,7 @@
       <h1><span>Skills</span></h1>
       @{skill%bb}
       <div class="elem">
-        @{skill.title}:  @{skill.mark}
+        @{skill.title}@{skill.mark%s.theme1}
       </div>
       @{skill%be}
     </div>
