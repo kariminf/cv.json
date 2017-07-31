@@ -1,4 +1,6 @@
 @{months%v:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]}
+@{date1%f:date("mm dd, yyyy", vars.months)}
+@{date2%f:date("mm/yy")}
 <div id="header">
   <div id="hcont">
     <div id="pic-frm">
@@ -10,7 +12,7 @@
         <span id="family">@{perso.family}</span>
       </div>
       <div id="title" class="elem">@{perso.title}</div>
-      <div id="birth" class="elem">@{perso.birthday}</div>
+      <div id="birth" class="elem">@{perso.birthday%s.date1}</div>
       <div id="mail" class="elem"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
       <div id="tel" class="elem">@{perso.tel}</div>
       <div id="web" class="elem"><a href="@{perso.web}" target="_blank">@{perso.web}</a></div>
@@ -35,40 +37,40 @@
 
     <div id="exp" class="kfs">
       <h1><span>Experiance</span></h1>
-      @{exp%sb}
+      @{exp%bb}
       <div class="elem">
         <div class="head">
-          From @{exp.from} To @{exp.to}
+          From @{exp.from%s.date2} To @{exp.to%s.date2}
         </div>
         <div class="title">
           @{exp.job}
         </div>
         <ul>
-          @{exp.resp%sb}
+          @{exp.resp%bb}
           <li> @{exp.resp}</li>
-          @{exp.resp%se}
+          @{exp.resp%be}
         </ul>
         <div class="desc">
           @{exp.desc%r}
         </div>
       </div>
-      @{exp%se}
+      @{exp%be}
     </div>
 
     <div id="educ" class="kfs">
       <h1><span>Education</span></h1>
-      @{educ%sb}
+      @{educ%bb}
       <div class="elem">
-        From @{educ.from} To @{educ.to} <br>
+        From @{educ.from%s.date2} To @{educ.to%s.date2} <br>
         @{educ.inst} <br>
         @{educ.desc%r}
       </div>
-      @{educ%se}
+      @{educ%be}
     </div>
 
     <div id="pub" class="kfs">
       <h1><span>Publication</span></h1>
-      @{pub%sb}
+      @{pub%bb}
       <div class="elem">
         <table>
           <tr>
@@ -81,7 +83,7 @@
           </tr>
           <tr>
             <td>Date</td>
-            <td>@{pub.date}</td>
+            <td>@{pub.date%s.date1}</td>
           </tr>
           <tr>
             <td>URL</td>
@@ -90,23 +92,23 @@
           <tr>
             <td>Authors</td>
             <td>
-              @{pub.authors%sb}
+              @{pub.authors%bb}
               <span>@{pub.authors}</span>
-              @{pub.authors%se}
+              @{pub.authors%be}
             </td>
           </tr>
         </table>
       </div>
-      @{pub%se}
+      @{pub%be}
     </div>
 
     <div id="skill" class="kfs">
       <h1><span>Skills</span></h1>
-      @{skill%sb}
+      @{skill%bb}
       <div class="elem">
         @{skill.title}:  @{skill.mark}
       </div>
-      @{skill%se}
+      @{skill%be}
     </div>
     <div id="lang">
 

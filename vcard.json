@@ -7,7 +7,7 @@
     "name":"firstname",
     "family":"familyname",
     "photo": "profile.jpg",
-    "birthday": "yyyymmdd",
+    "birthday": "19860903",
     "email": "email address",
     "tel": "phone number",
     "web": "website",
@@ -23,8 +23,8 @@
   },
   "exp": [
     {
-      "from": "yyyymmdd",
-      "to": "yyyymmdd",
+      "from": "201312",
+      "to": "now",
       "job": "exp1-job",
       "org": "organization",
       "resp": [
@@ -34,8 +34,8 @@
       "desc": "job1desc.txt"
     },
     {
-      "from": "yyyymmdd",
-      "to": "yyyymmdd",
+      "from": "2012",
+      "to": "201317",
       "job": "exp2-job",
       "org": "organization2",
       "resp": [
@@ -47,8 +47,8 @@
   ],
   "educ": [
     {
-      "from": "exp1-from",
-      "to": "exp1-to",
+      "from": "20100901",
+      "to": "2013",
       "inst": "Institution",
       "desc": "url-description"
     }
@@ -57,7 +57,7 @@
     {
       "title": "publication1 title",
       "publisher": "publisher",
-      "date": "yyyymmdd",
+      "date": "201302",
       "url": "https://github.com/kariminf/jsonVCard",
       "authors": [
         "author 1",

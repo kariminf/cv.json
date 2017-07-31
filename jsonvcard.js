@@ -61,6 +61,8 @@ limitations under the License.
   var files = [];
 	//This is used to keep the variables defined in the template
 	var vars = {};
+	//This is used to keep the functions defined in the template
+	var fcts = {};
 
   //========================================================
   //                      INITIALIZERS
@@ -142,34 +144,69 @@ limitations under the License.
   function cookTemplate(data, template){
     //After processing all
     sharedResult = getVariables(template);
+		sharedResult = getFunctions(sharedResult);
     sharedResult = processObject("", data, sharedResult);
     document.body.innerHTML = sharedResult;
     processFiles();
   }
 
 	/**
-	 * [getVariables description]
-	 * @param  {[type]} template [description]
-	 * @return {[type]}          [description]
+	 * Save all template defined variables in a global variable called vars
+	 * @param  {string} template the HTML template used to create the final HTML code
+	 * @return {string}          the HTML template after deliting variables
 	 */
 	function getVariables(template){
 
 		var html = template;
 
 		var regex = /@\{([^%]*)%v:([^\}]*)\}/g;
-		var match = regex.exec(html);
+		var match = regex.exec(template);
 
     while (match != null){
       var result;
 			var rep = "@{" + match[1] + "%v:" + match[2] + "}";
       html = html.replace(rep, "");
 
-			console.log(">>Before JSON parse: ", match[2]);
+			//console.log(">>Before JSON parse: ", rep);
 
 			vars[match[1]] = JSON.parse(match[2].trim());
 
-      match = regex.exec(html);
+      match = regex.exec(template);
     }
+
+		//console.log(vars);
+
+		return html;
+	}
+
+	function getFunctions(template){
+		var html = template;
+
+		var regex = /@\{([^%]+)%f:([^\}]+)\}/g;
+
+		var match = regex.exec(template);
+
+    while (match != null){
+      var result;
+			var rep = "@{" + match[1] + "%f:" + match[2] + "}";
+      html = html.replace(rep, "");
+
+			var fct = /([^\(]+)(.*)/g.exec(match[2]);
+			if (fct !== null){
+				var fctArgs = "";
+				if(fct[2].length>2){
+					fctArgs += fct[2].slice(1,-1);
+				}
+				fcts[match[1]] = {
+					name: fct[1],
+					args: fctArgs
+				};
+			}
+
+      match = regex.exec(template);
+    }
+
+		//console.log("Defined functions:", fcts);
 
 		return html;
 	}
@@ -281,13 +318,36 @@ limitations under the License.
     //Special functions:
     //This can lead to a disfunction if the function doesn't exist
     //The template designer must know what special functions are there
-    var marker = "@{" + key + "%s}";
+    eval("var marker = /@\{" + key + "%s([^\}]*)\}/gi");
 
-    if (template.indexOf(marker) >= 0){
+		var match = marker.exec(template);
+
+		var result = template;
+
+    while (match != null){
+			var func = key;
+			var funcArgs = "";
+			if(match[1].length>0){
+				var fctM = /\.(.+)/g.exec(match[1]);
+				if (fctM === null || ! (fctM[1] in fcts)){
+					match = marker.exec(template);
+					continue;
+				}
+				func = fcts[fctM[1]].name;
+				funcArgs = ", " + "'@{" + key + "%s" + match[1] + "}', " + fcts[fctM[1]].args;
+			}
+
+			//console.log("function:", func, "(", value, ", ",  funcArgs, ")");
+			eval('result = process_' + func + '(value, template' + funcArgs + ');');
+
+      match = marker.exec(template);
+    }
+
+    /*if (template.indexOf(marker) >= 0){
       var result;
       eval('result = process_' + key + '(value, template);');
       return result;
-    }
+    }*/
 
     //-----------------------------------
     //Here, the value is an array object
@@ -295,7 +355,7 @@ limitations under the License.
     //
     //If the element is an array, we call a special function to process it
     if (Object.prototype.toString.call(value) === '[object Array]'){
-      return processArray(key, value, template);
+      return processArray(key, value, result);
     }
 
     //-----------------------------------
@@ -304,7 +364,7 @@ limitations under the License.
     //
     //If it is an object, we call another function
     if (typeof value === "object"){
-      return processObject(key, value, template);
+      return processObject(key, value, result);
     }
 
     //-----------------------------------
@@ -315,13 +375,13 @@ limitations under the License.
     //we add this file to the files list to be processed lately
     {
 			var marker = "@{" + key + "%r}";
-			if (template.indexOf(marker) >= 0) files.push({"marker": marker, "url": value});
+			if (result.indexOf(marker) >= 0) files.push({"marker": marker, "url": value});
 		}
 
     //We create a RegEx element to replace parts of the template
     //with the values specified in the data
     var exp = eval("/\@\{" + key + "\}/g");
-    return template.replace(exp, value);
+    return result.replace(exp, value);
 
     //There is no if-else between these two, because the template
     //designer can recover the content of a file and show its URL
@@ -342,9 +402,9 @@ limitations under the License.
   function processArray(key, data, template){
 
     //Searching for the area to be replaced in the template
-    var begin = "@{" + key + "%sb}";
+    var begin = "@{" + key + "%bb}"; //block begins
     var idx_begin = template.indexOf(begin) + begin.length;
-    var end = "@{" + key + "%se}";
+    var end = "@{" + key + "%be}";//block ends
     var idx_end = template.indexOf(end);
 
     //console.log(end + " => " +  idx_end);
@@ -386,9 +446,9 @@ limitations under the License.
    * @method processFiles
    */
   function processFiles(){
-		console.log("template before adding files\n" + sharedResult);
+		//console.log("template before adding files\n" + sharedResult);
     while((file=files.pop()) != null){
-			console.log("file marker: ", file.marker, ", url= ", file.url);
+			//console.log("file marker: ", file.marker, ", url= ", file.url);
       readFile(file.marker, file.url);
     }
   }
@@ -454,6 +514,45 @@ limitations under the License.
       replacement += '" target="_blank"></a>';
     }
     return template.replace("@{social%s}", replacement);
+  }
+
+
+	function process_date(date, template, marker, pattern, months){
+    //if(date.match(/[\d]{4}/)) return template;
+
+		//console.log(marker + ">>>" + date);
+
+		var match = /([\d]{4})([\d]{2})?([\d]{2})?/g.exec(date);
+
+		if(!match) return template.replace(marker, date);
+
+		var yyyy = match[1];
+		var mm = (match[2])? match[2]: "";
+		var dd = (match[3])? match[3]: "";
+
+		//Process the month
+		if (mm.length > 0){
+			var mmInt = parseInt(mm);
+			if(mm < 1 || mm > 12){
+				mm = "01";
+			} else {
+				var monthDef = Object.prototype.toString.call(months);
+				if (monthDef === '[object Array]' && months.length > 11){
+					mm = months[mmInt-1];
+				}
+			}
+		}
+
+		//Process the year
+		pattern = pattern.replace("yyyy", yyyy);
+		pattern = pattern.replace("yy", yyyy.slice(2));
+
+		pattern = pattern.replace("mm", mm);
+		pattern = pattern.replace("dd", dd);
+
+		//console.log("date = ", pattern);
+
+    return template.replace(marker, pattern);
   }
 
 }());
