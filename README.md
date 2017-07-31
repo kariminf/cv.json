@@ -1,7 +1,7 @@
 # jsonVCard
 
-[![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/jsonVCard/)
-[![Version](https://img.shields.io/badge/Version-0.3.0-FDEE00.svg)](https://github.com/kariminf/jsonVCard/releases)
+[![Project](https://img.shields.io/badge/Project-json-VCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
+[![Version](https://img.shields.io/badge/Version-0.3.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
