@@ -6,11 +6,15 @@
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
-
 So, this project meant to:
-* Create a client side VCard
+* Create a CV webpage without needing to configure servers.
+* Facilitate the update of informations without breaking the page's structure.
+* Make it easy to select and create themes.
+
+Technically speaking:
+* Create a client side VCard.
 * Separate information and design.
-* Create many themes
+* Create many themes.
 
 As consequences:
 * The application can be hosted widely and doesn't need any special
