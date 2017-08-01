@@ -1,7 +1,8 @@
 {
   "theme": {
     "name": "default",
-    "style": "default"
+    "style": "default",
+    "footer": "footer.htm"
   },
   "perso": {
     "name":"firstname",
@@ -50,6 +51,8 @@
       "from": "20100901",
       "to": "2013",
       "inst": "Institution",
+      "degree": "degree",
+      "field": "field of study",
       "desc": "url-description"
     }
   ],

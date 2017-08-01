@@ -1,5 +1,5 @@
 /*************************************************************/
-.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper {
+.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper, #footer {
   border-radius: 5px;
   border: 2px solid DarkViolet;
 }
@@ -203,9 +203,48 @@
   height: 100%;
 }
 
+#footer {
+  height: 3em;
+  border: 5px;
+  padding-top: 1em;
+  text-align: center;
+  background-color: DarkViolet;
+  color: white;
+  font-weight: bolder;
+}
+
+#footer a {
+  color: yellow;
+}
+
+.elem .name {
+  font-weight: bold;
+  color: DarkViolet;
+}
+
+.date, .org {
+  font-style: italic;
+  font-weight: bold;
+}
+
+#pub tr:nth-child(odd) {
+  background: violet;
+}
+
+.desc {
+  font-size: .8em;
+  font-style: italic;
+}
+
+#educ .field, .org {
+  font-style: italic;
+  margin-left: 1em;
+}
+
+
 @media only screen and (min-width: 768px) {
 
-  #info, #bio {
+  #info{
     display:block;
     vertical-align: top;
     height: 11em;
@@ -214,18 +253,23 @@
   #bio {
     float: right;
     width: 40%;
-    width: calc(50% - 3.25em - 25px);
+    width: calc(50% - 4em - 25px);
+    height: 13.75em;
     overflow-y:scroll;
     overflow-x:hidden;
   }
 
-  #cont .elem {
+  #cont :not(#skill):not(#lang) .elem {
     width: 46%;
     width: calc(50% - 1.5em);
   }
 
   #cont #skill .elem {
     width: initial;
+  }
+
+  #lang .read, #lang .write, #lang .ustnd {
+    display: inline-block;
   }
 
   #name, #family {

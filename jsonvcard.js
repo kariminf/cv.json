@@ -24,19 +24,6 @@ limitations under the License.
  */
 (function(){
 
-  //========================================================
-  //                 INDEX
-  //                 =====
-  // Topic                                        Line
-  // ------------------                           ----------
-  // Global variables                             51
-  // Initializers                                 63
-  // Theme processors                             148
-  // Template-data mergers                        208
-  // Files processors                             349
-  // Special functions                            408
-  //========================================================
-
   /**
 	* This class doesn't do anything, it is here just to force YuiDoc
 	* generating the documentation
