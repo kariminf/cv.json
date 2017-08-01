@@ -62,18 +62,17 @@ limitations under the License.
   //                      INITIALIZERS
   //========================================================
 
-
-  /**
-  * Initialization of process; this method searches for "vcard.json"
-  * in the javascript location "jsonvcard.js".
-  * Then when retrieved, it sends its content as a string to process(json)
-  * Where it will be processed
-  * @method init
-  */
-  JsonVCard.init = function (jsonFile){
+ 	/**
+ 	 * Initialization of process; this method searches for "vcard.json"
+   * in the javascript location "jsonvcard.js".
+   * Then when retrieved, it sends its content as a string to process(json)
+   * Where it will be processed
+ 	 * @param  {string} jsonURL The location of json file
+ 	 */
+  JsonVCard.init = function (jsonURL){
     var jsonFile = new XMLHttpRequest();
     jsonFile.overrideMimeType("application/json");
-    jsonFile.open("GET", "./vcard.json", true);
+    jsonFile.open("GET", jsonURL, true);
 
     jsonFile.onreadystatechange = function() {
       if (jsonFile.readyState === 4 && jsonFile.status == "200") {
