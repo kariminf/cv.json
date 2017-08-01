@@ -3,25 +3,34 @@
 <head>
     <meta charset="utf-8">
     <title>jsonvcard.js - jsonVCard API</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.7.0/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
     <link rel="stylesheet" href="../assets/css/custom.css">
-    <link rel="stylesheet" href="../assets/css/lucid.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="../assets/css/marviq.css">
     <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
 </head>
 <body class="yui3-skin-sam">
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-        <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
-            jsonVCard API
-        </h1>
-	<div class="nav">
+    	<div class="nav">
+            <!-- <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+
+        jsonVCard API
+        </h1 -->
+            <li>
+                <img alt="jsonVCard API" src="../assets/img/logo.png" style="margin-top: 7px; margin-left: 25px; max-height: 30px" title="jsonVCard API" />
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+                <h1 class="projectName">jsonVCard API</h1>
+            </li>
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.3.0</b>
+                    API Docs for Version: <b>0.5.0</b>
                 </p>
             </li>
         </div>
@@ -33,483 +42,644 @@
 <div class="container">
     <div class="row">
         <div class="span3">
-<div>
-    <div id="sidebar">
-    <div id="classes">
-        <ul id="api-classes" class="nav nav-list">
-                <li><a href="../classes/JsonVCard.html">JsonVCard</a></li>
-        </ul>
-    </div>
-    </div>
-</div>
+	    <div>
+	        <h3>APIs</h3>
+	        <div id="sidebar">
+	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
+	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
+	                <li><a href="#collections" data-toggle="tab">Collections</a></li>
+	                <li><a href="#models" data-toggle="tab">Models</a></li>
+	                <li><a href="#views" data-toggle="tab">Views</a></li>
+	                <li><a href="#services" data-toggle="tab">Services</a></li>
+	            </ul>
+	    
+	            <div id="api-tabview-filter">
+	                <input type="search" placeholder="Type to filter APIs">
+	            </div>
+	    
+	            <div class="tab-content" style="border: 1px solid #DDD; border-top:0;">
+	                <div class="tab-pane active" id="classes">
+	                    <ul id="api-classes" class="nav nav-list">
+	                            <li><a href="../classes/JsonVCard.html">JsonVCard</a></li>
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="collections">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="models">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="views">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="services">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	            </div>
+	        </div>
+	    </div>
         </div>
         <div class="span9">
-    <form id="options-form" class="form-inline pull-right">
-        Show:
-        <label for="api-show-inherited" class="checkbox">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
-
-        <label for="api-show-protected" class="checkbox">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
-
-        <label for="api-show-private" class="checkbox">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated" class="checkbox">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </form>
-
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<div class="page-header">
-    <h1>jsonvcard.js <small>File</small></h1>
-</div>
-
-<div class="file">
-    <pre class="prettyprint linenums">
-/*
-This file is part of jsonVCard project;
-a Javascript script which allows you to create simple VCard
-
-Copyright (C) 2017 Abdelkrime Aries &lt;kariminfo0@gmail.com&gt;
-
-Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-/**
- * Provides the scripts to generate a CV
- *
- * @module jsonvcard
- */
-(function(){
-
-  //========================================================
-  //                 INDEX
-  //                 =====
-  // Topic                                        Line
-  // ------------------                           ----------
-  // Global variables                             51
-  // Initializers                                 63
-  // Theme processors                             148
-  // Template-data mergers                        208
-  // Files processors                             349
-  // Special functions                            408
-  //========================================================
-
-  /**
-	* This class doesn&#x27;t do anything, it is here just to force YuiDoc
-	* generating the documentation
-	* @class JsonVCard
-	* @module jsonvcard
-	* @constructor
-	*/
-	function JsonVCard() {
-		//This is just to force YuiDoc generating the documentation
-	}
-
-  //========================================================
-  //                 GLOBAL VARIABLES
-  //========================================================
-
-  //Mutual exclusion marker:
-  //Can&#x27;t write the content till all the files are processed
-  var mutex = 0;
-  //Here, we keep the template and push the information into
-  var sharedResult = &quot;&quot;;
-  //Here, we keep a list of files to load in the end of parsing
-  var files = [];
-
-  //========================================================
-  //                      INITIALIZERS
-  //========================================================
-
-
-  //When the document is loaded, we call the init() function
-  //This will allow us to create the page locally
-  document.addEventListener(&#x27;DOMContentLoaded&#x27;, function () {
-    init();
-  });
-
-  //TODO If I want more configurability, I should delete the listener,
-  //then pass the URL of vcard.json as a parameter in init(jsonURL)
-  //In HTML page, the user have to add just
-  // &lt;script&gt;init(theURLof_json);&lt;/script&gt; just before &lt;/body&gt;
-
-  /**
-  * Initialization of process; this method searches for &quot;vcard.json&quot;
-  * in the javascript location &quot;jsonvcard.js&quot;.
-  * Then when retrieved, it sends its content as a string to process(json)
-  * Where it will be processed
-  * @method init
-  */
-  function init(){
-    var jsonFile = new XMLHttpRequest();
-    jsonFile.overrideMimeType(&quot;application/json&quot;);
-    jsonFile.open(&quot;GET&quot;, &quot;./vcard.json&quot;, true);
-
-    jsonFile.onreadystatechange = function() {
-      if (jsonFile.readyState === 4 &amp;&amp; jsonFile.status == &quot;200&quot;) {
-        processJSON(jsonFile.responseText);
-      }
-    }
-    jsonFile.send(null);
-  }// end init()
-
-
-
-  /**
-  * This method parses the json content
-  * @method processJSON
-  * @param  {string} json The content of JSON file
-  */
-  function processJSON(json){
-
-    //transform the json text into an object
-    var data = JSON.parse(json);
-
-    //Change the title of the webpage
-    //TODO may be I should give this to user
-    document.title = data.perso.name + &quot; &quot; + data.perso.family;
-
-    //Here, we process the theme specified by user
-    //It will link the css to the original HTML
-    //and recover the URL of the template on which we work
-    var templateURL = processTheme(data.theme);
-
-    var templateFile = new XMLHttpRequest();
-    templateFile.responseType = &#x27;text&#x27;;
-    templateFile.open(&quot;GET&quot;, templateURL, true);
-    templateFile.onreadystatechange = function() {
-      if (templateFile.readyState === 4 &amp;&amp; templateFile.status == &quot;200&quot;) {
-        cookTemplate(data, templateFile.responseText);
-      }
-    }
-    templateFile.send(null);
-
-  }
-
-
-  /**
-   * This function is used to initiate the process of binding the
-   * data with the template
-   * @method cookTemplate
-   * @param  {object} data     the data structure recovered from json file
-   * @param  {string} template the HTML template used to create the final HTML code
-   */
-  function cookTemplate(data, template){
-    //After processing all
-    sharedResult = processObject(&quot;&quot;, data, template);
-    document.body.innerHTML = sharedResult;
-    processFiles();
-  }
-
-
-  //========================================================
-  //                 THEME PROCESSORS
-  //========================================================
-
-  /**
-   * Process a theme element (json) which has a name and a style
-   * @method processTheme
-   * @param  {object} theme object of two strings: theme name and style name.
-   * It&#x27;s format is as follows:
-   *
-   *   {
-   *      &quot;name&quot;: &quot;&quot;,
-   *      &quot;style&quot;: &quot;&quot;
-   *   }
-   *
-   * @return {string} path to the template constructed from the theme name, or
-   * the dafault one
-   */
-  function processTheme(theme){
-
-    //Set defaults
-    var themePath = &quot;./themes/default/&quot;;
-    var style = &quot;default.css&quot;;
-
-    //Verify if the values are defined by user
-    if (typeof theme.name !== &#x27;undefined&#x27;){
-      themePath = &quot;./themes/&quot; + theme.name + &quot;/&quot;;
-      if (typeof theme.style !== &#x27;undefined&#x27;) style = theme.style + &quot;.css&quot;;
-    }
-
-    //Call a function to link the stylesheet with the HTML content
-    addStyleSheet(themePath + style);
-
-    //Return the path to the template featuring this theme
-    return themePath + &quot;template.htm&quot;;
-  }
-
-  /**
-   * Link a stylsheet to the current document
-   * @method addStyleSheet
-   * @param {string} url the URL of the tageted CSS
-   */
-  function addStyleSheet(url){
-    var cssId = &#x27;myCss&#x27;;
-    if (!document.getElementById(cssId))
-    {
-      var head  = document.getElementsByTagName(&#x27;head&#x27;)[0];
-      var link  = document.createElement(&#x27;link&#x27;);
-      link.id   = cssId;
-      link.rel  = &#x27;stylesheet&#x27;;
-      link.type = &#x27;text/css&#x27;;
-      link.href = url;
-      link.media = &#x27;all&#x27;;
-      head.appendChild(link);
-    }
-    //TODO if cssId exists; just change the href attribute
-    //This will allow the change of CSS directly from user side
-  }
-
-
-  //========================================================
-  //                 TEMPLATE-DATA MERGERS
-  //========================================================
-
-
-  /**
-   * Process an object which contains many elements in it
-   * @method processObject
-   * @param  {string} key      the name of this object, for example
-   * &lt;pre&gt;
-   *   &quot;perso&quot;: {
-   *      &quot;name&quot;: &quot;Karim&quot;,
-   *      &quot;family&quot;: &quot;Aries&quot;
-   *   }
-   * &lt;/pre&gt;
-   * &quot;perso&quot; is the key, and the object is the data
-   * @param  {object} data     the object to be processed
-   * @param  {string} template the HTML templated used to push the data
-   * @return {string}          the HTML content after merging with the data
-   */
-  function processObject(key, data, template){
-    var html = template;
-    var pkey = (key !== null &amp;&amp; key.length &gt; 0)? key + &quot;.&quot;: &quot;&quot;;//parent key
-    for (var ekey in data){ //element key
-      html = processData(pkey + ekey, data[ekey], html);
-    }
-
-    return html;
-  }
-
-
-  /**
-   * Process the data of an object. It detects if the data is
-   * an object, a list of elements or a simple element
-   * @method processData
-   * @param  {string} key      the name or key of the element; for example &quot;perso.name&quot;
-   * @param  {object} value    the value of the data: it may be an object, a list, or a simple element.
-   * In our example, it is a simple string: &quot;Karim&quot;
-   * @param  {string} template the HTML template used to push the data
-   * @return {string}          the HTML content after merging with the data
-   */
-  function processData(key, value, template){
-
-    //Special functions:
-    //This can lead to a disfunction if the function doesn&#x27;t exist
-    //The template designer must know what special functions are there
-    var marker = &quot;@{&quot; + key + &quot;%s}&quot;;
-
-    if (template.indexOf(marker) &gt;= 0){
-      var result;
-      eval(&#x27;result = process_&#x27; + key + &#x27;(value, template);&#x27;);
-      return result;
-    }
-
-    //-----------------------------------
-    //Here, the value is an array object
-    //-----------------------------------
-    //
-    //If the element is an array, we call a special function to process it
-    if (Object.prototype.toString.call(value) === &#x27;[object Array]&#x27;){
-      return processArray(key, value, template);
-    }
-
-    //-----------------------------------
-    //Here, the value is a nested object
-    //-----------------------------------
-    //
-    //If it is an object, we call another function
-    if (typeof value === &quot;object&quot;){
-      return processObject(key, value, template);
-    }
-
-    //-----------------------------------
-    //Here, the value is a simple element
-    //-----------------------------------
-
-    //If the element is meant to be an URL into some other file
-    //we add this file to the files list to be processed lately
-    {
-			var marker = &quot;@{&quot; + key + &quot;%r}&quot;;
-			if (template.indexOf(marker) &gt;= 0) files.push({&quot;marker&quot;: marker, &quot;url&quot;: value});
-		}
-
-    //We create a RegEx element to replace parts of the template
-    //with the values specified in the data
-    var exp = eval(&quot;/\@\{&quot; + key + &quot;\}/g&quot;);
-    return template.replace(exp, value);
-
-    //There is no if-else between these two, because the template
-    //designer can recover the content of a file and show its URL
-    //in the same time
-  }
-
-  /**
-   * Process the data of an array.
-   * It recovers the begining and ending of this array in the template.
-   * Then, it pushes each element of the array into that area.
-   * @method processArray
-   * @param  {string} key      the name or key of the array; for example &quot;skill&quot;
-   * @param  {object} data     the value of the data: it may be an object, a list, or a simple element.
-   * In our example, it is a simple string: &quot;javascript&quot;
-   * @param  {string} template the HTML template used to push the data
-   * @return {string}          the HTML content after merging with the data
-   */
-  function processArray(key, data, template){
-
-    //Searching for the area to be replaced in the template
-    var begin = &quot;@{&quot; + key + &quot;%sb}&quot;;
-    var idx_begin = template.indexOf(begin) + begin.length;
-    var end = &quot;@{&quot; + key + &quot;%se}&quot;;
-    var idx_end = template.indexOf(end);
-
-    //console.log(end + &quot; =&gt; &quot; +  idx_end);
-
-    //If there is no area defined for this array, we return the template itself
-    if (idx_begin &lt; 0 || idx_end &lt; 0) return template;
-
-    //console.log(key);
-
-    //Extract the arry area from the template
-    var arrayHTML = template.substring(idx_begin, idx_end);
-
-    //console.log(part);
-    var replacement = &quot;&quot;; // This will
-		var exp = eval(&quot;/\@\{&quot; + key + &quot;([^\}]*)\}/gi&quot;);
-    for (var i = 0; i &lt; data.length; i++){
-      //To each element, we attribute a key which is the key of the array
-      //combined with its rank in the array
-      var elementHTML = arrayHTML.replace(exp, &quot;@{&quot; + key + &quot;&amp;&quot; + i + &quot;$1}&quot;);
-      elementHTML = processData(key + &quot;&amp;&quot; + i, data[i], elementHTML);
-      replacement += elementHTML + &quot;\n&quot;;
-    }
-
-    //We add the begining and ending markers to the to-be-replaced string
-    arrayHTML = begin + arrayHTML + end;
-
-    return template.replace(arrayHTML, replacement);
-
-  }
-
-
-  //========================================================
-  //                 FILES PROCESSORS
-  //========================================================
-
-  /**
-   * Process the files stored in a global variable (files) while processing
-   * the json data and the template
-   * @method processFiles
-   */
-  function processFiles(){
-		console.log(&quot;template before adding files\n&quot; + sharedResult);
-    while((file=files.pop()) != null){
-			console.log(&quot;file marker: &quot;, file.marker, &quot;, url= &quot;, file.url);
-      readFile(file.marker, file.url);
-    }
-  }
-
-  /**
-   * Read a file and push the content into its reserved area in the template.
-   * Here, the content is pushed into a global variable containing the template.
-   * We can&#x27;t use the template as an argument, nor return the merged html, because
-   * the files call is asynchronious. &lt;br&gt;
-   * A mutex is used so the html code is pushed into the browser once all the
-   * files are being processed
-   * @method readFile
-   * @param  {string} marker the marker which defines where in the template the content
-   * should be pushed
-   * @param  {string} url    the URL where to find the file
-   */
-  function readFile(marker, url){
-    var rawFile = new XMLHttpRequest();
-    rawFile.responseType = &#x27;text&#x27;;
-    rawFile.open(&quot;GET&quot;, url, true);
-
-    //Every time we call a file, we increment the mutex
-    mutex++; //how much files are in process
-    //PS: it&#x27;s not &quot;Everytime&quot;, it&#x27;s &quot;Every time&quot;
-    //(for those who likes to correct others) :) :) :) :)
-
-    rawFile.onreadystatechange = function() {
-      if (rawFile.readyState === 4) {
-        var replacement = &quot;&quot;;
-
-        if (rawFile.status == &quot;200&quot;) replacement = rawFile.responseText;
-        //If there is a problem recovering the file, we just replace the marker
-        //with nothing
-        sharedResult = sharedResult.replace(marker, replacement);
-
-        mutex--;
-        if (mutex === 0){
-          //When all files are being processed: browser!! behold, the code is coming
-          document.body.innerHTML = sharedResult;
-        }
-
-      }
-    }
-    rawFile.send(null);
-  }
-
-  //========================================================
-  //                 SPECIAL FUNCTIONS
-  //========================================================
-
-  /**
-   * Special function to process social media links
-   * @method process_social
-   * @param  {object} data     an object containing the name of the social network as a key and
-   * the link as a value
-   * @param  {string} template the HTML template to be replaced
-   * @return {string}          the HTML content after replacement
-   */
-  function process_social(data, template){
-    var replacement = &quot;&quot;;
-    for (var ekey in data){ //element key
-      replacement += &#x27;&lt;a href=&quot;&#x27; + data[ekey] + &#x27;&quot; id=&quot;&#x27; + ekey;
-      replacement += &#x27;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&#x27;;
-    }
-    return template.replace(&quot;@{social%s}&quot;, replacement);
-  }
-
-}());
-
-// THAT&#x27;S ALL!! ... THANK YOU FOR READING
-
-    </pre>
-</div>
+                        <div class="page-header">
+                            <h1>jsonvcard.js <small>File</small></h1>
+                        </div>
+                        
+                        <div class="file">
+                            <pre class="prettyprint linenums">
+                        /*
+                        This file is part of jsonVCard project;
+                        a Javascript script which allows you to create simple VCard
+                        
+                        Copyright (C) 2017 Abdelkrime Aries &lt;kariminfo0@gmail.com&gt;
+                        
+                        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+                        you may not use this file except in compliance with the License.
+                        You may obtain a copy of the License at
+                        
+                        http://www.apache.org/licenses/LICENSE-2.0
+                        
+                        Unless required by applicable law or agreed to in writing, software
+                        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+                        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+                        See the License for the specific language governing permissions and
+                        limitations under the License.
+                        */
+                        
+                        /**
+                         * Provides the scripts to generate a CV
+                         *
+                         * @module jsonvcard
+                         */
+                        (function(){
+                        
+                        	if ( typeof module === &quot;object&quot; &amp;&amp; module &amp;&amp; typeof module.exports === &quot;object&quot; ) {
+                        		module.exports = JsonVCard;
+                        	} else {
+                        		window.JsonVCard = JsonVCard;
+                        	}
+                        
+                        
+                          /**
+                        	* This class doesn&#x27;t do anything, it is here just to force YuiDoc
+                        	* generating the documentation
+                        	* @class JsonVCard
+                        	* @module jsonvcard
+                        	* @constructor
+                        	*/
+                        	function JsonVCard() {
+                        		//This is just to force YuiDoc generating the documentation
+                        	}
+                        
+                          //========================================================
+                          //                 GLOBAL VARIABLES
+                          //========================================================
+                        
+                          //Mutual exclusion marker:
+                          //Can&#x27;t write the content till all the files are processed
+                          var mutex = 0;
+                          //Here, we keep the template and push the information into
+                          var sharedResult = &quot;&quot;;
+                          //Here, we keep a list of files to load in the end of parsing
+                          var files = [];
+                        	//This is used to keep the variables defined in the template
+                        	var vars = {};
+                        	//This is used to keep the functions defined in the template
+                        	var fcts = {};
+                        
+                          //========================================================
+                          //                      INITIALIZERS
+                          //========================================================
+                        
+                         	/**
+                         	 * Initialization of process; this method searches for &quot;vcard.json&quot;
+                           * in the javascript location &quot;jsonvcard.js&quot;.
+                           * Then when retrieved, it sends its content as a string to process(json)
+                           * Where it will be processed
+                         	 * @param  {string} jsonURL The location of json file
+                         	 */
+                          JsonVCard.init = function (jsonURL){
+                            var jsonFile = new XMLHttpRequest();
+                            jsonFile.overrideMimeType(&quot;application/json&quot;);
+                            jsonFile.open(&quot;GET&quot;, jsonURL, true);
+                        
+                            jsonFile.onreadystatechange = function() {
+                              if (jsonFile.readyState === 4 &amp;&amp; jsonFile.status == &quot;200&quot;) {
+                                processJSON(jsonFile.responseText);
+                              }
+                            }
+                            jsonFile.send(null);
+                          }// end init()
+                        
+                        
+                        
+                          /**
+                          * This method parses the json content
+                          * @method processJSON
+                          * @param  {string} json The content of JSON file
+                          */
+                          function processJSON(json){
+                        
+                            //transform the json text into an object
+                            var data = JSON.parse(json);
+                        
+                            if (data.page &amp;&amp; data.page.title){
+                        			document.title = data.page.title;
+                        		}else{
+                        			document.title = data.perso.name + &quot; &quot; + data.perso.family;
+                        		}
+                        
+                        
+                            //Here, we process the theme specified by user
+                            //It will link the css to the original HTML
+                            //and recover the URL of the template on which we work
+                            var templateURL = processTheme(data.page);
+                        
+                            var templateFile = new XMLHttpRequest();
+                            templateFile.responseType = &#x27;text&#x27;;
+                            templateFile.open(&quot;GET&quot;, templateURL, true);
+                            templateFile.onreadystatechange = function() {
+                              if (templateFile.readyState === 4 &amp;&amp; templateFile.status == &quot;200&quot;) {
+                                cookTemplate(data, templateFile.responseText);
+                              }
+                            }
+                            templateFile.send(null);
+                        
+                          }
+                        
+                        
+                          /**
+                           * This function is used to initiate the process of binding the
+                           * data with the template
+                           * @method cookTemplate
+                           * @param  {object} data     the data structure recovered from json file
+                           * @param  {string} template the HTML template used to create the final HTML code
+                           */
+                          function cookTemplate(data, template){
+                            //After processing all
+                            sharedResult = getVariables(template);
+                        		sharedResult = getFunctions(sharedResult);
+                            sharedResult = processObject(&quot;&quot;, data, sharedResult);
+                            document.body.innerHTML = sharedResult;
+                            processFiles();
+                          }
+                        
+                        	/**
+                        	 * Save all template defined variables in a global variable called vars
+                        	 * @param  {string} template the HTML template used to create the final HTML code
+                        	 * @return {string}          the HTML template after deliting variables
+                        	 */
+                        	function getVariables(template){
+                        
+                        		var html = template;
+                        
+                        		var regex = /@\{([^%]*)%v:([^\}]*)\}/g;
+                        		var match = regex.exec(template);
+                        
+                            while (match != null){
+                              var result;
+                        			var rep = &quot;@{&quot; + match[1] + &quot;%v:&quot; + match[2] + &quot;}&quot;;
+                              html = html.replace(rep, &quot;&quot;);
+                        
+                        			//console.log(&quot;&gt;&gt;Before JSON parse: &quot;, rep);
+                        
+                        			vars[match[1]] = JSON.parse(match[2].trim());
+                        
+                              match = regex.exec(template);
+                            }
+                        
+                        		//console.log(vars);
+                        
+                        		return html;
+                        	}
+                        
+                        	function getFunctions(template){
+                        		var html = template;
+                        
+                        		var regex = /@\{([^%]+)%f:([^\}]+)\}/g;
+                        
+                        		var match = regex.exec(template);
+                        
+                            while (match != null){
+                              var result;
+                        			var rep = &quot;@{&quot; + match[1] + &quot;%f:&quot; + match[2] + &quot;}&quot;;
+                              html = html.replace(rep, &quot;&quot;);
+                        
+                        			var fct = /([^\(]+)(.*)/g.exec(match[2]);
+                        			if (fct !== null){
+                        				var fctArgs = &quot;&quot;;
+                        				if(fct[2].length&gt;2){
+                        					fctArgs += fct[2].slice(1,-1);
+                        				}
+                        				fcts[match[1]] = {
+                        					name: fct[1],
+                        					args: fctArgs
+                        				};
+                        			}
+                        
+                              match = regex.exec(template);
+                            }
+                        
+                        		//console.log(&quot;Defined functions:&quot;, fcts);
+                        
+                        		return html;
+                        	}
+                        
+                        
+                          //========================================================
+                          //                 THEME PROCESSORS
+                          //========================================================
+                        
+                          /**
+                           * Process a theme element (json) which has a name and a style
+                           * @method processTheme
+                           * @param  {object} theme object of two strings: theme name and style name.
+                           * It&#x27;s format is as follows:
+                           *
+                           *   {
+                           *      &quot;name&quot;: &quot;&quot;,
+                           *      &quot;style&quot;: &quot;&quot;
+                           *   }
+                           *
+                           * @return {string} path to the template constructed from the theme name, or
+                           * the dafault one
+                           */
+                          function processTheme(page){
+                        
+                            //Set defaults
+                            var themePath = &quot;./themes/default/&quot;;
+                            var style = &quot;violet.css&quot;;
+                        
+                            //Verify if the values are defined by user
+                            if (page){
+                              if (page.theme) themePath = &quot;./themes/&quot; + page.theme + &quot;/&quot;;
+                              if (page.style) style = page.style + &quot;.css&quot;;
+                            }
+                        
+                            //Call a function to link the stylesheet with the HTML content
+                            addStyleSheet(themePath + style);
+                        
+                            //Return the path to the template featuring this theme
+                            return themePath + &quot;template.htm&quot;;
+                          }
+                        
+                          /**
+                           * Link a stylsheet to the current document
+                           * @method addStyleSheet
+                           * @param {string} url the URL of the tageted CSS
+                           */
+                          function addStyleSheet(url){
+                            var cssId = &#x27;myCss&#x27;;
+                            if (!document.getElementById(cssId))
+                            {
+                              var head  = document.getElementsByTagName(&#x27;head&#x27;)[0];
+                              var link  = document.createElement(&#x27;link&#x27;);
+                              link.id   = cssId;
+                              link.rel  = &#x27;stylesheet&#x27;;
+                              link.type = &#x27;text/css&#x27;;
+                              link.href = url;
+                              link.media = &#x27;all&#x27;;
+                              head.appendChild(link);
+                            }
+                            //TODO if cssId exists; just change the href attribute
+                            //This will allow the change of CSS directly from user side
+                          }
+                        
+                        
+                          //========================================================
+                          //                 TEMPLATE-DATA MERGERS
+                          //========================================================
+                        
+                        
+                          /**
+                           * Process an object which contains many elements in it
+                           * @method processObject
+                           * @param  {string} key      the name of this object, for example
+                           * &lt;pre&gt;
+                           *   &quot;perso&quot;: {
+                           *      &quot;name&quot;: &quot;Karim&quot;,
+                           *      &quot;family&quot;: &quot;Aries&quot;
+                           *   }
+                           * &lt;/pre&gt;
+                           * &quot;perso&quot; is the key, and the object is the data
+                           * @param  {object} data     the object to be processed
+                           * @param  {string} template the HTML templated used to push the data
+                           * @return {string}          the HTML content after merging with the data
+                           */
+                          function processObject(key, data, template){
+                            var html = template;
+                            var pkey = (key !== null &amp;&amp; key.length &gt; 0)? key + &quot;.&quot;: &quot;&quot;;//parent key
+                            for (var ekey in data){ //element key
+                              html = processData(pkey + ekey, data[ekey], html);
+                            }
+                        
+                            return html;
+                          }
+                        
+                        
+                          /**
+                           * Process the data of an object. It detects if the data is
+                           * an object, a list of elements or a simple element
+                           * @method processData
+                           * @param  {string} key      the name or key of the element; for example &quot;perso.name&quot;
+                           * @param  {object} value    the value of the data: it may be an object, a list, or a simple element.
+                           * In our example, it is a simple string: &quot;Karim&quot;
+                           * @param  {string} template the HTML template used to push the data
+                           * @return {string}          the HTML content after merging with the data
+                           */
+                          function processData(key, value, template){
+                        
+                            //Special functions:
+                            //This can lead to a disfunction if the function doesn&#x27;t exist
+                            //The template designer must know what special functions are there
+                            eval(&quot;var marker = /@\{&quot; + key + &quot;%s([^\}]*)\}/gi&quot;);
+                        
+                        		var match = marker.exec(template);
+                        
+                        		var result = template;
+                        
+                            while (match != null){
+                        			var func = key;
+                        			var funcArgs = &quot;&quot;;
+                        			if(match[1].length&gt;0){
+                        				var fctM = /\.(.+)/g.exec(match[1]);
+                        				if (fctM === null || ! (fctM[1] in fcts)){
+                        					match = marker.exec(template);
+                        					continue;
+                        				}
+                        				func = fcts[fctM[1]].name;
+                        				funcArgs = &quot;, &quot; + &quot;&#x27;@{&quot; + key + &quot;%s&quot; + match[1] + &quot;}&#x27;, &quot; + fcts[fctM[1]].args;
+                        			}
+                        
+                        			//console.log(&quot;function:&quot;, func, &quot;(&quot;, value, &quot;, &quot;,  funcArgs, &quot;)&quot;);
+                        			eval(&#x27;result = process_&#x27; + func + &#x27;(value, template&#x27; + funcArgs + &#x27;);&#x27;);
+                        
+                              match = marker.exec(template);
+                            }
+                        
+                            /*if (template.indexOf(marker) &gt;= 0){
+                              var result;
+                              eval(&#x27;result = process_&#x27; + key + &#x27;(value, template);&#x27;);
+                              return result;
+                            }*/
+                        
+                            //-----------------------------------
+                            //Here, the value is an array object
+                            //-----------------------------------
+                            //
+                            //If the element is an array, we call a special function to process it
+                            if (Object.prototype.toString.call(value) === &#x27;[object Array]&#x27;){
+                              return processArray(key, value, result);
+                            }
+                        
+                            //-----------------------------------
+                            //Here, the value is a nested object
+                            //-----------------------------------
+                            //
+                            //If it is an object, we call another function
+                            if (typeof value === &quot;object&quot;){
+                              return processObject(key, value, result);
+                            }
+                        
+                            //-----------------------------------
+                            //Here, the value is a simple element
+                            //-----------------------------------
+                        
+                            //If the element is meant to be an URL into some other file
+                            //we add this file to the files list to be processed lately
+                            {
+                        			var marker = &quot;@{&quot; + key + &quot;%r}&quot;;
+                        			if (result.indexOf(marker) &gt;= 0) files.push({&quot;marker&quot;: marker, &quot;url&quot;: value});
+                        		}
+                        
+                            //We create a RegEx element to replace parts of the template
+                            //with the values specified in the data
+                            var exp = eval(&quot;/\@\{&quot; + key + &quot;\}/g&quot;);
+                            return result.replace(exp, value);
+                        
+                            //There is no if-else between these two, because the template
+                            //designer can recover the content of a file and show its URL
+                            //in the same time
+                          }
+                        
+                          /**
+                           * Process the data of an array.
+                           * It recovers the begining and ending of this array in the template.
+                           * Then, it pushes each element of the array into that area.
+                           * @method processArray
+                           * @param  {string} key      the name or key of the array; for example &quot;skill&quot;
+                           * @param  {object} data     the value of the data: it may be an object, a list, or a simple element.
+                           * In our example, it is a simple string: &quot;javascript&quot;
+                           * @param  {string} template the HTML template used to push the data
+                           * @return {string}          the HTML content after merging with the data
+                           */
+                          function processArray(key, data, template){
+                        
+                            //Searching for the area to be replaced in the template
+                            var begin = &quot;@{&quot; + key + &quot;%bb}&quot;; //block begins
+                            var idx_begin = template.indexOf(begin) + begin.length;
+                            var end = &quot;@{&quot; + key + &quot;%be}&quot;;//block ends
+                            var idx_end = template.indexOf(end);
+                        
+                            //console.log(end + &quot; =&gt; &quot; +  idx_end);
+                        
+                            //If there is no area defined for this array, we return the template itself
+                            if (idx_begin &lt; 0 || idx_end &lt; 0) return template;
+                        
+                            //console.log(key);
+                        
+                            //Extract the arry area from the template
+                            var arrayHTML = template.substring(idx_begin, idx_end);
+                        
+                            //console.log(part);
+                            var replacement = &quot;&quot;; // This will
+                        		var exp = eval(&quot;/\@\{&quot; + key + &quot;([^\}]*)\}/gi&quot;);
+                            for (var i = 0; i &lt; data.length; i++){
+                              //To each element, we attribute a key which is the key of the array
+                              //combined with its rank in the array
+                              var elementHTML = arrayHTML.replace(exp, &quot;@{&quot; + key + &quot;&amp;&quot; + i + &quot;$1}&quot;);
+                              elementHTML = processData(key + &quot;&amp;&quot; + i, data[i], elementHTML);
+                              replacement += elementHTML + &quot;\n&quot;;
+                            }
+                        
+                            //We add the begining and ending markers to the to-be-replaced string
+                            arrayHTML = begin + arrayHTML + end;
+                        
+                            return template.replace(arrayHTML, replacement);
+                        
+                          }
+                        
+                        
+                          //========================================================
+                          //                 FILES PROCESSORS
+                          //========================================================
+                        
+                          /**
+                           * Process the files stored in a global variable (files) while processing
+                           * the json data and the template
+                           * @method processFiles
+                           */
+                          function processFiles(){
+                        		//console.log(&quot;template before adding files\n&quot; + sharedResult);
+                            while((file=files.pop()) != null){
+                        			//console.log(&quot;file marker: &quot;, file.marker, &quot;, url= &quot;, file.url);
+                              readFile(file.marker, file.url);
+                            }
+                          }
+                        
+                          /**
+                           * Read a file and push the content into its reserved area in the template.
+                           * Here, the content is pushed into a global variable containing the template.
+                           * We can&#x27;t use the template as an argument, nor return the merged html, because
+                           * the files call is asynchronious. &lt;br&gt;
+                           * A mutex is used so the html code is pushed into the browser once all the
+                           * files are being processed
+                           * @method readFile
+                           * @param  {string} marker the marker which defines where in the template the content
+                           * should be pushed
+                           * @param  {string} url    the URL where to find the file
+                           */
+                          function readFile(marker, url){
+                            var rawFile = new XMLHttpRequest();
+                            rawFile.responseType = &#x27;text&#x27;;
+                            rawFile.open(&quot;GET&quot;, url, true);
+                        
+                            //Every time we call a file, we increment the mutex
+                            mutex++; //how much files are in process
+                            //PS: it&#x27;s not &quot;Everytime&quot;, it&#x27;s &quot;Every time&quot;
+                            //(for those who likes to correct others) :) :) :) :)
+                        
+                            rawFile.onreadystatechange = function() {
+                              if (rawFile.readyState === 4) {
+                                var replacement = &quot;&quot;;
+                        
+                                if (rawFile.status == &quot;200&quot;) replacement = rawFile.responseText;
+                                //If there is a problem recovering the file, we just replace the marker
+                                //with nothing
+                                sharedResult = sharedResult.replace(marker, replacement);
+                        
+                                mutex--;
+                                if (mutex === 0){
+                                  //When all files are being processed: browser!! behold, the code is coming
+                                  document.body.innerHTML = sharedResult;
+                                }
+                        
+                              }
+                            }
+                            rawFile.send(null);
+                          }
+                        
+                          //========================================================
+                          //                 SPECIAL FUNCTIONS
+                          //========================================================
+                        
+                          /**
+                           * Special function to process social media links
+                           * @method process_social
+                           * @param  {object} data     an object containing the name of the social network as a key and
+                           * the link as a value
+                           * @param  {string} template the HTML template to be replaced
+                           * @return {string}          the HTML content after replacement
+                           */
+                          function process_social(data, template){
+                            var replacement = &quot;&quot;;
+                            for (var ekey in data){ //element key
+                              replacement += &#x27;&lt;a href=&quot;&#x27; + data[ekey] + &#x27;&quot; id=&quot;&#x27; + ekey;
+                              replacement += &#x27;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&#x27;;
+                            }
+                            return template.replace(&quot;@{social%s}&quot;, replacement);
+                          }
+                        
+                        
+                        	function process_date(date, template, marker, pattern, months){
+                            //if(date.match(/[\d]{4}/)) return template;
+                        
+                        		//console.log(marker + &quot;&gt;&gt;&gt;&quot; + date);
+                        
+                        		var match = /([\d]{4})([\d]{2})?([\d]{2})?/g.exec(date);
+                        
+                        		if(!match) return template.replace(marker, date);
+                        
+                        		var yyyy = match[1];
+                        		var mm = (match[2])? match[2]: &quot;&quot;;
+                        		var dd = (match[3])? match[3]: &quot;&quot;;
+                        
+                        		//Process the month
+                        		if (mm.length &gt; 0){
+                        			var mmInt = parseInt(mm);
+                        			if(mm &lt; 1 || mm &gt; 12){
+                        				mm = &quot;01&quot;;
+                        			} else {
+                        				var monthDef = Object.prototype.toString.call(months);
+                        				if (monthDef === &#x27;[object Array]&#x27; &amp;&amp; months.length &gt; 11){
+                        					mm = months[mmInt-1];
+                        				}
+                        			}
+                        		}
+                        
+                        		//Process the year
+                        		pattern = pattern.replace(&quot;yyyy&quot;, yyyy);
+                        		pattern = pattern.replace(&quot;yy&quot;, yyyy.slice(2));
+                        
+                        		pattern = pattern.replace(&quot;mm&quot;, mm);
+                        		pattern = pattern.replace(&quot;dd&quot;, dd);
+                        
+                        		//console.log(&quot;date = &quot;, pattern);
+                        
+                            return template.replace(marker, pattern);
+                          }
+                        
+                        	function process_theme(value, template, marker, type){
+                        		//TODO other types
+                        		var rep = &#x27; &lt;div class=&quot;barc&quot;&gt;&#x27;;
+                        		var perc = parseInt(value) * 10; //persontage (scale = 10)
+                        		rep += &#x27;&lt;div class=&quot;bar&quot; style=&quot;width:&#x27; + perc + &#x27;%&quot;&gt;&#x27;
+                        		rep += &#x27;&lt;/div&gt;&lt;/div&gt;&#x27;; //barc
+                        
+                        		//console.log(&quot;theme: &quot; + rep);
+                        		return template.replace(marker, rep);
+                        	}
+                        
+                        }());
+                        
+                        // THAT&#x27;S ALL!! ... THANK YOU FOR READING
+                        
+                            </pre>
+                        </div>
                     </div>
                 </div>
             </div>

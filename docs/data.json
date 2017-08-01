@@ -2,12 +2,12 @@
     "project": {
         "name": "jsonVCard API",
         "description": "json CV website",
-        "version": "0.3.0",
+        "version": "0.5.0",
         "url": "https://github.com/kariminf/jsonVCard"
     },
     "files": {
-        "docs/assets/vendor/bootstrap/js/bootstrap.min.js": {
-            "name": "docs/assets/vendor/bootstrap/js/bootstrap.min.js",
+        "docs/assets/vendor/github-slugger/slugger.js": {
+            "name": "docs/assets/vendor/github-slugger/slugger.js",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -37,7 +37,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "jsonvcard.js",
-            "line": 40,
+            "line": 34,
             "description": "Provides the scripts to generate a CV"
         }
     },
@@ -53,7 +53,7 @@
             "module": "jsonvcard",
             "namespace": "",
             "file": "jsonvcard.js",
-            "line": 40,
+            "line": 34,
             "description": "This class doesn't do anything, it is here just to force YuiDoc\ngenerating the documentation",
             "is_constructor": 1
         }
@@ -61,23 +61,48 @@
     "elements": {},
     "classitems": [
         {
-            "file": "docs/assets/vendor/bootstrap/js/bootstrap.min.js",
-            "line": 1,
-            "description": "Bootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
+            "file": "docs/assets/vendor/github-slugger/slugger.js",
+            "line": 12,
+            "description": "Generate a unique slug.",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "String of text to slugify",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "A unique slug string",
+                "type": "String"
+            },
+            "class": "JsonVCard"
+        },
+        {
+            "file": "docs/assets/vendor/github-slugger/slugger.js",
+            "line": 37,
+            "description": "Reset - Forget all previous slugs",
+            "return": {
+                "description": "void"
+            },
             "class": "JsonVCard"
         },
         {
             "file": "jsonvcard.js",
-            "line": 79,
+            "line": 65,
             "description": "Initialization of process; this method searches for \"vcard.json\"\nin the javascript location \"jsonvcard.js\".\nThen when retrieved, it sends its content as a string to process(json)\nWhere it will be processed",
-            "itemtype": "method",
-            "name": "init",
+            "params": [
+                {
+                    "name": "jsonURL",
+                    "description": "The location of json file",
+                    "type": "String"
+                }
+            ],
             "class": "JsonVCard",
             "module": "jsonvcard"
         },
         {
             "file": "jsonvcard.js",
-            "line": 101,
+            "line": 87,
             "description": "This method parses the json content",
             "itemtype": "method",
             "name": "processJSON",
@@ -93,7 +118,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 133,
+            "line": 122,
             "description": "This function is used to initiate the process of binding the\ndata with the template",
             "itemtype": "method",
             "name": "cookTemplate",
@@ -114,7 +139,25 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 152,
+            "line": 138,
+            "description": "Save all template defined variables in a global variable called vars",
+            "params": [
+                {
+                    "name": "template",
+                    "description": "the HTML template used to create the final HTML code",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the HTML template after deliting variables",
+                "type": "String"
+            },
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 204,
             "description": "Process a theme element (json) which has a name and a style",
             "itemtype": "method",
             "name": "processTheme",
@@ -134,7 +177,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 185,
+            "line": 237,
             "description": "Link a stylsheet to the current document",
             "itemtype": "method",
             "name": "addStyleSheet",
@@ -150,7 +193,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 213,
+            "line": 265,
             "description": "Process an object which contains many elements in it",
             "itemtype": "method",
             "name": "processObject",
@@ -180,7 +223,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 239,
+            "line": 291,
             "description": "Process the data of an object. It detects if the data is\nan object, a list of elements or a simple element",
             "itemtype": "method",
             "name": "processData",
@@ -210,7 +253,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 301,
+            "line": 376,
             "description": "Process the data of an array.\nIt recovers the begining and ending of this array in the template.\nThen, it pushes each element of the array into that area.",
             "itemtype": "method",
             "name": "processArray",
@@ -240,7 +283,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 353,
+            "line": 428,
             "description": "Process the files stored in a global variable (files) while processing\nthe json data and the template",
             "itemtype": "method",
             "name": "processFiles",
@@ -249,7 +292,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 366,
+            "line": 441,
             "description": "Read a file and push the content into its reserved area in the template.\nHere, the content is pushed into a global variable containing the template.\nWe can't use the template as an argument, nor return the merged html, because\nthe files call is asynchronious. <br>\nA mutex is used so the html code is pushed into the browser once all the\nfiles are being processed",
             "itemtype": "method",
             "name": "readFile",
@@ -270,7 +313,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 412,
+            "line": 487,
             "description": "Special function to process social media links",
             "itemtype": "method",
             "name": "process_social",
@@ -296,8 +339,20 @@
     ],
     "warnings": [
         {
-            "message": "Missing item type\nBootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
-            "line": " docs/assets/vendor/bootstrap/js/bootstrap.min.js:1"
+            "message": "Missing item type\nGenerate a unique slug.",
+            "line": " docs/assets/vendor/github-slugger/slugger.js:12"
+        },
+        {
+            "message": "Missing item type\nReset - Forget all previous slugs",
+            "line": " docs/assets/vendor/github-slugger/slugger.js:37"
+        },
+        {
+            "message": "Missing item type\nInitialization of process; this method searches for \"vcard.json\"\nin the javascript location \"jsonvcard.js\".\nThen when retrieved, it sends its content as a string to process(json)\nWhere it will be processed",
+            "line": " jsonvcard.js:65"
+        },
+        {
+            "message": "Missing item type\nSave all template defined variables in a global variable called vars",
+            "line": " jsonvcard.js:138"
         }
     ]
 }

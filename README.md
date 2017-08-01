@@ -2,7 +2,7 @@
 
 [![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Version](https://img.shields.io/badge/Version-0.3.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
+[![Version](https://img.shields.io/badge/Version-0.5.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
@@ -23,7 +23,7 @@ The goal of this project is:
 * Generate dynamically a CV from a json file, without being forced to generate static webpages everytime you modify an information.
 * Modify the style of your CV using a template and a stylesheet.
 
-See a demo [here](https://kariminf.github.io/jsonVCard/)
+See a demo [here](https://kariminf.github.io/json-vcard/)
 
 ## How it works
 
@@ -38,63 +38,16 @@ This can be done using javascript ("jsonvcard.js") which is called as follows:
   <script type="text/javascript" src="jsonvcard.js" ></script>
 </head>
 <body>
+  <script>JsonVCard.init("./vcard.json");</script>
 </body>
 </html>
 ```
-The json file ("jsoncard.js") must be in the same folder as the script ("jsonvcard.js").
+The json file ("vcard.json") must be in the same folder as the script ("jsonvcard.js").
 It contains information about the one for whom we want to generate a CV.
-This is an enumeration of the different entries:
-* theme: contains information about the theme used to present the page
-  * name: the name of the theme
-  * style: the style applied to this theme
+it is self explanatory and easy to fill.
 
-* perso: personal information
-  * name: the first name
-  * family: the last name
-  * photo: a link to profile photo
-  * birthday: birthday in the format "yyyymmdd"
-  * email: a list of email addresses
-  * tel: a list of phone numbers
-  * web: web-page link
-  * address: the address of your home or office
-  * title: Your current title
-  * bio: a link to an HTML file containing a little biography
+For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json-vcard/docs/)
 
-* social: social networks such as "facebook", "twitter", "linkedin"and "gplus"
-
-* exp: a list of experiences, where each contains these information:
-  * from : a date formated as "yyyymmdd"
-  * to: a date formated as "yyyymmdd"
-  * job: the job title
-  * org: where did you work
-  * resp: responsibilities which is a list of strings
-  * desc: a link to a description of the job
-
-* educ: a list of education experiences, where each one contains:
-  * from : a date formated preferably as "yyyymmdd"
-  * to: a date formated preferably as "yyyymmdd"
-  * inst: the institution
-  * desc: a link to a description of the studies
-
-* pub: a list of publications, where each one contains:
-  * title: publication title
-  * publisher: the publisher
-  * date: date of publication as "yyyymmdd"
-  * url: a link to the publication
-  * authors: a list of authors
-  * desc: a link to a description of the publication
-
-* skill: a list of skills
-  * title: the name of the skill
-  * mark: a number from 1 to 10 expressing how experienced you are
-
-* lang: a list of natural languages, where each contains
-  * name: the language's name
-  * read: a number from 1 to 10 expressing your capacity of reading
-  * write: a number from 1 to 10 expressing your capacity of writing
-  * ustnd: a number from 1 to 10 expressing your capacity of understanding
-
-For Javascript methods, check [this YuiDoc generated documentation](docs/index.html)
 ## Credits
 
 * Me: for may hair became as white as snow programming this

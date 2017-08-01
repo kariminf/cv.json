@@ -18,5 +18,9 @@
     "*.html",
     "themes/*"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "yuidoc-ember-theme": "^1.4.0",
+    "yuidoc-lucid-theme": "^0.1.2",
+    "yuidoc-marviq-theme": "^0.1.5"
+  }
 }
