@@ -1,7 +1,7 @@
 /*************************************************************/
-.kfs, #header, #info, #bio, #cont .elem, #social .wrapper {
+.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper, #footer {
   border-radius: 5px;
-  border: 2px solid DarkViolet;
+  border: 2px solid black;
 }
 
 .kfs {
@@ -20,7 +20,7 @@
 
 .kfs > h1 {
   font: 1em normal;
-  color: DarkViolet;
+  color: black;
   margin: -1.25em -0.5em 0;
 }
 
@@ -45,7 +45,7 @@
 .kfs > h1 > span{
   padding: 5px;
   border-radius: 5px;
-  box-shadow: 0 0 0 2px DarkViolet;
+  box-shadow: 0 0 0 2px black;
   margin-left: 1em;
   background-color: white;
 }
@@ -96,15 +96,19 @@
 
 #name, #family, #title {
   text-transform: capitalize;
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px white;
   font-weight: bold;
-  color: DarkViolet;
+  color: black;
   margin-left: 5px;
 }
 
 #title {
   text-transform:uppercase;
   margin: 10px;
+}
+
+#cont :not(#skill) .elem {
+  width: calc( 100% - 20px);
 }
 
 #cont .elem {
@@ -120,7 +124,7 @@
   margin: 3px 0 0 10px;
 }
 
-#info > .elem:not(#title):not(#birth)::before {
+#info > .icons .elem::before {
   display:inline-block;
   height: 1em;
   width: 1em;
@@ -128,6 +132,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 10px;
+  filter: grayscale(100%) contrast(200%);
 }
 
 #mail::before{
@@ -157,12 +162,15 @@
   text-align: center;
 }
 
+a {color: black;}
+
 #scontent a {
   display: inline-block;
   width: 64px;
   height: 64px;
   margin: 5px;
   border: 0;
+  filter: grayscale(100%) contrast(200%);
 }
 
 #scontent a:hover {
@@ -186,9 +194,61 @@
   background-image: url("../img/violet/gplus.png");
 }
 
+.barc {
+  display: inline-block;
+  width: 10em;
+  background-color: grey;
+  height: 1em;
+}
+
+.bar {
+  display: inline-block;
+  background-color: black;
+  height: 100%;
+}
+
+#footer {
+  height: 3em;
+  border: 5px;
+  padding-top: 1em;
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+}
+
+#footer a {
+  color: yellow;
+}
+
+.elem .name {
+  font-weight: bold;
+  color: black;
+}
+
+.date, .org {
+  font-style: italic;
+  font-weight: bold;
+}
+
+#pub tr:nth-child(odd) {
+  background: grey;
+}
+
+.desc {
+  font-size: .8em;
+  font-style: italic;
+}
+
+#educ .field, .org {
+  font-style: italic;
+  margin-left: 1em;
+}
+
+
 @media only screen and (min-width: 768px) {
 
-  #info, #bio {
+  #info{
     display:block;
     vertical-align: top;
     height: 11em;
@@ -197,14 +257,23 @@
   #bio {
     float: right;
     width: 40%;
-    width: calc(50% - 3.25em - 25px);
+    width: calc(50% - 4em - 25px);
+    height: 13.75em;
     overflow-y:scroll;
     overflow-x:hidden;
   }
 
-  #cont .elem {
+  #cont :not(#skill):not(#lang) .elem {
     width: 46%;
     width: calc(50% - 1.5em);
+  }
+
+  #cont #skill .elem {
+    width: initial;
+  }
+
+  #lang .read, #lang .write, #lang .ustnd {
+    display: inline-block;
   }
 
   #name, #family {

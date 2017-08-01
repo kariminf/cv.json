@@ -124,7 +124,7 @@
   margin: 3px 0 0 10px;
 }
 
-#info > .elem:not(#title):not(#birth)::before {
+#info > .icons .elem::before {
   display:inline-block;
   height: 1em;
   width: 1em;

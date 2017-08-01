@@ -1,8 +1,8 @@
 # jsonVCard
 
-[![Project](https://img.shields.io/badge/Project-json-VCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
-[![Version](https://img.shields.io/badge/Version-0.3.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
+[![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![Version](https://img.shields.io/badge/Version-0.3.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
@@ -16,6 +16,7 @@ As consequences:
 * The application can be hosted widely and doesn't need any special
 * The page is built locally and dynamically in the user side
 * The themes can be changed easily without
+* Most importantly, the user doesn't have to program anything
 
 
 The goal of this project is:

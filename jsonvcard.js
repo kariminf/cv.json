@@ -547,7 +547,7 @@ limitations under the License.
 		rep += '<div class="bar" style="width:' + perc + '%">'
 		rep += '</div></div>'; //barc
 
-		console.log("theme: " + rep);
+		//console.log("theme: " + rep);
 		return template.replace(marker, rep);
 	}
 
