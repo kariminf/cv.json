@@ -24,6 +24,13 @@ limitations under the License.
  */
 (function(){
 
+	if ( typeof module === "object" && module && typeof module.exports === "object" ) {
+		module.exports = JsonVCard;
+	} else {
+		window.JsonVCard = JsonVCard;
+	}
+
+
   /**
 	* This class doesn't do anything, it is here just to force YuiDoc
 	* generating the documentation
@@ -56,17 +63,6 @@ limitations under the License.
   //========================================================
 
 
-  //When the document is loaded, we call the init() function
-  //This will allow us to create the page locally
-  document.addEventListener('DOMContentLoaded', function () {
-    init();
-  });
-
-  //TODO If I want more configurability, I should delete the listener,
-  //then pass the URL of vcard.json as a parameter in init(jsonURL)
-  //In HTML page, the user have to add just
-  // <script>init(theURLof_json);</script> just before </body>
-
   /**
   * Initialization of process; this method searches for "vcard.json"
   * in the javascript location "jsonvcard.js".
@@ -74,7 +70,7 @@ limitations under the License.
   * Where it will be processed
   * @method init
   */
-  function init(){
+  JsonVCard.init = function (jsonFile){
     var jsonFile = new XMLHttpRequest();
     jsonFile.overrideMimeType("application/json");
     jsonFile.open("GET", "./vcard.json", true);
