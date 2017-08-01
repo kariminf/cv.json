@@ -1,6 +1,5 @@
 .directory
 *.log
-yarn.lock
 
 #yuido out folder
 out
@@ -39,8 +38,7 @@ jspm_packages
 .eslintcache
 
 # Optional REPL history
-.node_repl_history 
+.node_repl_history
 
 #unpkg minified files folder
 dist
-

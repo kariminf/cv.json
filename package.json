@@ -1,6 +1,6 @@
 {
   "name": "jsonVCard",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "VCard dynamically created from a json file and a template",
   "main": "jsonvcard.js",
   "keywords": [
@@ -8,15 +8,15 @@
     "vcard",
     "json"
   ],
-  "repository": "https://github.com/kariminf/jsonVCard.git",
+  "repository": "https://github.com/kariminf/json-vcard.git",
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
   "license": "Apache-2.0",
   "files": [
     "jsonvcard.js",
-    "bio.txt",
+    "*.txt",
     "vcard.json",
-    "index.html",
-    "styles/*"
+    "*.html",
+    "themes/*"
   ],
   "dependencies": {}
 }

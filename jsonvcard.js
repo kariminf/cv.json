@@ -94,14 +94,17 @@ limitations under the License.
     //transform the json text into an object
     var data = JSON.parse(json);
 
-    //Change the title of the webpage
-    //TODO may be I should give this to user
-    document.title = data.perso.name + " " + data.perso.family;
+    if (data.page && data.page.title){
+			document.title = data.page.title;
+		}else{
+			document.title = data.perso.name + " " + data.perso.family;
+		}
+
 
     //Here, we process the theme specified by user
     //It will link the css to the original HTML
     //and recover the URL of the template on which we work
-    var templateURL = processTheme(data.theme);
+    var templateURL = processTheme(data.page);
 
     var templateFile = new XMLHttpRequest();
     templateFile.responseType = 'text';
@@ -212,16 +215,16 @@ limitations under the License.
    * @return {string} path to the template constructed from the theme name, or
    * the dafault one
    */
-  function processTheme(theme){
+  function processTheme(page){
 
     //Set defaults
     var themePath = "./themes/default/";
-    var style = "default.css";
+    var style = "violet.css";
 
     //Verify if the values are defined by user
-    if (typeof theme.name !== 'undefined'){
-      themePath = "./themes/" + theme.name + "/";
-      if (typeof theme.style !== 'undefined') style = theme.style + ".css";
+    if (page){
+      if (page.theme) themePath = "./themes/" + page.theme + "/";
+      if (page.style) style = page.style + ".css";
     }
 
     //Call a function to link the stylesheet with the HTML content

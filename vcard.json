@@ -1,7 +1,8 @@
 {
-  "theme": {
-    "name": "default",
-    "style": "default",
+  "page": {
+    "theme": "default",
+    "style": "violet",
+    "title": "Exemple VCard",
     "footer": "footer.htm"
   },
   "perso": {
