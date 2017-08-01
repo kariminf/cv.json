@@ -6,7 +6,7 @@
   "options": {
     "linkNatives": "true",
     "ignorePaths": [ "docs", "themes", ".git" ],
-    "outdir": "./docs",
+    "outdir": "./docs/docs",
     "themedir": "node_modules/yuidoc-marviq-theme",
     "helpers": ["node_modules/yuidoc-marviq-theme/helpers/helpers.js"]
   }

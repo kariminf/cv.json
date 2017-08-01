@@ -17,19 +17,30 @@ Technically speaking:
 * Create many themes.
 
 As consequences:
-* The application can be hosted widely and doesn't need any special
-* The page is built locally and dynamically in the user side
+* The application can be hosted widely and doesn't need any special server configuration
+* The page is built locally and dynamically in the user's side
 * The themes can be changed easily without
 * Most importantly, the user doesn't have to program anything
-
-
-The goal of this project is:
-* Generate dynamically a CV from a json file, without being forced to generate static webpages everytime you modify an information.
-* Modify the style of your CV using a template and a stylesheet.
 
 See a demo [here](https://kariminf.github.io/json-vcard/)
 
 ## How it works
+
+The HTML file doesn't contain anything at all. It just calls for the script which will do the calls.
+
+![GitHub Logo](/docs/img/json-vcard.png)
+
+1. The browser will download the index file
+1. Then, it downloads the script
+1. The script will download the json file, and wait till it is fully downloaded to pass to the next step.
+1. It will looks for the theme template (html) and the style (css) specified in the json file
+1. The style is applied to the document
+1. The script will then merge the template and the information in the json file
+1. If there are some files, the script will download them asynchronously
+1. When the script receive response from each wanted file it will merge its content into the template
+1. Finaly, when all the wanted files has responded, the script pushed the merged content into the body of the page
+
+# How to use
 
 By introducing information inside a json file ("vcard.json"), you can generate a Vcard webpage (CV).
 This can be done using javascript ("jsonvcard.js") which is called as follows:
@@ -50,11 +61,10 @@ The json file ("vcard.json") must be in the same folder as the script ("jsonvcar
 It contains information about the one for whom we want to generate a CV.
 it is self explanatory and easy to fill.
 
-For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json-vcard/docs/)
+For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json-vcard/docs/docs/)
 
 ## Credits
 
-* Me: for may hair became as white as snow programming this
 * [Zlatko Najdenovski](https://www.iconfinder.com/zlaten): for the social media icons called  
 [logotypes](https://www.iconfinder.com/iconsets/logotypes), licenced under [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/)
 * https://commons.wikimedia.org/wiki/File:Phone_icon_rotated.svg
