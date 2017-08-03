@@ -1,6 +1,6 @@
-@{months%v:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]}
+@{months%v:["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."]}
 @{date1%f:date("mm dd, yyyy", vars.months)}
-@{date2%f:date("mm/yy")}
+@{date2%f:date("mm yyyy", vars.months)}
 @{theme1%f:theme("bar")}
 <div id="header">
   <div id="hcont">
@@ -40,6 +40,7 @@
 
     <div id="exp" class="kfs">
       <h1><span>Experiance</span></h1>
+      <div class="wrapper">
       @{exp%bb}
       <div class="elem">
         <div class="date">From @{exp.from%s.date2} To @{exp.to%s.date2}</div>
@@ -56,9 +57,11 @@
       </div>
       @{exp%be}
     </div>
+    </div>
 
     <div id="educ" class="kfs">
       <h1><span>Education</span></h1>
+      <div class="wrapper">
       @{educ%bb}
       <div class="elem">
         <div class="date">From @{educ.from%s.date2} To @{educ.to%s.date2}</div>
@@ -69,9 +72,11 @@
       </div>
       @{educ%be}
     </div>
+    </div>
 
     <div id="pub" class="kfs">
       <h1><span>Publication</span></h1>
+      <div class="wrapper">
       @{pub%bb}
       <div class="elem">
         <table>
@@ -101,7 +106,9 @@
           </tr>
         </table>
       </div>
+      <div class="desc">@{pub.desc%r}</div>
       @{pub%be}
+    </div>
     </div>
 
     <div id="skill" class="kfs">

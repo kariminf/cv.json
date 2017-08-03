@@ -272,6 +272,10 @@ a {color: black;}
     width: initial;
   }
 
+  #cont .kfs .wrapper {
+    display: flex;
+  }
+
   #lang .read, #lang .write, #lang .ustnd {
     display: inline-block;
   }
