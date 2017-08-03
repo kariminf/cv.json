@@ -533,14 +533,24 @@ limitations under the License.
 		//Process the month
 		if (mm.length > 0){
 			var mmInt = parseInt(mm);
-			if(mm < 1 || mm > 12){
-				mm = "01";
-			} else {
-				var monthDef = Object.prototype.toString.call(months);
-				if (monthDef === '[object Array]' && months.length > 11){
-					mm = months[mmInt-1];
-				}
+			if(mmInt < 1 || mmInt > 12){
+				mmInt = 1;
 			}
+			var monthDef = Object.prototype.toString.call(months);
+			if (monthDef === '[object Array]' && months.length > 11){
+				mm = months[mmInt-1];
+			}
+			pattern = pattern.replace("[", "");
+			pattern = pattern.replace("]", "");
+		} else {
+			pattern = pattern.replace(/\[[^\]]*\]/g, "");
+		}
+
+		if (dd.length < 2){
+			pattern = pattern.replace(/\<[^\>]*\>/g, "");
+		} else {
+			pattern = pattern.replace("<", "");
+			pattern = pattern.replace(">", "");
 		}
 
 		//Process the year
