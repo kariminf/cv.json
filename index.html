@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test portfelio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="json-vcard/jsonvcard.js" ></script>
+</head>
+<body>
+  <script>
+  JsonVCard.setStyleName("violet")
+    .setRelativePath("json-vcard/")
+    .setThemesPath("json-vcard/themes/")
+    .setFooter("footer.htm")
+    .process("json-vcard/vcard.json");
+  </script>
+</body>
+</html>

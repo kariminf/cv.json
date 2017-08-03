@@ -2,10 +2,11 @@
 @{date1%f:date("mm[ dd<, >]yyyy", vars.months)}
 @{date2%f:date("mm[/]yyyy", vars.months)}
 @{theme1%f:theme("bar")}
+@{rel%f:relative}
 <div id="header">
   <div id="hcont">
     <div id="pic-frm">
-      <img src="@{perso.photo}" id="pic" ></img>
+      <img src="@{perso.photo%s.rel}" id="pic" ></img>
     </div>
     <div id="info">
       <div id="fullname" class="elem">

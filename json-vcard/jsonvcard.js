@@ -66,19 +66,26 @@ limitations under the License.
 	var themesPath = "./themes/";
 	var themePath = themesPath + "default/";
 	var style = "violet.css";
+	var relPath = "./";
 
 
-	JsonVCard.setThemesPath = function (path){
+	JsonVCard.setThemesPath = function(path){
 		themesPath = path;
+		themePath = themesPath + "default/";
 		return JsonVCard;
 	}
 
-	JsonVCard.setThemeName = function (name){
+	JsonVCard.setRelativePath = function(path){
+		relPath = path;
+		return JsonVCard;
+	}
+
+	JsonVCard.setThemeName = function(name){
 		themePath = themesPath + name + "/";
 		return JsonVCard;
 	}
 
-	JsonVCard.setStyleName = function (name){
+	JsonVCard.setStyleName = function(name){
 		style = name + ".css";
 		return JsonVCard;
 	}
@@ -375,7 +382,7 @@ limitations under the License.
     //we add this file to the files list to be processed lately
     {
 			var marker = "@{" + key + "%r}";
-			if (result.indexOf(marker) >= 0) files.push({"marker": marker, "url": value});
+			if (result.indexOf(marker) >= 0) files.push({"marker": marker, "url": resolveURL(value)});
 		}
 
     //We create a RegEx element to replace parts of the template
@@ -495,6 +502,16 @@ limitations under the License.
     rawFile.send(null);
   }
 
+	function resolveURL(url){
+		url = url.trim();
+		if (/^https?/.test(url)) return url;
+
+		if(url.startsWith("./")) url = url.chop(2);
+		else if(url.startsWith("/")) url = url.chop(1);
+
+		return relPath + url;
+	}
+
   //========================================================
   //                 SPECIAL FUNCTIONS
   //========================================================
@@ -574,6 +591,10 @@ limitations under the License.
 
 		//console.log("theme: " + rep);
 		return template.replace(marker, rep);
+	}
+
+	function process_relative(value, template, marker){
+		return template.replace(marker, resolveURL(value));
 	}
 
 }());
