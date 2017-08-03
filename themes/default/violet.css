@@ -204,9 +204,9 @@
 }
 
 #footer {
-  height: 3em;
+  height: 2em;
   border: 5px;
-  padding-top: 1em;
+  padding-top: .75em;
   text-align: center;
   background-color: DarkViolet;
   color: white;

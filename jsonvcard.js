@@ -62,14 +62,41 @@ limitations under the License.
   //                      INITIALIZERS
   //========================================================
 
+
+	var themesPath = "./themes/";
+	var themePath = themesPath + "default/";
+	var style = "violet.css";
+
+
+	JsonVCard.setThemesPath = function (path){
+		themesPath = path;
+		return JsonVCard;
+	}
+
+	JsonVCard.setThemeName = function (name){
+		themePath = themesPath + name + "/";
+		return JsonVCard;
+	}
+
+	JsonVCard.setStyleName = function (name){
+		style = name + ".css";
+		return JsonVCard;
+	}
+
+	JsonVCard.setFooter = function (url){
+		files.push({"marker": "@{page.footer%r}", "url": url});
+		return JsonVCard;
+	}
+
  	/**
  	 * Initialization of process; this method searches for "vcard.json"
    * in the javascript location "jsonvcard.js".
    * Then when retrieved, it sends its content as a string to process(json)
    * Where it will be processed
+   * @method process
  	 * @param  {string} jsonURL The location of json file
  	 */
-  JsonVCard.init = function (jsonURL){
+  JsonVCard.process = function (jsonURL){
     var jsonFile = new XMLHttpRequest();
     jsonFile.overrideMimeType("application/json");
     jsonFile.open("GET", jsonURL, true);
@@ -80,6 +107,7 @@ limitations under the License.
       }
     }
     jsonFile.send(null);
+		return JsonVCard;
   }// end init()
 
 
@@ -93,13 +121,6 @@ limitations under the License.
 
     //transform the json text into an object
     var data = JSON.parse(json);
-
-    if (data.page && data.page.title){
-			document.title = data.page.title;
-		}else{
-			document.title = data.perso.name + " " + data.perso.family;
-		}
-
 
     //Here, we process the theme specified by user
     //It will link the css to the original HTML
@@ -123,6 +144,7 @@ limitations under the License.
    * This function is used to initiate the process of binding the
    * data with the template
    * @method cookTemplate
+   * @private
    * @param  {object} data     the data structure recovered from json file
    * @param  {string} template the HTML template used to create the final HTML code
    */
@@ -137,6 +159,9 @@ limitations under the License.
 
 	/**
 	 * Save all template defined variables in a global variable called vars
+	 * @method getVariables
+	 * @private
+	 * @static
 	 * @param  {string} template the HTML template used to create the final HTML code
 	 * @return {string}          the HTML template after deliting variables
 	 */
@@ -164,6 +189,13 @@ limitations under the License.
 		return html;
 	}
 
+	/**
+	 * @method getFunctions
+	 * @private
+	 * @static
+	 * @param  {[type]} template [description]
+	 * @return {[type]}          [description]
+	 */
 	function getFunctions(template){
 		var html = template;
 
@@ -204,29 +236,12 @@ limitations under the License.
   /**
    * Process a theme element (json) which has a name and a style
    * @method processTheme
-   * @param  {object} theme object of two strings: theme name and style name.
-   * It's format is as follows:
-   *
-   *   {
-   *      "name": "",
-   *      "style": ""
-   *   }
-   *
+   * @private
+   * @static
    * @return {string} path to the template constructed from the theme name, or
    * the dafault one
    */
-  function processTheme(page){
-
-    //Set defaults
-    var themePath = "./themes/default/";
-    var style = "violet.css";
-
-    //Verify if the values are defined by user
-    if (page){
-      if (page.theme) themePath = "./themes/" + page.theme + "/";
-      if (page.style) style = page.style + ".css";
-    }
-
+  function processTheme(){
     //Call a function to link the stylesheet with the HTML content
     addStyleSheet(themePath + style);
 

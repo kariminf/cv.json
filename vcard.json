@@ -1,10 +1,4 @@
 {
-  "page": {
-    "theme": "default",
-    "style": "violet",
-    "title": "Exemple VCard",
-    "footer": "footer.htm"
-  },
   "perso": {
     "name":"firstname",
     "family":"familyname",

@@ -6,6 +6,10 @@
   <script type="text/javascript" src="jsonvcard.js" ></script>
 </head>
 <body>
-  <script>JsonVCard.init("./vcard.json");</script>
+  <script>
+  JsonVCard.setStyleName("violet")
+    .setFooter("footer.htm")
+    .process("./vcard.json");
+  </script>
 </body>
 </html>
