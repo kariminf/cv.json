@@ -68,28 +68,63 @@ limitations under the License.
 	var style = "violet.css";
 	var relPath = "./";
 
-
+	/**
+	 * specifies the themes path, in case the themes are not beside the html file
+	 * @static
+	 * @public
+	 * @method setThemesPath
+	 * @param {string} path the path
+	 */
 	JsonVCard.setThemesPath = function(path){
-		themesPath = path;
+		themesPath = path.trim();
+		if (! themesPath.endsWith("/")) themesPath += "/";
 		themePath = themesPath + "default/";
 		return JsonVCard;
 	}
 
+	/**
+	 * Specifies the relative path of the files called in json file
+	 * @public
+	 * @static
+	 * @method setRelativePath
+	 * @param {string} path the path
+	 */
 	JsonVCard.setRelativePath = function(path){
-		relPath = path;
+		relPath = path.trim();
+		if (! relPath.endsWith("/")) relPath += "/";
 		return JsonVCard;
 	}
 
+	/**
+	 * Specifies the theme name
+	 * @public
+	 * @static
+	 * @method setThemeName
+	 * @param {string} name the theme's name
+	 */
 	JsonVCard.setThemeName = function(name){
 		themePath = themesPath + name + "/";
 		return JsonVCard;
 	}
 
+	/**
+	 * Specifies the style name (the css)
+	 * @public
+	 * @static
+	 * @method setStyleName
+	 * @param {string} name the style's name
+	 */
 	JsonVCard.setStyleName = function(name){
 		style = name + ".css";
 		return JsonVCard;
 	}
 
+	/**
+	 * Sets the url to the footer (which is an html file with one line)
+	 * @public
+	 * @static
+	 * @param {[type]} url [description]
+	 */
 	JsonVCard.setFooter = function (url){
 		files.push({"marker": "@{page.footer%r}", "url": url});
 		return JsonVCard;
@@ -100,6 +135,8 @@ limitations under the License.
    * in the javascript location "jsonvcard.js".
    * Then when retrieved, it sends its content as a string to process(json)
    * Where it will be processed
+   * @public
+	 * @static
    * @method process
  	 * @param  {string} jsonURL The location of json file
  	 */
@@ -121,6 +158,8 @@ limitations under the License.
 
   /**
   * This method parses the json content
+  * @private
+	* @static
   * @method processJSON
   * @param  {string} json The content of JSON file
   */
@@ -150,8 +189,9 @@ limitations under the License.
   /**
    * This function is used to initiate the process of binding the
    * data with the template
-   * @method cookTemplate
    * @private
+ 	 * @static
+   * @method cookTemplate
    * @param  {object} data     the data structure recovered from json file
    * @param  {string} template the HTML template used to create the final HTML code
    */
@@ -166,9 +206,9 @@ limitations under the License.
 
 	/**
 	 * Save all template defined variables in a global variable called vars
-	 * @method getVariables
 	 * @private
 	 * @static
+	 * @method getVariables
 	 * @param  {string} template the HTML template used to create the final HTML code
 	 * @return {string}          the HTML template after deliting variables
 	 */
@@ -197,6 +237,11 @@ limitations under the License.
 	}
 
 	/**
+	 * Get all the function defined in the template
+	 *   @{func-name%f:special-func(parameters)}
+	 * For example:
+	 *   @{date1%f:date("yyyy-mm-dd")}
+	 *
 	 * @method getFunctions
 	 * @private
 	 * @static
@@ -258,6 +303,8 @@ limitations under the License.
 
   /**
    * Link a stylsheet to the current document
+   * @static
+   * @private
    * @method addStyleSheet
    * @param {string} url the URL of the tageted CSS
    */
@@ -286,6 +333,8 @@ limitations under the License.
 
   /**
    * Process an object which contains many elements in it
+   * @static
+   * @private
    * @method processObject
    * @param  {string} key      the name of this object, for example
    * <pre>
@@ -313,6 +362,8 @@ limitations under the License.
   /**
    * Process the data of an object. It detects if the data is
    * an object, a list of elements or a simple element
+   * @static
+   * @private
    * @method processData
    * @param  {string} key      the name or key of the element; for example "perso.name"
    * @param  {object} value    the value of the data: it may be an object, a list, or a simple element.
@@ -399,6 +450,8 @@ limitations under the License.
    * Process the data of an array.
    * It recovers the begining and ending of this array in the template.
    * Then, it pushes each element of the array into that area.
+   * @static
+   * @private
    * @method processArray
    * @param  {string} key      the name or key of the array; for example "skill"
    * @param  {object} data     the value of the data: it may be an object, a list, or a simple element.
@@ -450,6 +503,8 @@ limitations under the License.
   /**
    * Process the files stored in a global variable (files) while processing
    * the json data and the template
+   * @static
+   * @private
    * @method processFiles
    */
   function processFiles(){
@@ -467,6 +522,8 @@ limitations under the License.
    * the files call is asynchronious. <br>
    * A mutex is used so the html code is pushed into the browser once all the
    * files are being processed
+   * @static
+   * @private
    * @method readFile
    * @param  {string} marker the marker which defines where in the template the content
    * should be pushed
@@ -502,6 +559,14 @@ limitations under the License.
     rawFile.send(null);
   }
 
+	/**
+	 * Resolves the url; if it is relative it adds the prefix specified by
+	 * JsonVCard.setRelativePath
+	 * @static
+	 * @private
+	 * @param  {string} url the url
+	 * @return {string}     the url after processing
+	 */
 	function resolveURL(url){
 		url = url.trim();
 		if (/^https?/.test(url)) return url;
@@ -517,9 +582,14 @@ limitations under the License.
   //========================================================
 
   /**
-   * Special function to process social media links
+   * Special function (social) to process social media links.
+   * You can define a function in template.htm like this:
+   *    @{social%s}
+   *
+   * @private
+   * @static
    * @method process_social
-   * @param  {object} data     an object containing the name of the social network as a key and
+   * @param  {object} data   an object containing the name of the social network as a key and
    * the link as a value
    * @param  {string} template the HTML template to be replaced
    * @return {string}          the HTML content after replacement
@@ -533,7 +603,25 @@ limitations under the License.
     return template.replace("@{social%s}", replacement);
   }
 
-
+	/**
+	 * Special function (date) to process dates.
+   * You can define a function in template.htm like this:
+   *    @{months%v:["Jan.", ..., "Dec."]}
+   *    @{date%f:date("mm yyyy", vars.months)
+   * @static
+   * @private
+   * @method process_date
+	 * @param  {string} date     the date in the format "yyyymmdd", "yyyymm" or "yyyy"
+	 * @param  {string} template the HTML template to be replaced
+	 * @param  {string} marker   the marker which will be replaced in the template
+	 * @param  {string} pattern  the pattern using the words "yyyy", "yy", "mm", "dd".
+	 * The pattern uses also "<...>" which specifies the content which will be erased if there
+	 * is no days and "[]" which specifies the content related to month
+	 *     "mm[ dd<, >]yyyy"
+	 * @param  {array} months   array of 12 strings containing months names.
+	 * If this is given, the "mm" will be replaced with the equivalent month name in the array
+	 * @return {string}          the HTML content after replacement
+	 */
 	function process_date(date, template, marker, pattern, months){
     //if(date.match(/[\d]{4}/)) return template;
 
@@ -582,8 +670,23 @@ limitations under the License.
     return template.replace(marker, pattern);
   }
 
-	function process_theme(value, template, marker, type){
+	/**
+	 * Special function (mark) to process percentages.
+   * You can define a function in template.htm like this:
+   *    @{th1%f:theme("bar")}
+   * @static
+   * @private
+   * @method process_mark
+	 * @param  {string} value    a number from 1 to 10
+	 * @param  {string} template the HTML template to be replaced
+	 * @param  {string} marker   the marker which will be replaced in the template
+	 * @param  {string} type     the type of the theme, currently: "bar"
+	 * @return {string}          the HTML content after replacement
+	 */
+	function process_mark(value, template, marker, type){
 		//TODO other types
+		if (! value || value < 1) value = 1;
+		else if (value > 10) value = 10;
 		var rep = ' <div class="barc">';
 		var perc = parseInt(value) * 10; //persontage (scale = 10)
 		rep += '<div class="bar" style="width:' + perc + '%">'
@@ -593,6 +696,17 @@ limitations under the License.
 		return template.replace(marker, rep);
 	}
 
+	/**
+	 * Special function (relative) to process percentages.
+   * You can define a function in template.htm like this:
+   *    @{rel%f:relative}
+   *    ...
+   *    <a href="@{link%s:rel}"
+	 * @param  {string} value    the url to be processed
+	 * @param  {string} template the HTML template to be replaced
+	 * @param  {string} marker   the marker which will be replaced in the template
+	 * @return {string}          the HTML content after replacement
+	 */
 	function process_relative(value, template, marker){
 		return template.replace(marker, resolveURL(value));
 	}

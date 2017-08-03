@@ -9,9 +9,10 @@
   <script>
   JsonVCard.setStyleName("violet")
     .setRelativePath("json-vcard/")
-    .setThemesPath("json-vcard/themes/")
-    .setFooter("footer.htm")
-    .process("json-vcard/vcard.json");
+    .setThemesPath("json-vcard/themes/")/*Not affected by setRelativePath*/
+    .setStyleName("violet")
+    .setFooter("json-vcard/info/footer.htm") /*Not affected by setRelativePath*/
+    .process("json-vcard/vcard.json");/*Not affected by setRelativePath*/
   </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "name": "jsonVCard",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "VCard dynamically created from a json file and a template",
   "main": "jsonvcard.js",
   "keywords": [
@@ -12,11 +12,7 @@
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
   "license": "Apache-2.0",
   "files": [
-    "jsonvcard.js",
-    "*.txt",
-    "vcard.json",
-    "*.html",
-    "themes/*"
+    "json-vcard/"
   ],
   "dependencies": {
     "yuidoc-ember-theme": "^1.4.0",

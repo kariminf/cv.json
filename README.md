@@ -2,7 +2,7 @@
 
 [![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Version](https://img.shields.io/badge/Version-0.5.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
+[![Version](https://img.shields.io/badge/Version-0.6.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
@@ -40,6 +40,8 @@ The HTML file doesn't contain anything at all. It just calls for the script whic
 1. When the script receive response from each wanted file it will merge its content into the template
 1. Finaly, when all the wanted files has responded, the script pushed the merged content into the body of the page
 
+Check [the API](https://kariminf.github.io/json-vcard/docs/docs)
+
 # How to use
 
 By introducing information inside a json file ("vcard.json"), you can generate a Vcard webpage (CV).
@@ -50,15 +52,21 @@ This can be done using javascript ("jsonvcard.js") which is called as follows:
   <meta charset="UTF-8">
   <title>Test portfelio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="jsonvcard.js" ></script>
+  <script type="text/javascript" src="<link/to/jsonvcard.js>" ></script>
 </head>
 <body>
-  <script>JsonVCard.init("./vcard.json");</script>
+  <script>
+    JsonVCard.setStyleName("violet")
+      .setRelativePath("link/to/helper/files")
+      .setThemesPath("link/to/the/theme")/*Not affected by setRelativePath*/
+      .setThemeName("theme-name")/*must come after setThemesPath*/
+      .setFooter("link/to/footer.htm") /*Not affected by setRelativePath*/
+      .process("link/to/vcard.json");/*Not affected by setRelativePath*/
+  </script>
 </body>
 </html>
 ```
-The json file ("vcard.json") must be in the same folder as the script ("jsonvcard.js").
-It contains information about the one for whom we want to generate a CV.
+The json file ("vcard.json") contains information about the one for whom we want to generate a CV.
 it is self explanatory and easy to fill.
 
 For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json-vcard/docs/docs/)
