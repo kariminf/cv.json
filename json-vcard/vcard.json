@@ -9,7 +9,7 @@
     "web": "website",
     "address": "my address",
     "title": "Developper",
-    "bio": "bio.txt"
+    "bio": "info/bio.txt"
   },
   "social": {
     "facebook": "fb-acc",
@@ -27,7 +27,7 @@
         "responsability 1",
         "responsability 2"
       ],
-      "desc": "job1desc.txt"
+      "desc": "info/job1desc.txt"
     },
     {
       "from": "2012",
@@ -38,7 +38,7 @@
         "responsability 2_1",
         "responsability 2_2"
       ],
-      "desc": "url-description2"
+      "desc": "url-exp2"
     }
   ],
   "educ": [
@@ -48,7 +48,7 @@
       "inst": "Institution",
       "degree": "degree",
       "field": "field of study",
-      "desc": "url-description"
+      "desc": "url-educ1"
     }
   ],
   "pub": [
@@ -61,7 +61,7 @@
         "author 1",
         "author 2"
       ],
-      "desc": "url-description"
+      "desc": "url-pub1"
     }
 
   ],

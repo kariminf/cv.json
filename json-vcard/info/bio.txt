@@ -1,7 +1,21 @@
-This is an example of a long biography <br>
+<p>
+This is an example of a long biography.
 Usually, biographies are not that long, 
-but we want to test this case. <br><br>
+but we want to test this case. 
+</p>
+<p>
 You can use HTML here, and it will function.
 Since the owner is the responsible of the HTML content, 
 they must secure the files that allows such code.<br>
 So, use wisely :) :) :)
+</p>
+<p>
+You can use HTML here, tags like:
+<ul>
+<li> a </li>
+<li> b </li>
+<li> i </li>
+<li> p </li>
+<li> br </li>
+</ul>
+</p>

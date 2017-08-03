@@ -1,0 +1,8 @@
+<p>
+This is a job description<br>
+You can write a looooong description here. 
+Also, you can write HTML, and it will work. 
+</p>
+<p>
+It is recommended to use simple HTML tags such as "a", "p", etc. 
+</p>
