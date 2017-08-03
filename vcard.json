@@ -82,9 +82,7 @@
   "lang": [
     {
       "name": "lang-name",
-      "read": 5,
-      "write": 7,
-      "ustnd": 8
+      "mark": 5
     }
   ]
 
