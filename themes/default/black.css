@@ -351,7 +351,8 @@ a {color: black;}
     left: 8em;
     opacity: 0;
     height: 100%;
-    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
     width: 0;
     background-color: white;
     transition: opacity 1s ease;
