@@ -36,13 +36,12 @@ The HTML file doesn't contain anything at all. It just calls for the script whic
 
 1. The browser will download the index file
 1. Then, it downloads the script
-1. The script will download the json file, and wait till it is fully downloaded to pass to the next step.
-1. It will looks for the theme template (html) and the style (css) specified in the json file
-1. The style is applied to the document
+1. The script will download the css specified in the index file and apply it to the documznt
+1. It will download the template into a shared string
 1. The script will then merge the template and the information in the json file
 1. If there are some files, the script will download them asynchronously
-1. When the script receive response from each wanted file it will merge its content into the template
-1. Finaly, when all the wanted files has responded, the script pushed the merged content into the body of the page
+1. When the script receive response from a file it will merge its content into the template
+1. Finally, when all the wanted files has responded, the script pushed the merged content into the body of the page
 
 Check [the API](https://kariminf.github.io/json-vcard/docs/docs)
 
