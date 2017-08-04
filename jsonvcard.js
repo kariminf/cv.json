@@ -58,6 +58,8 @@ limitations under the License.
 	//This is used to keep the functions defined in the template
 	var fcts = {};
 
+	var complete = false;
+
   //========================================================
   //                      INITIALIZERS
   //========================================================
@@ -67,6 +69,16 @@ limitations under the License.
 	var themePath = themesPath + "default/";
 	var style = "violet.css";
 	var relPath = "./";
+
+	/**
+	 * To verify if the page is complete or not yet
+	 * @static
+	 * @public
+	 * @return {Boolean} true if the page rendering is completed
+	 */
+	JsonVCard.isComplete = function(){
+		return complete;
+	}
 
 	/**
 	 * specifies the themes path, in case the themes are not beside the html file
@@ -513,6 +525,12 @@ limitations under the License.
 			//console.log("file marker: ", file.marker, ", url= ", file.url);
       readFile(file.marker, file.url);
     }
+
+		//in case no file has been called
+		if (mutex === 0){
+			complete = true;
+		}
+
   }
 
   /**
@@ -530,14 +548,13 @@ limitations under the License.
    * @param  {string} url    the URL where to find the file
    */
   function readFile(marker, url){
-    var rawFile = new XMLHttpRequest();
-    rawFile.responseType = 'text';
-    rawFile.open("GET", url, true);
-
-    //Every time we call a file, we increment the mutex
+		//Every time we call a file, we increment the mutex
     mutex++; //how much files are in process
     //PS: it's not "Everytime", it's "Every time"
     //(for those who likes to correct others) :) :) :) :)
+    var rawFile = new XMLHttpRequest();
+    rawFile.responseType = 'text';
+    rawFile.open("GET", url, true);
 
     rawFile.onreadystatechange = function() {
       if (rawFile.readyState === 4) {
@@ -552,6 +569,7 @@ limitations under the License.
         if (mutex === 0){
           //When all files are being processed: browser!! behold, the code is coming
           document.body.innerHTML = sharedResult;
+					complete = true;
         }
 
       }
@@ -673,7 +691,9 @@ limitations under the License.
 	/**
 	 * Special function (mark) to process percentages.
    * You can define a function in template.htm like this:
+   * <pre>
    *    @{th1%f:theme("bar")}
+   * </pre>
    * @static
    * @private
    * @method process_mark

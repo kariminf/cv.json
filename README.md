@@ -1,8 +1,12 @@
-# jsonVCard
+# json-vcard
+
+[![NPM](https://nodei.co/npm/json-vcard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/json-vcard/)
 
 [![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Version](https://img.shields.io/badge/Version-0.6.0-FDEE00.svg)](https://github.com/kariminf/json-vcard/releases)
+[![Version](https://img.shields.io/npm/v/json-vcard.svg)](https://www.npmjs.com/package/json-vcard)
+[![Travis](https://img.shields.io/travis/kariminf/json-vcard.svg)](https://travis-ci.org/kariminf/json-vcard)
+[![npm](https://img.shields.io/npm/dt/json-vcard.svg)](https://www.npmjs.com/package/json-vcard)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
@@ -42,7 +46,7 @@ The HTML file doesn't contain anything at all. It just calls for the script whic
 
 Check [the API](https://kariminf.github.io/json-vcard/docs/docs)
 
-# How to use
+## How to use
 
 By introducing information inside a json file ("vcard.json"), you can generate a Vcard webpage (CV).
 This can be done using javascript ("jsonvcard.js") which is called as follows:
@@ -71,11 +75,32 @@ it is self explanatory and easy to fill.
 
 For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json-vcard/docs/docs/)
 
-## Credits
+### Download from Github
 
-* [Zlatko Najdenovski](https://www.iconfinder.com/zlaten): for the social media icons called  
-[logotypes](https://www.iconfinder.com/iconsets/logotypes), licenced under [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/)
-* https://commons.wikimedia.org/wiki/File:Phone_icon_rotated.svg
+* Download the last release [HERE](/releases/latest)
+* Extract the files in your project
+* Modify index.html
+* Modify vcard.json
+
+### Download from Npm
+
+In your project tree, tape this command line to download the latest version to "node_modules":
+```bash
+npm install json-vcard
+node node_modules/json-vcard/install.js
+```
+All needed files will be copied to the root (where the shell is positioned)
+* Modify index.html
+* Modify vcard.json
+
+## Community
+
+All the C's are here:
+
+* [CODE_OF_CONDUCT](./CONTRIBUTING.md) : How to contribute to this project
+* [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) : Some recommendations must be followed for a healthy development environment.
+* Changelog: [CHANGELOG.md](./CHANGELOG.md) : Changes in every version
+* Credits: [CREDITS.md](./CREDITS.md) : List of contributors
 
 ## License
 

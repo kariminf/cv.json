@@ -1,6 +1,6 @@
 {
   "name": "json-vcard",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "VCard dynamically created from a json file and a template",
   "main": "jsonvcard.js",
   "keywords": [
@@ -12,6 +12,15 @@
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
   "license": "Apache-2.0",
   "files": [
-    "json-vcard/*"
-  ]
+    "index.html",
+    "jsonvcard.js",
+    "install.js",
+    "profile.jpg",
+    "vcard.json",
+    "themes",
+    "info"
+  ],
+  "dependencies": {
+    "ncp": "^2.0.0"
+  }
 }

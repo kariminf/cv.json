@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+- '7'
+deploy:
+  provider: npm
+  email: kariminfo0@gmail.com
+  api_key:
+    secure: GxyL45MvKIVDtlduvRHFOV8tURjS8deUbw62xrAKSMh2Gdy2SWnSdw+x4i+F1/WyNldNOK2Mt5V6+azlxC53FihqrY57jyd/UCSSue/80Ai5daFtb4INdZKIc0kuG42FEQHvAupB2hWjnvITTxRXNxBJIxqsdDtk807Q+CkrY8/eYssy0IkkC+n9p0+oSiuYGp1MKTAzDqC3Yl1Wpb+D9H4MXrZ6Awp32fBqapMd7lVxkb6PVnm1sHN615aBHQvvA2IvR8Ce3gxPDyPEL/j3n4NxxqnjkPdbLBje6zfJDB9v5H27O9cdHLZ7/T7jdW+IFYQqLZfS5N3+/PD3fteqZ1vw9SKDAhYMYSU/e6HIhv3AuDKHzwQ+Uq5npxS5HdI5G9F+DJywXAIT8smZtVZrUEoEky1f2k77WikC3qff9c5M696X1O3l1c/B9/73j0ZK3wkv4KNcAcNV/n9aCLfDvSMT3+NKJw7H4aLFG9wVQvpqMiPytRYuRPVC0yntfMrJj45O63HE4rhCCrziq6tDyb8LwsVBZNrW0OOed5vSI4TkMbw/IdKQzYSBuZPqXfhGvqfrbajgfQ/XAMgHG/6xNOsI3yyEzu0x0fRFjvwGBgErra6L04IW2C2lTChhY/TNBERa5LqvMOj/M/5H9i2PwURka1OteqA5OHe/knKnfx8=
