@@ -76,7 +76,7 @@ For API documentation, check [this YuiDoc generated documentation](https://karim
 
 ### Download from Github
 
-* Download the last release [HERE](./releases/latest)
+* Download the last release [HERE](https://github.com/kariminf/json-vcard/releases/latest)
 * Extract the files in your project
 * Modify index.html
 * Modify vcard.json
