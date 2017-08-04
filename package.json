@@ -1,6 +1,6 @@
 {
   "name": "json-vcard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VCard dynamically created from a json file and a template",
   "main": "jsonvcard.js",
   "keywords": [
@@ -13,6 +13,7 @@
   "license": "Apache-2.0",
   "files": [
     "index.html",
+    "index_node.html",
     "jsonvcard.js",
     "install.js",
     "profile.jpg",
