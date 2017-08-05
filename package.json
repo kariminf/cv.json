@@ -23,5 +23,8 @@
   ],
   "dependencies": {
     "ncp": "^2.0.0"
+  },
+  "devDependencies": {
+    "yuidoc-marviq-theme": "^0.1.5"
   }
 }
