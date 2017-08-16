@@ -75,7 +75,7 @@ it is self explanatory and easy to fill.
 For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json-vcard/docs/docs/)
 
 
-For a list of available themes, [check THIS]()
+For a list of available themes, [check THIS](./THEMES.md)
 
 ### Download from Github
 
