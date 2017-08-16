@@ -1,12 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
 /*************************************************************/
-.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper, #footer {
+#header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper, #footer {
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid red;
 }
 
 .kfs {
   padding: 2px;
   margin: 1.25em .25em .25em .25em;
+  border-top: 2px solid red;
 }
 
 .kfs::after {
@@ -19,8 +24,10 @@
 }
 
 .kfs > h1 {
-  font: 1em normal;
-  color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: red;
+
   margin: -1.25em -0.5em 0;
 }
 
@@ -45,9 +52,8 @@
 .kfs > h1 > span{
   padding: 5px;
   border-radius: 5px;
-  box-shadow: 0 0 0 2px black;
   margin-left: 1em;
-  background-color: white;
+  background: white;
 }
 
 .wrap {
@@ -59,10 +65,11 @@
 /* For mobile phones: */
 #header {
   width: 100%;
+  background: lightblue;
+  color: black;
 }
 
 #pic-frm {
-  float: left;
   vertical-align: middle;
   text-align: center;
   margin: 5px;
@@ -71,12 +78,11 @@
 #pic {
   width: 7.5em;
   height: 11em;
+  border-radius: 50%;
 }
 
 #info {
-  width: 55%;
-  width: calc(100% - 7.5em - 25px);
-  float: right;
+  width: auto;
   margin: 5px;
   box-sizing: border-box;
 }
@@ -92,14 +98,15 @@
 #fullname {
   position: relative;
   margin: 5px;
+  text-align: center;
 }
 
 #name, #family, #title {
   text-transform: capitalize;
-  text-shadow: 1px 1px white;
   font-weight: bold;
-  color: black;
+  color: red;
   margin-left: 5px;
+  text-align: center;
 }
 
 #title {
@@ -132,7 +139,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 10px;
-  filter: grayscale(100%) contrast(200%);
+  filter:hue-rotate(90deg);
 }
 
 #mail::before{
@@ -160,6 +167,8 @@
 #social {
   margin: 10px;
   text-align: center;
+  background: black;
+  border-radius: 5px;
 }
 
 a {color: black;}
@@ -170,7 +179,6 @@ a {color: black;}
   height: 64px;
   margin: 5px;
   border: 0;
-  filter: grayscale(100%) contrast(200%);
 }
 
 #scontent a:hover {
@@ -179,32 +187,40 @@ a {color: black;}
 }
 
 #facebook {
-  background-image: url("../img/violet/facebook.png");
+  background-image: url("../img/colorful/facebook.png");
 }
 
 #twitter {
-  background-image: url("../img/violet/twitter.png");
+  background-image: url("../img/colorful/twitter.png");
 }
 
 #linkedin {
-  background-image: url("../img/violet/linkedin.png");
+  background-image: url("../img/colorful/linkedin.png");
 }
 
 #gplus {
-  background-image: url("../img/violet/gplus.png");
+  background-image: url("../img/colorful/gplus.png");
+}
+
+#pub table {
+  width: 100%;
 }
 
 .barc {
   display: inline-block;
   width: 10em;
-  background-color: grey;
+  background-color: lightblue;
   height: 1em;
 }
 
 .bar-l, .bar-h {
   display: inline-block;
-  background-color: black;
+  background: green;
   height: 100%;
+}
+
+.bar-l{
+  background: red;
 }
 
 #footer {
@@ -232,7 +248,7 @@ a {color: black;}
 }
 
 #pub tr:nth-child(odd) {
-  background: grey;
+  background: lightblue;
 }
 
 .desc {
@@ -251,48 +267,28 @@ a {color: black;}
   #info{
     display:block;
     vertical-align: top;
-    height: 11em;
+    height: 12em;
   }
 
   #bio {
-    float: right;
-    width: 40%;
-    width: calc(50% - 4em - 25px);
-    height: 13.75em;
+    position: absolute;
+    top: 30em;
+    bottom: 5px;
+    height: auto;
     overflow-y:scroll;
     overflow-x:hidden;
   }
 
-  #cont :not(#skill):not(#lang) .elem {
-    width: 46%;
-    width: calc(50% - 1.5em);
-  }
-
-  #cont #skill .elem {
+  #cont #skill .elem,  #cont #lang .elem{
     width: initial;
-  }
-
-  #cont .kfs .wrapper {
-    display: flex;
   }
 
   #lang .read, #lang .write, #lang .ustnd {
     display: inline-block;
   }
 
-  #name, #family {
-    float: left;
-    margin-left: 5px;
-  }
-
   #title {
     clear: both;
-  }
-
-  #info {
-    width:40%;
-    width: calc(50% - 3.25em - 25px);
-    float: left;
   }
 
   #header {
@@ -301,81 +297,30 @@ a {color: black;}
     z-index: 2;
     top: 5px;
     left: 5px;
-    width: 100%;
-    width: calc(100% - 17px);
-    height: 12em;
+    bottom: 5px;
+    width: 30%;
   }
 
   /*this is used to position the content after the header*/
   #wrapper{
     position: absolute;
-    top: 13em;
-    left:0;
-    right: 0;
-    bottom: 0;
+    left:31%;
+    right: 5px;
+    top: 90px;
+    bottom: 5px;
+    width: auto;
     overflow-y:scroll;
     overflow-x:hidden;
   }
 
   #social {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 3;
-    width: 7.5em;
-    height: 11em;
+    top: 5px;
+    left: 31%;
+    right: 5px;
     margin: 0;
+    z-index: 2
     padding: 0;
-    transition: 1s ease;
-  }
-
-  #social:hover {
-    width: 50%;
-    width: calc(50% + 3.25em - 10px);
-    transition: .1s ease;
-  }
-
-  #social .wrapper {
-    height: 100%;
-    width: 7.5em;
-    transition: .5s ease;
-  }
-
-  #shead {
-    width: 0;
-    height: 0;
-  }
-
-  #scontent {
-    position: absolute;
-    left: 8em;
-    opacity: 0;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    width: 0;
-    background-color: white;
-    transition: opacity 1s ease;
-  }
-
-  #scontent a {
-    width: 0;
-    height: 0;
-  }
-
-  #social:hover .wrapper {
-    width: 100%;
-  }
-
-  #social:hover #scontent {
-    opacity: 100;
-    width: 60%;
-    width: calc(100% - 7.5em - 7px);
-  }
-
-  #social:hover .wrapper #scontent a {
-    width: 64px;
-    height: 64px;
   }
 
 }

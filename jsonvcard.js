@@ -709,7 +709,8 @@ limitations under the License.
 		else if (value > 10) value = 10;
 		var rep = ' <div class="barc">';
 		var perc = parseInt(value) * 10; //persontage (scale = 10)
-		rep += '<div class="bar" style="width:' + perc + '%">'
+		if(value < 5) rep += '<div class="bar-l" style="width:' + perc + '%">';
+		else rep += '<div class="bar-h" style="width:' + perc + '%">';
 		rep += '</div></div>'; //barc
 
 		//console.log("theme: " + rep);

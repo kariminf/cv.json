@@ -209,7 +209,7 @@ a {color: black;}
   height: 1em;
 }
 
-.bar {
+.bar-l, .bar-h {
   display: inline-block;
   background-color: black;
   height: 100%;
