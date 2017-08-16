@@ -81,10 +81,13 @@
   border-radius: 50%;
 }
 
-#info {
+#info, #info a {
   width: auto;
   margin: 5px;
   box-sizing: border-box;
+  color: blue;
+  font-weight: bold;
+  text-align: left;
 }
 
 
@@ -245,6 +248,14 @@ a {color: black;}
 .date, .org {
   font-style: italic;
   font-weight: bold;
+}
+
+.date {
+  color: blue;
+}
+
+.org {
+  color: green;
 }
 
 #pub tr:nth-child(odd) {

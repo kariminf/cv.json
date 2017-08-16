@@ -1,12 +1,17 @@
 {
   "name": "json-vcard",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "VCard dynamically created from a json file and a template",
   "main": "jsonvcard.js",
   "keywords": [
     "cv",
     "vcard",
-    "json"
+    "json",
+    "portfelio",
+    "coruculium vitae",
+    "website generator",
+    "front-end",
+    "personal webpage"
   ],
   "repository": "https://github.com/kariminf/json-vcard.git",
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",

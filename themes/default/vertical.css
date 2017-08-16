@@ -73,6 +73,10 @@
   margin: 5px;
 }
 
+#pub table {
+  width: 100%;
+}
+
 #pic {
   width: 7.5em;
   height: 11em;
