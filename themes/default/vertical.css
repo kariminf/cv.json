@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+/*************************************************************/
+.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper, #footer {
+  border-radius: 5px;
+  border: 2px solid gray;
+}
+
+.kfs {
+  padding: 2px;
+  margin: 1.25em .25em .25em .25em;
+}
+
+.kfs::after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.kfs > h1 {
+  font: 1em normal;
+  color: black;
+  margin: -1.25em -0.5em 0;
+}
+
+.kfs > h1::after {
+  content: ' ';
+  display: block;
+  height: .5em;
+  overflow: hidden;
+  position: relative;
+  top: .5em;
+}
+
+.kfs > h1::before {
+  content: ' ';
+  display: block;
+  height: .5em;
+  overflow: hidden;
+  position: relative;
+  bottom: .5em;
+}
+
+.kfs > h1 > span{
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px black;
+  margin-left: 1em;
+  background-color: white;
+}
+
+.wrap {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+/************************************************************/
+
+/* For mobile phones: */
+#header {
+  width: 100%;
+  background: gray;
+  color: white;
+}
+
+#pic-frm {
+  vertical-align: middle;
+  text-align: center;
+  margin: 5px;
+}
+
+#pic {
+  width: 7.5em;
+  height: 11em;
+  border-radius: 50%;
+}
+
+#info {
+  width: auto;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+
+#bio {
+  padding: 5px;
+  clear: right;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+#fullname {
+  position: relative;
+  margin: 5px;
+  text-align: center;
+}
+
+#name, #family, #title {
+  text-transform: capitalize;
+  text-shadow: 1px 1px white;
+  font-weight: bold;
+  color: black;
+  margin-left: 5px;
+  text-align: center;
+}
+
+#title {
+  text-transform:uppercase;
+  margin: 10px;
+}
+
+#cont :not(#skill) .elem {
+  width: calc( 100% - 20px);
+}
+
+#cont .elem {
+  display: inline-block;
+  float: left;
+  margin: .5em;
+  width: calc( 100% - 20px);
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#birth, #mail, #tel, #web, #address {
+  margin: 3px 0 0 10px;
+}
+
+#info > .icons .elem::before {
+  display:inline-block;
+  height: 1em;
+  width: 1em;
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  filter: grayscale(100%) contrast(200%);
+}
+
+#mail::before{
+  background-image: url("../img/violet/mail.png");
+}
+
+#tel::before{
+  background-image: url("../img/violet/phone.png");
+}
+
+#web::before{
+  background-image: url("../img/violet/web.png");
+}
+
+#address::before {
+  background-image: url("../img/violet/home.png");
+}
+
+#wrapper, #cont {
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+
+#social {
+  margin: 10px;
+  text-align: center;
+  background: gray;
+  border-radius: 5px;
+}
+
+a {color: black;}
+
+#scontent a {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 5px;
+  border: 0;
+  filter: grayscale(100%) contrast(200%);
+}
+
+#scontent a:hover {
+  transform: rotate(360deg);
+  transition: transform 0.2s ease;
+}
+
+#facebook {
+  background-image: url("../img/violet/facebook.png");
+}
+
+#twitter {
+  background-image: url("../img/violet/twitter.png");
+}
+
+#linkedin {
+  background-image: url("../img/violet/linkedin.png");
+}
+
+#gplus {
+  background-image: url("../img/violet/gplus.png");
+}
+
+.barc {
+  display: inline-block;
+  width: 10em;
+  background-color: grey;
+  height: 1em;
+}
+
+.bar {
+  display: inline-block;
+  background-color: black;
+  height: 100%;
+}
+
+#footer {
+  height: 2em;
+  border: 5px;
+  padding-top: .75em;
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+}
+
+#footer a {
+  color: yellow;
+}
+
+.elem .name {
+  font-weight: bold;
+  color: black;
+}
+
+.date, .org {
+  font-style: italic;
+  font-weight: bold;
+}
+
+#pub tr:nth-child(odd) {
+  background: grey;
+}
+
+.desc {
+  font-size: .8em;
+  font-style: italic;
+}
+
+#educ .field, .org {
+  font-style: italic;
+  margin-left: 1em;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  #info{
+    display:block;
+    vertical-align: top;
+    height: 12em;
+  }
+
+  #bio {
+    position: absolute;
+    top: 30em;
+    bottom: 5px;
+    height: auto;
+    overflow-y:scroll;
+    overflow-x:hidden;
+  }
+
+  #cont #skill .elem {
+    width: initial;
+  }
+
+  #lang .read, #lang .write, #lang .ustnd {
+    display: inline-block;
+  }
+
+  #title {
+    clear: both;
+  }
+
+  #header {
+    display:block;
+    position: fixed;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    width: 30%;
+  }
+
+  /*this is used to position the content after the header*/
+  #wrapper{
+    position: absolute;
+    left:31%;
+    right: 5px;
+    top: 90px;
+    bottom: 5px;
+    width: auto;
+    overflow-y:scroll;
+    overflow-x:hidden;
+  }
+
+  #social {
+    position: fixed;
+    top: 5px;
+    left: 31%;
+    right: 5px;
+    margin: 0;
+    z-index: 2
+    padding: 0;
+  }
+
+}
