@@ -11,6 +11,12 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
+## Version current
+
+* ADD: title_first theme with all the styles in default (black, colorful, vertical, violet)
+* ADD: title_first.dark style
+* IMPROVE: javascript.js (process_mark) add the bar-per type
+
 ## Version 1.1.0 (2017-08-16)
 
 * MODIFY: now there are two types of bars: low and high

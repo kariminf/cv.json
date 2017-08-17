@@ -711,6 +711,7 @@ limitations under the License.
 		var perc = parseInt(value) * 10; //persontage (scale = 10)
 		if(value < 5) rep += '<div class="bar-l" style="width:' + perc + '%">';
 		else rep += '<div class="bar-h" style="width:' + perc + '%">';
+		if(type === "bar-per") rep += perc + "%";
 		rep += '</div></div>'; //barc
 
 		//console.log("theme: " + rep);

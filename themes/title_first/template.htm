@@ -1,0 +1,130 @@
+@{months%v:["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]}
+@{date1%f:date("mm[ dd<, >]yyyy", vars.months)}
+@{theme1%f:mark("bar-per")}
+@{rel%f:relative}
+<div id="header">
+  <div id="hcont">
+
+    <div id="me">
+      <div id="title" class="elem">@{perso.title}</div>
+      <div id="fullname" class="elem">
+        <span id="name">@{perso.name}</span>
+        <span id="family">@{perso.family}</span>
+      </div>
+    </div>
+
+    <div id="pic-frm">
+      <img src="@{perso.photo%s.rel}" id="pic" ></img>
+    </div>
+
+    <div id="info">
+      <div id="birth" class="elem">@{perso.birthday%s.date1}</div>
+      <div class="icons">
+        <div id="mail" class="elem wrap"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
+        <div id="tel" class="elem">@{perso.tel}</div>
+        <div id="web" class="elem wrap"><a href="@{perso.web}" target="_blank">@{perso.web}</a></div>
+        <div id="address" class="elem">@{perso.address}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="social">
+  <div class="wrapper">
+    <div id="shead">
+    </div>
+    <div id="scontent">
+      @{social%s}
+    </div>
+  </div>
+</div>
+
+<div id="bio" class="desc">@{perso.bio%r}</div>
+
+<div id="wrapper">
+  <div id="cont">
+
+    <div id="exp" class="kfs">
+      <h1><span>Experiance</span></h1>
+      <div class="wrapper">
+        @{exp%bb}
+        <div class="elem">
+          <div class="name">@{exp.job}</div>
+          <div class="org">@{exp.org}</div>
+          <div class="date">From @{exp.from%s.date1} To @{exp.to%s.date1}</div>
+            <ul>
+              @{exp.resp%bb}
+              <li> @{exp.resp}</li>
+              @{exp.resp%be}
+            </ul>
+          <div class="desc">
+            @{exp.desc%r}
+          </div>
+        </div>
+        @{exp%be}
+      </div>
+    </div>
+
+    <div id="educ" class="kfs">
+      <h1><span>Education</span></h1>
+      <div class="wrapper">
+        @{educ%bb}
+        <div class="elem">
+          <div class="name">@{educ.degree}</div>
+          <div class="field">@{educ.field}</div>
+          <div class="org">@{educ.inst}</div>
+          <div class="date">From @{educ.from%s.date1} To @{educ.to%s.date1}</div>
+          <div class="desc">@{educ.desc%r}</div>
+        </div>
+        @{educ%be}
+      </div>
+    </div>
+
+    <div id="pub" class="kfs">
+      <h1><span>Publication</span></h1>
+      <div class="wrapper">
+      @{pub%bb}
+      <div class="elem">
+        <div class="authors">
+          @{pub.authors%bb}
+          <span>@{pub.authors}</span>
+          @{pub.authors%be}
+        </div>
+        <div class="name">@{pub.title}</div>
+        <div class="date">@{pub.date%s.date1}</div>
+        <div class="publisher">@{pub.publisher}</div>
+        <a href="@{pub.url}" target = "_blank" class = "wrap">@{pub.url}</a>
+      </div>
+      <div class="desc">@{pub.desc%r}</div>
+      @{pub%be}
+    </div>
+    </div>
+
+    <div id="skill" class="kfs">
+      <h1><span>Skills</span></h1>
+      <div class="wrapper">
+        @{skill%bb}
+        <div class="elem">
+          <div class="name">@{skill.title}</div>@{skill.mark%s.theme1}
+        </div>
+        @{skill%be}
+      </div>
+    </div>
+
+    <div id="lang" class="kfs">
+      <h1><span>Languages</span></h1>
+      <div class="wrapper">
+        @{lang%bb}
+        <div class="elem">
+          <div class="name">@{lang.name}</div>
+          <div class="mark">@{lang.mark%s.theme1}</div>
+        </div>
+        @{lang%be}
+      </div>
+    </div>
+
+    <div id="footer">
+      @{page.footer%r}
+    </div>
+  </div>
+</div>
