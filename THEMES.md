@@ -40,7 +40,6 @@ Its code is:
 ```
 .setThemeName("title_first")
 ```
-or don't affect any theme name since it is the title_first one
 
 ### violet
 ```
