@@ -404,10 +404,11 @@ limitations under the License.
 					continue;
 				}
 				func = fcts[fctM[1]].name;
-				funcArgs = ", " + "'@{" + key + "%s" + match[1] + "}', " + fcts[fctM[1]].args;
+				funcArgs = ", " + "'@{" + key + "%s" + match[1] + "}'";
+				if(fcts[fctM[1]].args) funcArgs += ", " +  fcts[fctM[1]].args;
 			}
 
-			//console.log("function:", func, "(", value, ", ",  funcArgs, ")");
+			console.log(funcArgs);
 			eval('result = process_' + func + '(value, template' + funcArgs + ');');
 
       match = marker.exec(template);
