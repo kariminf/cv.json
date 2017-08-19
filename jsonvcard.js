@@ -125,10 +125,23 @@ limitations under the License.
 	 * @static
 	 * @method setStyleName
 	 * @param {string} name the style's name
+	 * @return {JsonVCard}       this object
 	 */
 	JsonVCard.setStyleName = function(name){
 		style = name + ".css";
 		return JsonVCard;
+	}
+
+	/**
+	 * Specifies the style name (the css) and load it
+	 * @public
+	 * @static
+	 * @method setStyleName
+	 * @param {string} name the style's name
+	 */
+	JsonVCard.loadStyle = function(name){
+		style = name + ".css";
+		addStyleSheet(themePath + style);
 	}
 
 	/**
@@ -322,19 +335,19 @@ limitations under the License.
    */
   function addStyleSheet(url){
     var cssId = 'myCss';
-    if (!document.getElementById(cssId))
+		var link;
+    if (! (link = document.getElementById(cssId)))
     {
       var head  = document.getElementsByTagName('head')[0];
-      var link  = document.createElement('link');
+      link  = document.createElement('link');
       link.id   = cssId;
       link.rel  = 'stylesheet';
       link.type = 'text/css';
-      link.href = url;
       link.media = 'all';
       head.appendChild(link);
     }
-    //TODO if cssId exists; just change the href attribute
-    //This will allow the change of CSS directly from user side
+
+		link.href = url;
   }
 
 
