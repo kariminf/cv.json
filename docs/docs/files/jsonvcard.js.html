@@ -30,7 +30,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.6.0</b>
+                    API Docs for Version: <b>1.2.2</b>
                 </p>
             </li>
         </div>
@@ -248,10 +248,23 @@
                         	 * @static
                         	 * @method setStyleName
                         	 * @param {string} name the style&#x27;s name
+                        	 * @return {JsonVCard}       this object
                         	 */
                         	JsonVCard.setStyleName = function(name){
                         		style = name + &quot;.css&quot;;
                         		return JsonVCard;
+                        	}
+                        
+                        	/**
+                        	 * Specifies the style name (the css) and load it
+                        	 * @public
+                        	 * @static
+                        	 * @method setStyleName
+                        	 * @param {string} name the style&#x27;s name
+                        	 */
+                        	JsonVCard.loadStyle = function(name){
+                        		style = name + &quot;.css&quot;;
+                        		addStyleSheet(themePath + style);
                         	}
                         
                         	/**
@@ -445,19 +458,19 @@
                            */
                           function addStyleSheet(url){
                             var cssId = &#x27;myCss&#x27;;
-                            if (!document.getElementById(cssId))
+                        		var link;
+                            if (! (link = document.getElementById(cssId)))
                             {
                               var head  = document.getElementsByTagName(&#x27;head&#x27;)[0];
-                              var link  = document.createElement(&#x27;link&#x27;);
+                              link  = document.createElement(&#x27;link&#x27;);
                               link.id   = cssId;
                               link.rel  = &#x27;stylesheet&#x27;;
                               link.type = &#x27;text/css&#x27;;
-                              link.href = url;
                               link.media = &#x27;all&#x27;;
                               head.appendChild(link);
                             }
-                            //TODO if cssId exists; just change the href attribute
-                            //This will allow the change of CSS directly from user side
+                        
+                        		link.href = url;
                           }
                         
                         
@@ -527,10 +540,11 @@
                         					continue;
                         				}
                         				func = fcts[fctM[1]].name;
-                        				funcArgs = &quot;, &quot; + &quot;&#x27;@{&quot; + key + &quot;%s&quot; + match[1] + &quot;}&#x27;, &quot; + fcts[fctM[1]].args;
+                        				funcArgs = &quot;, &quot; + &quot;&#x27;@{&quot; + key + &quot;%s&quot; + match[1] + &quot;}&#x27;&quot;;
+                        				if(fcts[fctM[1]].args) funcArgs += &quot;, &quot; +  fcts[fctM[1]].args;
                         			}
                         
-                        			//console.log(&quot;function:&quot;, func, &quot;(&quot;, value, &quot;, &quot;,  funcArgs, &quot;)&quot;);
+                        			console.log(funcArgs);
                         			eval(&#x27;result = process_&#x27; + func + &#x27;(value, template&#x27; + funcArgs + &#x27;);&#x27;);
                         
                               match = marker.exec(template);
@@ -832,7 +846,9 @@
                         		else if (value &gt; 10) value = 10;
                         		var rep = &#x27; &lt;div class=&quot;barc&quot;&gt;&#x27;;
                         		var perc = parseInt(value) * 10; //persontage (scale = 10)
-                        		rep += &#x27;&lt;div class=&quot;bar&quot; style=&quot;width:&#x27; + perc + &#x27;%&quot;&gt;&#x27;
+                        		if(value &lt; 5) rep += &#x27;&lt;div class=&quot;bar-l&quot; style=&quot;width:&#x27; + perc + &#x27;%&quot;&gt;&#x27;;
+                        		else rep += &#x27;&lt;div class=&quot;bar-h&quot; style=&quot;width:&#x27; + perc + &#x27;%&quot;&gt;&#x27;;
+                        		if(type === &quot;bar-per&quot;) rep += perc + &quot;%&quot;;
                         		rep += &#x27;&lt;/div&gt;&lt;/div&gt;&#x27;; //barc
                         
                         		//console.log(&quot;theme: &quot; + rep);

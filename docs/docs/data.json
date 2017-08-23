@@ -2,10 +2,17 @@
     "project": {
         "name": "jsonVCard API",
         "description": "json CV website",
-        "version": "0.6.0",
-        "url": "https://github.com/kariminf/json-vcard"
+        "version": "1.2.2",
+        "url": "https://github.com/kariminf/json_vcard"
     },
     "files": {
+        "docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js": {
+            "name": "docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "jsonvcard.js": {
             "name": "jsonvcard.js",
             "modules": {
@@ -53,6 +60,12 @@
     },
     "elements": {},
     "classitems": [
+        {
+            "file": "docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js",
+            "line": 1,
+            "description": "Bootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
+            "class": "JsonVCard"
+        },
         {
             "file": "jsonvcard.js",
             "line": 73,
@@ -140,12 +153,35 @@
                     "type": "String"
                 }
             ],
+            "return": {
+                "description": "this object",
+                "type": "JsonVCard"
+            },
             "class": "JsonVCard",
             "module": "jsonvcard"
         },
         {
             "file": "jsonvcard.js",
-            "line": 134,
+            "line": 135,
+            "description": "Specifies the style name (the css) and load it",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "setStyleName",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "the style's name",
+                    "type": "String"
+                }
+            ],
+            "class": "JsonVCard",
+            "module": "jsonvcard"
+        },
+        {
+            "file": "jsonvcard.js",
+            "line": 147,
             "description": "Sets the url to the footer (which is an html file with one line)",
             "access": "public",
             "tagname": "",
@@ -162,7 +198,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 145,
+            "line": 158,
             "description": "Initialization of process; this method searches for \"vcard.json\"\nin the javascript location \"jsonvcard.js\".\nThen when retrieved, it sends its content as a string to process(json)\nWhere it will be processed",
             "access": "public",
             "tagname": "",
@@ -181,7 +217,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 171,
+            "line": 184,
             "description": "This method parses the json content",
             "access": "private",
             "tagname": "",
@@ -200,7 +236,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 201,
+            "line": 214,
             "description": "This function is used to initiate the process of binding the\ndata with the template",
             "access": "private",
             "tagname": "",
@@ -224,7 +260,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 219,
+            "line": 232,
             "description": "Save all template defined variables in a global variable called vars",
             "access": "private",
             "tagname": "",
@@ -247,7 +283,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 251,
+            "line": 264,
             "description": "Get all the function defined in the template",
             "itemtype": "method",
             "name": "getFunctions",
@@ -270,7 +306,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 300,
+            "line": 313,
             "description": "Process a theme element (json) which has a name and a style",
             "itemtype": "method",
             "name": "processTheme",
@@ -286,7 +322,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 316,
+            "line": 329,
             "description": "Link a stylsheet to the current document",
             "static": 1,
             "access": "private",
@@ -305,7 +341,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 346,
+            "line": 359,
             "description": "Process an object which contains many elements in it",
             "static": 1,
             "access": "private",
@@ -338,7 +374,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 374,
+            "line": 387,
             "description": "Process the data of an object. It detects if the data is\nan object, a list of elements or a simple element",
             "static": 1,
             "access": "private",
@@ -371,7 +407,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 461,
+            "line": 475,
             "description": "Process the data of an array.\nIt recovers the begining and ending of this array in the template.\nThen, it pushes each element of the array into that area.",
             "static": 1,
             "access": "private",
@@ -404,7 +440,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 515,
+            "line": 529,
             "description": "Process the files stored in a global variable (files) while processing\nthe json data and the template",
             "static": 1,
             "access": "private",
@@ -416,7 +452,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 536,
+            "line": 550,
             "description": "Read a file and push the content into its reserved area in the template.\nHere, the content is pushed into a global variable containing the template.\nWe can't use the template as an argument, nor return the merged html, because\nthe files call is asynchronious. <br>\nA mutex is used so the html code is pushed into the browser once all the\nfiles are being processed",
             "static": 1,
             "access": "private",
@@ -440,7 +476,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 580,
+            "line": 594,
             "description": "Resolves the url; if it is relative it adds the prefix specified by\nJsonVCard.setRelativePath",
             "static": 1,
             "access": "private",
@@ -461,7 +497,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 602,
+            "line": 616,
             "description": "Special function (social) to process social media links.\nYou can define a function in template.htm like this:",
             "access": "private",
             "tagname": "",
@@ -489,7 +525,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 624,
+            "line": 638,
             "description": "Special function (date) to process dates.\nYou can define a function in template.htm like this:",
             "static": 1,
             "access": "private",
@@ -532,7 +568,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 691,
+            "line": 705,
             "description": "Special function (mark) to process percentages.\nYou can define a function in template.htm like this:\n<pre>",
             "static": 1,
             "access": "private",
@@ -570,7 +606,7 @@
         },
         {
             "file": "jsonvcard.js",
-            "line": 719,
+            "line": 735,
             "description": "Special function (relative) to process percentages.\nYou can define a function in template.htm like this:",
             "params": [
                 {
@@ -599,20 +635,24 @@
     ],
     "warnings": [
         {
+            "message": "Missing item type\nBootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
+            "line": " docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js:1"
+        },
+        {
             "message": "Missing item type\nTo verify if the page is complete or not yet",
             "line": " jsonvcard.js:73"
         },
         {
             "message": "Missing item type\nSets the url to the footer (which is an html file with one line)",
-            "line": " jsonvcard.js:134"
+            "line": " jsonvcard.js:147"
         },
         {
             "message": "Missing item type\nResolves the url; if it is relative it adds the prefix specified by\nJsonVCard.setRelativePath",
-            "line": " jsonvcard.js:580"
+            "line": " jsonvcard.js:594"
         },
         {
             "message": "Missing item type\nSpecial function (relative) to process percentages.\nYou can define a function in template.htm like this:",
-            "line": " jsonvcard.js:719"
+            "line": " jsonvcard.js:735"
         }
     ]
 }

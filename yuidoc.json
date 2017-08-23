@@ -2,7 +2,7 @@
   "name": "jsonVCard API",
   "description": "json CV website",
   "version": "1.2.2",
-  "url": "https://github.com/kariminf/json-vcard",
+  "url": "https://github.com/kariminf/json_vcard",
   "options": {
     "linkNatives": "true",
     "paths": "jsonvcard.js",

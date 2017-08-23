@@ -2,10 +2,10 @@
 
 [![NPM](https://nodei.co/npm/json_vcard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/json_vcard/)
 
-[![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
+[![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json_vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Version](https://img.shields.io/npm/v/json_vcard.svg)](https://www.npmjs.com/package/json_vcard)
-[![Travis](https://img.shields.io/travis/kariminf/json-vcard.svg)](https://travis-ci.org/kariminf/json-vcard)
+[![Travis](https://img.shields.io/travis/kariminf/json_vcard.svg)](https://travis-ci.org/kariminf/json_vcard)
 [![npm](https://img.shields.io/npm/dt/json_vcard.svg)](https://www.npmjs.com/package/json_vcard)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
@@ -26,13 +26,13 @@ As consequences:
 * The themes can be changed easily without
 * Most importantly, the user doesn't have to program anything
 
-See a demo [here](https://kariminf.github.io/json-vcard/)
+See a demo [here](https://kariminf.github.io/json_vcard/)
 
 ## How it works
 
 The HTML file doesn't contain anything at all. It just calls for the script which will do the calls.
 
-![GitHub Logo](/docs/img/json-vcard.png)
+![How it works](/docs/img/json_vcard.png)
 
 1. The browser will download the index file
 1. Then, it downloads the script
@@ -43,7 +43,7 @@ The HTML file doesn't contain anything at all. It just calls for the script whic
 1. When the script receive response from a file it will merge its content into the template
 1. Finally, when all the wanted files has responded, the script pushed the merged content into the body of the page
 
-Check [the API](https://kariminf.github.io/json-vcard/docs/docs)
+Check [the API](https://kariminf.github.io/json_vcard/docs/docs)
 
 ## How to use
 
@@ -72,14 +72,14 @@ This can be done using javascript ("jsonvcard.js") which is called as follows:
 The json file ("vcard.json") contains information about the one for whom we want to generate a CV.
 it is self explanatory and easy to fill.
 
-For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json-vcard/docs/docs/)
+For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/json_vcard/docs/docs/)
 
 
 For a list of available themes, [check THIS](./THEMES.md)
 
 ### Download from Github
 
-* Download the last release [HERE](https://github.com/kariminf/json-vcard/releases/latest)
+* Download the last release [HERE](https://github.com/kariminf/json_vcard/releases/latest)
 * Extract the files in your project
 * Modify index.html
 * Modify vcard.json
