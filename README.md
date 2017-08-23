@@ -1,6 +1,6 @@
 # json-vcard
 
-[![NPM](https://nodei.co/npm/json-vcard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/json-vcard/)
+[![NPM](https://nodei.co/npm/json_vcard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/json_vcard/)
 
 [![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
