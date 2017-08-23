@@ -60,7 +60,7 @@ This can be done using javascript ("jsonvcard.js") which is called as follows:
 <body>
   <script>
     JsonVCard.setStyleName("violet")
-      .setRelativePath("link/to/helper/files")
+      .setRelativePath("link/to/current/directory") /*where your profile picture and helper files are*/
       .setThemesPath("link/to/the/theme")/*Not affected by setRelativePath*/
       .setThemeName("theme-name")/*must come after setThemesPath*/
       .setFooter("link/to/footer.htm") /*Not affected by setRelativePath*/
@@ -94,6 +94,9 @@ node node_modules/json-vcard/install.js
 All needed files will be copied to the root (where the shell is positioned)
 * Modify index.html
 * Modify vcard.json
+
+Also, if you just want to update the package, don't execute the last instruction.
+Otherwise, it will overwrite your json file (if its namme is vcard.json)
 
 ## Community
 

@@ -38,7 +38,7 @@
         "responsability 2_1",
         "responsability 2_2"
       ],
-      "desc": "url-exp2"
+      "desc": "info/job1desc.txt"
     }
   ],
   "educ": [
@@ -48,7 +48,7 @@
       "inst": "Institution",
       "degree": "degree",
       "field": "field of study",
-      "desc": "url-educ1"
+      "desc": "info/job1desc.txt"
     }
   ],
   "pub": [
@@ -61,7 +61,7 @@
         "author 1",
         "author 2"
       ],
-      "desc": "url-pub1"
+      "desc": "info/job1desc.txt"
     }
 
   ],

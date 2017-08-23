@@ -294,10 +294,6 @@ a {color: black;}
     width: initial;
   }
 
-  #lang .read, #lang .write, #lang .ustnd {
-    display: inline-block;
-  }
-
   #title {
     clear: both;
   }

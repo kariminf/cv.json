@@ -207,6 +207,9 @@
   display: inline-block;
   background-color: black;
   height: 100%;
+  color: white;
+  font-size: .8em;
+  font-weight: bold;
 }
 
 #footer {

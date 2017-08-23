@@ -275,12 +275,8 @@ a {color: black;}
     overflow-x:hidden;
   }
 
-  #cont #skill .elem {
+  #cont #skill .elem,  #cont #lang .elem {
     width: initial;
-  }
-
-  #lang .read, #lang .write, #lang .ustnd {
-    display: inline-block;
   }
 
   #title {

@@ -11,10 +11,11 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
-## Current
+## Version 1.2.1 (2017-08-23)
 
 * FIX: Templates, publication description is off
-* IMPROVE: when using npm to install; the index is not using current directory as default 
+* IMPROVE: when using npm to install; the index is not using current directory as default
+* FIX: some CSS problems when showing language blocs
 
 ## Version 1.2.0 (2017-08-19)
 

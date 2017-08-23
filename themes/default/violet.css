@@ -264,16 +264,12 @@
     width: calc(50% - 1.5em);
   }
 
-  #cont #skill .elem {
+  #cont #skill .elem,  #cont #lang .elem {
     width: initial;
   }
 
   #cont .kfs .wrapper {
     display: flex;
-  }
-
-  #lang .read, #lang .write, #lang .ustnd {
-    display: inline-block;
   }
 
   #name, #family {
