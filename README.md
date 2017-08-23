@@ -4,9 +4,9 @@
 
 [![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json-vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Version](https://img.shields.io/npm/v/json-vcard.svg)](https://www.npmjs.com/package/json_vcard)
+[![Version](https://img.shields.io/npm/v/json_vcard.svg)](https://www.npmjs.com/package/json_vcard)
 [![Travis](https://img.shields.io/travis/kariminf/json-vcard.svg)](https://travis-ci.org/kariminf/json-vcard)
-[![npm](https://img.shields.io/npm/dt/json-vcard.svg)](https://www.npmjs.com/package/json_vcard)
+[![npm](https://img.shields.io/npm/dt/json_vcard.svg)](https://www.npmjs.com/package/json_vcard)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
