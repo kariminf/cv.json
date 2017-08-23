@@ -11,6 +11,11 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
+## Current
+
+* FIX: Templates, publication description is off
+* IMPROVE: when using npm to install; the index is not using current directory as default 
+
 ## Version 1.2.0 (2017-08-19)
 
 * ADD: title_first theme with all the styles in default (black, colorful, vertical, violet)
