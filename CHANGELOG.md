@@ -11,6 +11,9 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
+## Version 1.2.2 (2017-08-23)
+* FIX: some servers don't go well with hyphens
+
 ## Version 1.2.1 (2017-08-23)
 
 * FIX: Templates, publication description is off
