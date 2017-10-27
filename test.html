@@ -24,8 +24,9 @@
       var $ = function(id){return document.getElementById(id)};
       var _ = function(e){return e.options[e.selectedIndex]};
       var s = {
-        "default": ["violet", "black", "vertical", "colorful"],
-        "title_first": ["violet", "black", "vertical", "colorful", "dark"]
+        "default": ["violet", "black", "vertical", "colorful", "show"],
+        "title_first": ["violet", "black", "vertical", "colorful", "dark"],
+        "anim": ["slide"]
       };
 
       function device(){
@@ -107,6 +108,7 @@
   <select id="thm" onchange="ctheme()">
     <option >default</option>
     <option>title_first</option>
+    <option>anim</option>
   </select>
   <select id="stl" onchange="cstyle()">
   </select>
