@@ -5,13 +5,9 @@
 
 <div id="content">
 
-  <div id="ctrl">
-    <div id="prev">◀</div>
-    <div id="next">▶</div>
-  </div>
-
   <div id="wrapper">
-    <div id="intro" >
+
+    <div id="intro" class="frame anim first">
       <div id="pic-frm">
         <img src="@{perso.photo%s.rel}" id="pic" ></img>
       </div>
@@ -26,9 +22,9 @@
 
     </div>
 
-    <div id="bio" class="desc">@{perso.bio%r}</div>
+    <div id="bio" class="frame anim">@{perso.bio%r}</div>
 
-    <div id="exp" class="kfs">
+    <div id="exp" class="frame anim">
       <h1><span>Experiance</span></h1>
       <div class="wrapper">
         @{exp%bb}
@@ -49,7 +45,7 @@
       </div>
     </div>
 
-    <div id="educ" class="kfs">
+    <div id="educ" class="frame anim">
       <h1><span>Education</span></h1>
       <div class="wrapper">
         @{educ%bb}
@@ -64,7 +60,7 @@
       </div>
     </div>
 
-    <div id="pub" class="kfs">
+    <div id="pub" class="frame anim">
       <h1><span>Publication</span></h1>
       <div class="wrapper">
       @{pub%bb}
@@ -84,7 +80,7 @@
     </div>
     </div>
 
-    <div id="skill" class="kfs">
+    <div id="skill" class="frame anim">
       <h1><span>Skills</span></h1>
       <div class="wrapper">
         @{skill%bb}
@@ -95,7 +91,7 @@
       </div>
     </div>
 
-    <div id="lang" class="kfs">
+    <div id="lang" class="frame anim">
       <h1><span>Languages</span></h1>
       <div class="wrapper">
         @{lang%bb}
@@ -108,7 +104,7 @@
     </div>
 
 
-    <div id="contact" >
+    <div id="contact" class="frame anim" >
       <div class="icons">
         <div id="mail" class="elem wrap"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
         <div id="tel" class="elem">@{perso.tel}</div>
@@ -126,8 +122,27 @@
       </div>
     </div>
 
+    <!-- Next and previous buttons -->
+  <a class="prev" onclick="JsonVCard.plusSlides(-1, 'frame')">&#10094;</a>
+  <a class="next" onclick="JsonVCard.plusSlides(1, 'frame')">&#10095;</a>
+
   </div>
+  <!-- The dots/circles -->
+<div class="dots">
+  <span class="dot active" onclick="JsonVCard.currentSlide(1, 'frame')"></span>
+  <span class="dot" onclick="JsonVCard.currentSlide(2, 'frame')"></span>
+  <span class="dot" onclick="JsonVCard.currentSlide(3, 'frame')"></span>
+  <span class="dot" onclick="JsonVCard.currentSlide(4, 'frame')"></span>
+  <span class="dot" onclick="JsonVCard.currentSlide(5, 'frame')"></span>
+  <span class="dot" onclick="JsonVCard.currentSlide(6, 'frame')"></span>
+  <span class="dot" onclick="JsonVCard.currentSlide(7, 'frame')"></span>
+  <span class="dot" onclick="JsonVCard.currentSlide(8, 'frame')"></span>
+</div>
   <div id="footer">
     @{page.footer%r}
   </div>
 </div>
+
+<script type="text/javascript">
+JsonVCard.showSlide(1, 'frame');
+</script>

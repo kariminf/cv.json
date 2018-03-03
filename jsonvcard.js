@@ -2,7 +2,7 @@
 This file is part of jsonVCard project;
 a Javascript script which allows you to create simple VCard
 
-Copyright (C) 2017 Abdelkrime Aries <kariminfo0@gmail.com>
+Copyright (C) 2017-18 Abdelkrime Aries <kariminfo0@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -746,6 +746,40 @@ limitations under the License.
 	function process_relative(value, template, marker){
 		return template.replace(marker, resolveURL(value));
 	}
+
+	//========================================================
+  //                 ANIMATION FUNCTIONS
+  //========================================================
+
+	var current = 1;
+
+	// Next/previous controls
+	JsonVCard.plusSlides = function(plus, slideName) {
+		JsonVCard.showSlide(current += plus, slideName);
+	}
+
+	// Thumbnail image controls
+	JsonVCard.currentSlide = function(target, slideName) {
+		JsonVCard.showSlide(current = target, slideName);
+	}
+
+	JsonVCard.showSlide = function(target, slideName) {
+	  var i;
+	  var slides = document.getElementsByClassName(slideName);
+	  var dots = document.getElementsByClassName("dot");
+	  if (target > slides.length) {current = 1}
+	  if (target < 1) {current = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[current-1].style.display = "block";
+	  dots[current-1].className += " active";
+	}
+
+
 
 }());
 
