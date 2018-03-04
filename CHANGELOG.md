@@ -11,6 +11,9 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
+## Version 1.2.3 (2018-03-04)
+* NEW: carousel theme
+
 
 ## Version 1.2.2 (2017-08-23)
 * FIX: some servers don't go well with hyphens
@@ -23,15 +26,15 @@ This will break the projects developed on precedent versions.
 
 ## Version 1.2.0 (2017-08-19)
 
-* ADD: title_first theme with all the styles in default (black, colorful, vertical, violet)
-* ADD: title_first.dark style
+* NEW: title_first theme with all the styles in default (black, colorful, vertical, violet)
+* NEW: title_first.dark style
 * IMPROVE: javascript.js (process_mark) add the bar-per type
 * FIX: special function problem resulting non-functioning in Chrome
 
 ## Version 1.1.0 (2017-08-16)
 
 * MODIFY: now there are two types of bars: low and high
-* ADD: two styles; vertical and colorful
+* NEW: two styles; vertical and colorful
 
 ## Version 1.0.1 (2017-08-04)
 
