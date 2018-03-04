@@ -1,7 +1,26 @@
-* {box-sizing:border-box}
+/*************************************************************/
+.kfs, #bio, #pub .elem, #educ .elem, #exp .elem, #footer {
+  border-radius: 5px;
+  border: 2px solid DarkViolet;
+}
+
+.kfs, #lang, #skill {
+  padding: 2px;
+  margin: 1.25em .25em .25em .25em;
+}
+
+.wrap {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+/************************************************************/
+
+* {
+  box-sizing:border-box
+}
 
 .content {
-  position: absolute;
+  position: fixed;
   display: block;
   margin: 0;
 }
@@ -82,11 +101,215 @@
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
+  from {opacity: .1}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4}
+  from {opacity: .1}
   to {opacity: 1}
+}
+
+
+/* For mobile phones: */
+#header {
+  width: 100%;
+}
+
+#pic-frm {
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  margin: 5px;
+}
+
+#pic {
+  width: 7.5em;
+  height: 11em;
+}
+
+
+#bio {
+  padding: 5px;
+  clear: right;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+#fullname {
+  position: relative;
+  margin: 5px;
+}
+
+#name, #family, #title {
+  text-transform: capitalize;
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+  color: DarkViolet;
+  margin-left: 5px;
+}
+
+#title {
+  text-transform:uppercase;
+  margin: 10px;
+}
+
+#skill, #lang {
+  clear: both;
+}
+
+.set :not(#skill) .elem {
+  width: calc( 100% - 20px);
+}
+
+.set .elem {
+  display: inline-block;
+  float: left;
+  margin: .5em;
+  width: calc( 100% - 20px);
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#birth, #mail, #tel, #web, #address {
+  margin: 3px 0 0 10px;
+}
+
+.icons .elem::before {
+  display:inline-block;
+  height: 1em;
+  width: 1em;
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+#mail::before{
+  background-image: url("../img/violet/mail.png");
+}
+
+#tel::before{
+  background-image: url("../img/violet/phone.png");
+}
+
+#web::before{
+  background-image: url("../img/violet/web.png");
+}
+
+#address::before {
+  background-image: url("../img/violet/home.png");
+}
+
+#wrapper {
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+
+#social {
+  margin: 10px;
+  text-align: center;
+}
+
+.icons {
+  clear: both;
+}
+
+#scontent a {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 5px;
+  border: 0;
+}
+
+#scontent a:hover {
+  transform: rotate(360deg);
+  transition: transform 0.2s ease;
+}
+
+#facebook {
+  background-image: url("../img/violet/facebook.png");
+}
+
+#twitter {
+  background-image: url("../img/violet/twitter.png");
+}
+
+#linkedin {
+  background-image: url("../img/violet/linkedin.png");
+}
+
+#gplus {
+  background-image: url("../img/violet/gplus.png");
+}
+
+.barc {
+  display: inline-block;
+  width: 10em;
+  background-color: grey;
+  height: 1em;
+}
+
+.bar-l, .bar-h {
+  display: inline-block;
+  background-color: DarkViolet;
+  height: 100%;
+}
+
+#footer {
+  height: 2em;
+  border: 5px;
+  padding-top: .75em;
+  text-align: center;
+  background-color: DarkViolet;
+  color: white;
+  font-weight: bolder;
+}
+
+#footer a {
+  color: yellow;
+}
+
+.elem .name {
+  font-weight: bold;
+  color: DarkViolet;
+}
+
+.date, .org {
+  font-style: italic;
+  font-weight: bold;
+}
+
+#pub tr:nth-child(odd) {
+  background: violet;
+}
+
+.desc {
+  font-size: .8em;
+  font-style: italic;
+}
+
+#educ .field, .org {
+  font-style: italic;
+  margin-left: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .icons {
+    clear: none;
+  }
+
+  .set :not(#skill):not(#lang) .elem {
+    width: 46%;
+    width: calc(50% - 1.5em);
+  }
+
+   #skill .elem,  #lang .elem {
+    width: initial;
+  }
+
+
 }

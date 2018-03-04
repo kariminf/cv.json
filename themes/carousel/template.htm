@@ -7,26 +7,47 @@
 
   <div id="wrapper">
 
-    <div id="intro" class="frame anim first">
-      <div id="pic-frm">
-        <img src="@{perso.photo%s.rel}" id="pic" ></img>
-      </div>
-      <div id="me">
-        <div id="fullname" class="elem">
-          <span id="name">@{perso.name}</span>
-          <span id="family">@{perso.family}</span>
+    <div class="frame anim first">
+
+      <div id="info">
+        <div id="pic-frm">
+          <img src="@{perso.photo%s.rel}" id="pic" ></img>
         </div>
-        <div id="title" class="elem">@{perso.title}</div>
-        <div id="birth" class="elem">@{perso.birthday%s.date1}</div>
+        <div id="me">
+          <div id="fullname" class="elem">
+            <span id="name">@{perso.name}</span>
+            <span id="family">@{perso.family}</span>
+          </div>
+          <div id="title" class="elem">@{perso.title}</div>
+          <div id="birth" class="elem">@{perso.birthday%s.date1}</div>
+        </div>
       </div>
+
+      <div id="contact">
+        <div class="icons">
+          <div id="mail" class="elem wrap"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
+          <div id="tel" class="elem">@{perso.tel}</div>
+          <div id="web" class="elem wrap"><a href="@{perso.web}" target="_blank">@{perso.web}</a></div>
+          <div id="address" class="elem">@{perso.address}</div>
+        </div>
+        <div id="social">
+          <div >
+            <div id="shead">
+            </div>
+            <div id="scontent">
+              @{social%s}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="bio">@{perso.bio%r}</div>
 
     </div>
 
-    <div id="bio" class="frame anim">@{perso.bio%r}</div>
-
     <div id="exp" class="frame anim">
       <h1><span>Experiance</span></h1>
-      <div class="wrapper">
+      <div class="set">
         @{exp%bb}
         <div class="elem">
           <div class="name">@{exp.job}</div>
@@ -47,7 +68,7 @@
 
     <div id="educ" class="frame anim">
       <h1><span>Education</span></h1>
-      <div class="wrapper">
+      <div class="set">
         @{educ%bb}
         <div class="elem">
           <div class="name">@{educ.degree}</div>
@@ -62,7 +83,7 @@
 
     <div id="pub" class="frame anim">
       <h1><span>Publication</span></h1>
-      <div class="wrapper">
+      <div class="set">
       @{pub%bb}
       <div class="elem">
         <div class="authors">
@@ -80,44 +101,27 @@
     </div>
     </div>
 
-    <div id="skill" class="frame anim">
-      <h1><span>Skills</span></h1>
-      <div class="wrapper">
-        @{skill%bb}
-        <div class="elem">
-          <div class="name">@{skill.title}</div>@{skill.mark%s.theme1}
-        </div>
-        @{skill%be}
-      </div>
-    </div>
-
-    <div id="lang" class="frame anim">
-      <h1><span>Languages</span></h1>
-      <div class="wrapper">
-        @{lang%bb}
-        <div class="elem">
-          <div class="name">@{lang.name}</div>
-          <div class="mark">@{lang.mark%s.theme1}</div>
-        </div>
-        @{lang%be}
-      </div>
-    </div>
-
-
-    <div id="contact" class="frame anim" >
-      <div class="icons">
-        <div id="mail" class="elem wrap"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
-        <div id="tel" class="elem">@{perso.tel}</div>
-        <div id="web" class="elem wrap"><a href="@{perso.web}" target="_blank">@{perso.web}</a></div>
-        <div id="address" class="elem">@{perso.address}</div>
-      </div>
-      <div id="social">
-        <div class="wrapper">
-          <div id="shead">
+    <div class="frame anim">
+      <div id="skill">
+        <h1><span>Skills</span></h1>
+        <div class="set">
+          @{skill%bb}
+          <div class="elem">
+            <div class="name">@{skill.title}</div>@{skill.mark%s.theme1}
           </div>
-          <div id="scontent">
-            @{social%s}
+          @{skill%be}
+        </div>
+      </div>
+
+      <div id="lang" >
+        <h1><span>Languages</span></h1>
+        <div class="set">
+          @{lang%bb}
+          <div class="elem">
+            <div class="name">@{lang.name}</div>
+            <div class="mark">@{lang.mark%s.theme1}</div>
           </div>
+          @{lang%be}
         </div>
       </div>
     </div>
@@ -134,9 +138,6 @@
   <span class="dot" onclick="JsonVCard.currentSlide(3, 'frame')"></span>
   <span class="dot" onclick="JsonVCard.currentSlide(4, 'frame')"></span>
   <span class="dot" onclick="JsonVCard.currentSlide(5, 'frame')"></span>
-  <span class="dot" onclick="JsonVCard.currentSlide(6, 'frame')"></span>
-  <span class="dot" onclick="JsonVCard.currentSlide(7, 'frame')"></span>
-  <span class="dot" onclick="JsonVCard.currentSlide(8, 'frame')"></span>
 </div>
   <div id="footer">
     @{page.footer%r}
