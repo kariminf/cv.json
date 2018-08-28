@@ -11,6 +11,9 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
+## Version 1.3.0 ()
+* NEW: flat theme
+
 ## Version 1.2.3 (2018-03-04)
 * NEW: carousel theme
 

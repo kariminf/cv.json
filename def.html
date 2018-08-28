@@ -3,13 +3,17 @@
   <meta charset="UTF-8">
   <title>Test portfelio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="jsonvcard.js" ></script>
+  <script type="text/javascript" src="src/jsonvcard.js" ></script>
 </head>
 <body>
   <script>
-  JsonVCard.setStyleName("violet")
-    .setFooter("info/footer.htm")
-    .process("./vcard.json");
+  JsonVCard
+    .setRelativePath("src/")
+    .setThemesPath("src/themes/")
+    .setThemeName("menu")
+    .setStyleName("flat")
+    .setFooter("src/info/footer.htm")
+    .process("src/vcard.json");
   </script>
 </body>
 </html>

@@ -1,8 +1,5 @@
-* {
-  box-sizing: border-box;
-}
 /*************************************************************/
-.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper, #footer, #pic-frm {
+.kfs, #header, #info, #bio, #pub .elem, #educ .elem, #exp .elem, #social .wrapper, #footer {
   border-radius: 5px;
   border: 2px solid black;
 }
@@ -68,7 +65,7 @@
   float: left;
   vertical-align: middle;
   text-align: center;
-  margin: 5px 0;
+  margin: 5px;
 }
 
 #pic {
@@ -80,7 +77,8 @@
   width: 55%;
   width: calc(100% - 7.5em - 25px);
   float: right;
-  margin: 5px 0;
+  margin: 5px;
+  box-sizing: border-box;
 }
 
 
@@ -98,7 +96,7 @@
 
 #name, #family, #title {
   text-transform: capitalize;
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px white;
   font-weight: bold;
   color: black;
   margin-left: 5px;
@@ -160,18 +158,18 @@
 }
 
 #social {
-  clear: both;
   margin: 10px;
   text-align: center;
 }
 
+a {color: black;}
+
 #scontent a {
   display: inline-block;
-  width: 2em;
-  height: 2em;
+  width: 64px;
+  height: 64px;
   margin: 5px;
   border: 0;
-  background-size: 2em 2em;
   filter: grayscale(100%) contrast(200%);
 }
 
@@ -207,9 +205,6 @@
   display: inline-block;
   background-color: black;
   height: 100%;
-  color: white;
-  font-size: .8em;
-  font-weight: bold;
 }
 
 #footer {
@@ -236,6 +231,10 @@
   font-weight: bold;
 }
 
+#pub tr:nth-child(odd) {
+  background: grey;
+}
+
 .desc {
   font-size: .8em;
   font-style: italic;
@@ -244,107 +243,4 @@
 #educ .field, .org {
   font-style: italic;
   margin-left: 1em;
-}
-
-
-@media only screen and (min-width: 768px) {
-
-  #pic-frm {
-    display: inline-block;
-    float: right;
-    margin-right: 5px;
-  }
-
-  #me {
-    display: inline-block;
-    float:left;
-  }
-
-  #info{
-    display:inline-block;
-    vertical-align: top;
-    height: 11.25em;
-    float: right;
-    width: auto;
-    margin-right: 10px;
-    padding: 5px;
-  }
-
-  #bio {
-    display: block;
-    position: absolute;
-    background: white;
-    right: 15px;
-    float: right;
-    width: 9.5em;
-    height: 14em;
-    overflow-y:scroll;
-    overflow-x:hidden;
-    z-index: 2;
-    opacity: 0;
-    transition: 1s ease;
-    transition-property: all;
-  }
-
-  #bio:hover {
-    width: 50%;
-    opacity: 100;
-  }
-
-  #cont :not(#skill):not(#lang) .elem {
-    width: 46%;
-    width: calc(50% - 1.5em);
-  }
-
-  #cont #skill .elem {
-    width: initial;
-  }
-
-  #cont .kfs .wrapper {
-    display: flex;
-  }
-
-  #lang .read, #lang .write, #lang .ustnd {
-    display: inline-block;
-  }
-
-  #name, #family {
-    float: left;
-    margin-left: 5px;
-  }
-
-  #title {
-    clear: both;
-  }
-
-  #header {
-    display:block;
-    position: fixed;
-    z-index: 2;
-    top: 5px;
-    left: 5px;
-    width: 100%;
-    width: calc(100% - 17px);
-    height: 12em;
-  }
-
-  /*this is used to position the content after the header*/
-  #wrapper{
-    position: absolute;
-    top: 13em;
-    left:0;
-    right: 0;
-    bottom: 0;
-    overflow-y:scroll;
-    overflow-x:hidden;
-  }
-
-  #social {
-    position: fixed;
-    top: 4em;
-    left: 5px;
-    z-index: 3;
-    width: 12em;
-  }
-
 }
