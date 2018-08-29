@@ -1,5 +1,5 @@
 /*
-This file is part of jsonVCard project;
+This file is part of CVJson project;
 a Javascript script which allows you to create simple VCard
 
 Copyright (C) 2017-18 Abdelkrime Aries <kariminfo0@gmail.com>
@@ -20,25 +20,25 @@ limitations under the License.
 /**
  * Provides the scripts to generate a CV
  *
- * @module jsonvcard
+ * @module cvjson
  */
 (function(){
 
 	if ( typeof module === "object" && module && typeof module.exports === "object" ) {
-		module.exports = JsonVCard;
+		module.exports = CVJson;
 	} else {
-		window.JsonVCard = JsonVCard;
+		window.CVJson = CVJson;
 	}
 
 
   /**
 	* This class doesn't do anything, it is here just to force YuiDoc
 	* generating the documentation
-	* @class JsonVCard
-	* @module jsonvcard
+	* @class CVJson
+	* @module cvjson
 	* @constructor
 	*/
-	function JsonVCard() {
+	function CVJson() {
 		//This is just to force YuiDoc generating the documentation
 	}
 
@@ -76,7 +76,7 @@ limitations under the License.
 	 * @public
 	 * @return {Boolean} true if the page rendering is completed
 	 */
-	JsonVCard.isComplete = function(){
+	CVJson.isComplete = function(){
 		return complete;
 	}
 
@@ -87,11 +87,11 @@ limitations under the License.
 	 * @method setThemesPath
 	 * @param {string} path the path
 	 */
-	JsonVCard.setThemesPath = function(path){
+	CVJson.setThemesPath = function(path){
 		themesPath = path.trim();
 		if (! themesPath.endsWith("/")) themesPath += "/";
 		themePath = themesPath + "default/";
-		return JsonVCard;
+		return CVJson;
 	}
 
 	/**
@@ -101,10 +101,10 @@ limitations under the License.
 	 * @method setRelativePath
 	 * @param {string} path the path
 	 */
-	JsonVCard.setRelativePath = function(path){
+	CVJson.setRelativePath = function(path){
 		relPath = path.trim();
 		if (! relPath.endsWith("/")) relPath += "/";
-		return JsonVCard;
+		return CVJson;
 	}
 
 	/**
@@ -114,9 +114,9 @@ limitations under the License.
 	 * @method setThemeName
 	 * @param {string} name the theme's name
 	 */
-	JsonVCard.setThemeName = function(name){
+	CVJson.setThemeName = function(name){
 		themePath = themesPath + name + "/";
-		return JsonVCard;
+		return CVJson;
 	}
 
 	/**
@@ -125,11 +125,11 @@ limitations under the License.
 	 * @static
 	 * @method setStyleName
 	 * @param {string} name the style's name
-	 * @return {JsonVCard}       this object
+	 * @return {CVJson}       this object
 	 */
-	JsonVCard.setStyleName = function(name){
+	CVJson.setStyleName = function(name){
 		style = name + ".css";
-		return JsonVCard;
+		return CVJson;
 	}
 
 	/**
@@ -139,7 +139,7 @@ limitations under the License.
 	 * @method setStyleName
 	 * @param {string} name the style's name
 	 */
-	JsonVCard.loadStyle = function(name){
+	CVJson.loadStyle = function(name){
 		style = name + ".css";
 		addStyleSheet(themePath + style);
 	}
@@ -150,14 +150,14 @@ limitations under the License.
 	 * @static
 	 * @param {[type]} url [description]
 	 */
-	JsonVCard.setFooter = function (url){
+	CVJson.setFooter = function (url){
 		files.push({"marker": "@{page.footer%r}", "url": url});
-		return JsonVCard;
+		return CVJson;
 	}
 
  	/**
- 	 * Initialization of process; this method searches for "vcard.json"
-   * in the javascript location "jsonvcard.js".
+ 	 * Initialization of process; this method searches for "cv.json"
+   * in the javascript location "cv.json.js".
    * Then when retrieved, it sends its content as a string to process(json)
    * Where it will be processed
    * @public
@@ -165,7 +165,7 @@ limitations under the License.
    * @method process
  	 * @param  {string} jsonURL The location of json file
  	 */
-  JsonVCard.process = function (jsonURL){
+  CVJson.process = function (jsonURL){
     var jsonFile = new XMLHttpRequest();
     jsonFile.overrideMimeType("application/json");
     jsonFile.open("GET", jsonURL, true);
@@ -176,7 +176,7 @@ limitations under the License.
       }
     }
     jsonFile.send(null);
-		return JsonVCard;
+		return CVJson;
   }// end init()
 
 
@@ -593,7 +593,7 @@ limitations under the License.
 
 	/**
 	 * Resolves the url; if it is relative it adds the prefix specified by
-	 * JsonVCard.setRelativePath
+	 * CVJson.setRelativePath
 	 * @static
 	 * @private
 	 * @param  {string} url the url
@@ -748,22 +748,22 @@ limitations under the License.
 	}
 
 	//========================================================
-  //                 ANIMATION FUNCTIONS
+  //                 TEMPLATE USABLE FUNCTIONS
   //========================================================
 
 	var current = 1;
 
 	// Next/previous controls
-	JsonVCard.plusSlides = function(plus, slideName) {
-		JsonVCard.showSlide(current += plus, slideName);
+	CVJson.plusSlides = function(plus, slideName) {
+		CVJson.showSlide(current += plus, slideName);
 	}
 
 	// Thumbnail image controls
-	JsonVCard.currentSlide = function(target, slideName) {
-		JsonVCard.showSlide(current = target, slideName);
+	CVJson.currentSlide = function(target, slideName) {
+		CVJson.showSlide(current = target, slideName);
 	}
 
-	JsonVCard.showSlide = function(target, slideName) {
+	CVJson.showSlide = function(target, slideName) {
 	  var i;
 	  var slides = document.getElementsByClassName(slideName);
 	  var dots = document.getElementsByClassName("dot");
@@ -779,6 +779,14 @@ limitations under the License.
 	  dots[current-1].className += " active";
 	}
 
+    CVJson.switchStyle = function (target, original, addition) {
+        var x = document.getElementById(target);
+        if (x.className === original) {
+            x.className += " " + addition;
+        } else {
+            x.className = original;
+        }
+    }
 
 
 }());
