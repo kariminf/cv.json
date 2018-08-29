@@ -3,16 +3,16 @@
   <meta charset="UTF-8">
   <title>Test CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="src/cv.json.js" ></script>
+  <script type="text/javascript" src="cv.json.js" ></script>
 </head>
 <body>
   <script>
-  CVJson.setRelativePath("src/")
-        .setThemesPath("src/themes/")
+  CVJson.setRelativePath("./")
+        .setThemesPath("themes/")
         .setThemeName("layer")
         .setStyleName("flat")
-        .setFooter("src/info/footer.htm")
-        .process("src/cv.json");
+        .setFooter("info/footer.htm")
+        .process("cv.json");
   </script>
 </body>
 </html>

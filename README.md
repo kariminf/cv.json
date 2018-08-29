@@ -92,7 +92,7 @@ node_modules/http-server/bin/http-server ./ -p 8090
 ```
 Open this address on your browser:
 ```bash
-node_modules/http-server/bin/http-server ./ -p 8090
+http://localhost:8090/
 ```
 
 ### HTML file
