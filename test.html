@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Test portfelio</title>
+  <title>Test cv.json themes</title>
   <style>
     /*iframe {border: 5px solid red;}*/
     #wrap {padding: 0; overflow: hidden;border: 5px solid red;}
@@ -26,37 +26,58 @@
       var s = {
         "default": ["violet", "black", "vertical", "colorful", "show"],
         "title_first": ["violet", "black", "vertical", "colorful", "dark"],
-        "carousel": ["slide_violet"]
+        "carousel": ["slide_violet"],
+        "layer": ["flat"]
       };
+
+      var page = `
+      <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>Test CV<\/title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text\/javascript" src="src\/cv.json.js" ><\/script>
+      <\/head>
+      <body>
+        <script>
+        @{script}
+        <\/script>
+      <\/body>
+      <\/html>
+      `;
 
       function device(){
         var dev = _($("dev")).value;
         document.getElementById("wrap").className = dev;
       }
 
-      var curStyle;
+      var curStyle = "violet";
 
       function ctheme(){
-        var innerDoc = $("if").contentDocument || iframe.contentWindow.document;
-        if(! curStyle) curStyle = "violet";
+
         fillStyles();
 
-        var script_tag = innerDoc.createElement('script');
+        var doc = $("if").contentWindow.document;
 
-        script_tag.type = 'text/javascript';
-        script_tag.text = getCode();
-        innerDoc.body.appendChild(script_tag);
+        doc.open();
+        var code = page.replace("@{script}", getCode());
+        doc.write(code);
+        doc.close();
+
 
       }
 
       function getCode(){
         var thm = _($("thm")).text;
+
         var stl = _($("stl")).text;
         var scr = `
-        JsonVCard.setStyleName("@{style}")
-                          .setThemeName("@{theme}")
-                          .setFooter("info/footer.htm")
-                          .process("src/vcard.json");
+        CVJson.setRelativePath("src/")
+              .setThemesPath("src/themes/")
+              .setThemeName("@{theme}")
+              .setStyleName("@{style}")
+              .setFooter("src/info/footer.htm")
+              .process("src/cv.json");
         `;
         scr = scr.replace("@{theme}", thm);
         scr = scr.replace("@{style}", stl);
@@ -67,7 +88,7 @@
       function cstyle(){
         var innerWin = $("if").contentWindow;
         var stl = _($("stl")).text;
-        innerWin.JsonVCard.loadStyle(stl);
+        innerWin.CVJson.loadStyle(stl);
         curStyle = stl;
         getCode();
       }
@@ -106,19 +127,20 @@
   </select>
   Theme:
   <select id="thm" onchange="ctheme()">
-    <option >default</option>
+    <option selected>default</option>
     <option>title_first</option>
     <option>carousel</option>
+    <option>layer</option>
   </select>
   <select id="stl" onchange="cstyle()">
   </select>
   <br>
   <div id="wrap" class="pc">
-    <iframe id="if" src="def.html" ></iframe>
+    <iframe id="if" ></iframe>
   </div>
   <textarea id="code" style="width:600px; height:100px;"></textarea>
   <script>
-  ctheme();
+    ctheme();
   </script>
 </body>
 </html>
