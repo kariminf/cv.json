@@ -1,9 +1,9 @@
 {
   "name": "cv.json",
-  "version": "1.3.1",
+  "version": "1.3.8",
   "description": "CV webpage dynamically created from a json file and a template",
-  "main": "src/cv.json.js",
-  "bin": "src/cv.json.ins.js",
+  "main": "cv.json.js",
+  "bin": "cv.json.ins.js",
   "keywords": [
     "cv",
     "json",
@@ -15,7 +15,16 @@
   "repository": "https://github.com/kariminf/cv.json.git",
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
   "license": "Apache-2.0",
-  "files": ["src/*"],
+  "files":[
+      "info/*",
+      "themes/*",
+      "cv.json",
+      "cv.json.js",
+      "cv.json.ins.js",
+      "index_node.html",
+      "profile.jpg",
+      "CREDITS.md"
+  ],
   "dependencies": {
     "ncp": "^2.0.0"
   },

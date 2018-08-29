@@ -1,4 +1,6 @@
-fs = require("fs");
+#!/usr/bin/env node
+
+var fs = require("fs");
 
 fs.createReadStream( __dirname + '/cv.json').pipe(fs.createWriteStream('cv.json'));
 fs.createReadStream( __dirname + '/profile.jpg').pipe(fs.createWriteStream('profile.jpg'));
