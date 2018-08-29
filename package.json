@@ -1,9 +1,9 @@
 {
   "name": "cv.json",
-  "version": "1.3.0",
-  "description": "VCard dynamically created from a json file and a template",
+  "version": "1.3.1",
+  "description": "CV webpage dynamically created from a json file and a template",
   "main": "src/cv.json.js",
-  "bin": "src/install.js",
+  "bin": "src/cv.json.ins.js",
   "keywords": [
     "cv",
     "json",
@@ -12,7 +12,7 @@
     "cv generator",
     "personal webpage"
   ],
-  "repository": "https://github.com/kariminf/json_vcard.git",
+  "repository": "https://github.com/kariminf/cv.json.git",
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
   "license": "Apache-2.0",
   "files": ["src/*"],

@@ -1,11 +1,11 @@
 {
-  "name": "jsonVCard API",
+  "name": "cv.json API",
   "description": "json CV website",
-  "version": "1.2.2",
-  "url": "https://github.com/kariminf/json_vcard",
+  "version": "1.3.0",
+  "url": "https://github.com/kariminf/cv.json",
   "options": {
     "linkNatives": "true",
-    "paths": "jsonvcard.js",
+    "paths": "src/cv.json.js",
     "ignorePaths": [ "docs", "themes", ".git" ],
     "outdir": "./docs/docs",
     "themedir": "node_modules/yuidoc-marviq-theme",
