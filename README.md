@@ -34,14 +34,14 @@ In other word:
 * I can give you a pie, but instead I give you all the ingredients (json file, html files, template, css) and the recipe (jsonvcard.js) and you cook it yourself
 
 ## Showcasing
-![default black mobile](src/themes/default/black.m.png)
-![default black pc](src/themes/default/black.png)
-![default colorful mobile](src/themes/default/colorful.m.png)
-![default colorful pc](src/themes/default/colorful.png)
-![default vertical mobile](src/themes/default/vertical.m.png)
-![default vertical pc](src/themes/default/vertical.png)
-![default violet mobile](src/themes/default/violet.m.png)
-![default violet pc](src/themes/default/violet.png)
+![default black mobile](docs/themes/default/black.m.png)
+![default black pc](docs/themes/default/black.png)
+![default colorful mobile](docs/themes/default/colorful.m.png)
+![default colorful pc](docs/themes/default/colorful.png)
+![default vertical mobile](docs/themes/default/vertical.m.png)
+![default vertical pc](docs/themes/default/vertical.png)
+![default violet mobile](docs/themes/default/violet.m.png)
+![default violet pc](docs/themes/default/violet.png)
 
 For an exhaustive list of available themes, [check THIS](./THEMES.md)
 
