@@ -1,5 +1,4 @@
-
-# json-VCard Changelog
+# cv.json Changelog
 
 This is the changelog syntax:
 * NEW: For any new module or file (creation)
@@ -12,11 +11,11 @@ This will break the projects developed on precedent versions.
 * DEL: Delete or deprecate some functions
 
 ## Version 1.3.0 ()
-* NEW: flat theme
+* NEW: layer theme
+* MODIFY: modify the name to cv.json
 
 ## Version 1.2.3 (2018-03-04)
 * NEW: carousel theme
-
 
 ## Version 1.2.2 (2017-08-23)
 * FIX: some servers don't go well with hyphens

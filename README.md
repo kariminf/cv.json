@@ -1,12 +1,12 @@
 # json-vcard
 
-[![NPM](https://nodei.co/npm/json_vcard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/json_vcard/)
+[![NPM](https://nodei.co/npm/cv.json.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/json_vcard/)
 
-[![Project](https://img.shields.io/badge/Project-jsonVCard-FDEE00.svg)](https://kariminf.github.io/json_vcard/)
+[![Project](https://img.shields.io/badge/Project-cv.json-FDEE00.svg)](https://kariminf.github.io/json_vcard/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-FDEE00.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Version](https://img.shields.io/npm/v/json_vcard.svg)](https://www.npmjs.com/package/json_vcard)
-[![Travis](https://img.shields.io/travis/kariminf/json_vcard.svg)](https://travis-ci.org/kariminf/json_vcard)
-[![npm](https://img.shields.io/npm/dt/json_vcard.svg)](https://www.npmjs.com/package/json_vcard)
+[![Version](https://img.shields.io/npm/v/cv.json.svg)](https://www.npmjs.com/package/cv.json)
+[![Travis](https://img.shields.io/travis/kariminf/cv.json.svg)](https://travis-ci.org/kariminf/cv.json)
+[![npm](https://img.shields.io/npm/dt/cv.json.svg)](https://www.npmjs.com/package/cv.json)
 
 When you want to create a VCard (CV website), you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
@@ -27,6 +27,9 @@ As consequences:
 * Most importantly, the user doesn't have to program anything
 
 See a demo [here](https://kariminf.github.io/json_vcard/)
+
+In other word:
+* I can give you a pie, but instead I give you all the ingredients (json file, html files, template, css) and the recipe (jsonvcard.js) and you cook it yourself
 
 ## How it works
 

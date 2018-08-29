@@ -56,7 +56,7 @@
         JsonVCard.setStyleName("@{style}")
                           .setThemeName("@{theme}")
                           .setFooter("info/footer.htm")
-                          .process("./vcard.json");
+                          .process("src/vcard.json");
         `;
         scr = scr.replace("@{theme}", thm);
         scr = scr.replace("@{style}", stl);
