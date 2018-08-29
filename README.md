@@ -53,7 +53,7 @@ The HTML file doesn't contain anything at all. It just calls for the script whic
 
 1. The browser will download the index file
 1. Then, it downloads the script
-1. The script will download the css specified in the index file and apply it to the documznt
+1. The script will download the css specified in the index file and apply it to the document
 1. It will download the template into a shared string
 1. The script will then merge the template and the information in the json file
 1. If there are some files, the script will download them asynchronously
@@ -63,6 +63,39 @@ The HTML file doesn't contain anything at all. It just calls for the script whic
 Check [the API](https://kariminf.github.io/cv.json/docs/docs)
 
 ## How to use
+
+### Download from Github
+
+* Download the last release [HERE](https://github.com/kariminf/cv.json/releases/latest)
+* Extract the files in your project
+* Modify index.html (include theme, style)
+* Modify cv.json (insert your information)
+
+### Download from Npm
+
+In your project tree, tape this command line to download the latest version to "node_modules":
+```bash
+npm i cv.json
+node node_modules/cv.json/install.js
+```
+All needed files will be copied to the root (where the shell is positioned)
+* Modify index.html
+* Modify cv.json
+
+If you want to test your webpage locally, install a simple HTTP server
+```bash
+npm i http-server -D
+```
+Then,
+```bash
+node_modules/http-server/bin/http-server ./ -p 8090
+```
+Open this address on your browser:
+```bash
+node_modules/http-server/bin/http-server ./ -p 8090
+```
+
+### HTML file
 
 By introducing information inside a json file ("cv.json"), you can generate a CV webpage (resumé).
 This can be done using javascript ("cv.json.js") which is called as follows:
@@ -91,23 +124,6 @@ it is self explanatory and easy to fill.
 
 For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/cv.json/docs/docs/)
 
-### Download from Github
-
-* Download the last release [HERE](https://github.com/kariminf/cv.json/releases/latest)
-* Extract the files in your project
-* Modify index.html
-* Modify cv.json
-
-### Download from Npm
-
-In your project tree, tape this command line to download the latest version to "node_modules":
-```bash
-npm install cv.json
-node node_modules/cv.json/cv.json.ins.js
-```
-All needed files will be copied to the root (where the shell is positioned)
-* Modify index.html
-* Modify cv.json
 
 Also, if you just want to update the package, don't execute the last instruction.
 Otherwise, it will overwrite your json file (if its name is not cv.json)
