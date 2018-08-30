@@ -2,6 +2,7 @@
 @{date1%f:date("mm[ dd<, >]yyyy", vars.months)}
 @{theme1%f:mark("bar-per")}
 @{rel%f:relative}
+@{%f:swipe("frame")}
 
 <div id="content">
 
@@ -149,7 +150,3 @@
     @{page.footer%r}
   </div>
 </div>
-
-<script type="text/javascript">
-CVJson.showSlide(1, 'frame');
-</script>

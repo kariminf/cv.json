@@ -58,6 +58,8 @@ limitations under the License.
 	//This is used to keep the functions defined in the template
 	var fcts = {};
 
+    var finalTasks = [];
+
 	var complete = false;
 
   //========================================================
@@ -273,37 +275,43 @@ limitations under the License.
 	 * @param  {[type]} template [description]
 	 * @return {[type]}          [description]
 	 */
-	function getFunctions(template){
-		var html = template;
+     function getFunctions(template){
+         var html = template;
 
-		var regex = /@\{([^%]+)%f:([^\}]+)\}/g;
+         var regex = /@\{([^%]*)%f:([^\}]+)\}/g;
 
-		var match = regex.exec(template);
+         var match = regex.exec(template);
 
-    while (match != null){
-      var result;
-			var rep = "@{" + match[1] + "%f:" + match[2] + "}";
-      html = html.replace(rep, "");
+         while (match != null){
+             var result;
+             var rep = "@{" + match[1] + "%f:" + match[2] + "}";
+             html = html.replace(rep, "");
 
-			var fct = /([^\(]+)(.*)/g.exec(match[2]);
-			if (fct !== null){
-				var fctArgs = "";
-				if(fct[2].length>2){
-					fctArgs += fct[2].slice(1,-1);
-				}
-				fcts[match[1]] = {
-					name: fct[1],
-					args: fctArgs
-				};
-			}
+             var fct = /([^\(]+)(.*)/g.exec(match[2]);
+             if (fct !== null){
+                 var fctArgs = "";
+                 if(fct[2].length>2){
+                     fctArgs += fct[2].slice(1,-1);
+                 }
+                 if (match[1].length == 0) {
+                     eval('result = process_' + fct[1] + '(' + fctArgs + ');');
+                 }
+                 else {
+                     fcts[match[1]] = {
+                         name: fct[1],
+                         args: fctArgs
+                     };
+                 }
 
-      match = regex.exec(template);
-    }
+             }
 
-		//console.log("Defined functions:", fcts);
+             match = regex.exec(template);
+         }
 
-		return html;
-	}
+         console.log("Defined functions:", fcts);
+
+         return html;
+     }
 
 
   //========================================================
@@ -421,7 +429,7 @@ limitations under the License.
 				if(fcts[fctM[1]].args) funcArgs += ", " +  fcts[fctM[1]].args;
 			}
 
-			console.log(funcArgs);
+			//console.log(funcArgs);
 			eval('result = process_' + func + '(value, template' + funcArgs + ');');
 
       match = marker.exec(template);
@@ -543,6 +551,7 @@ limitations under the License.
 		//in case no file has been called
 		if (mutex === 0){
 			complete = true;
+            finalize();
 		}
 
   }
@@ -584,6 +593,7 @@ limitations under the License.
           //When all files are being processed: browser!! behold, the code is coming
           document.body.innerHTML = sharedResult;
 					complete = true;
+                    finalize();
         }
 
       }
@@ -749,6 +759,14 @@ limitations under the License.
 		return template.replace(marker, resolveURL(value));
 	}
 
+
+    function process_swipe(value) {
+        finalTasks.push(function(){
+            addHorizontalSwipe(value);
+        });
+
+    }
+
 	//========================================================
   //                 TEMPLATE USABLE FUNCTIONS
   //========================================================
@@ -788,6 +806,47 @@ limitations under the License.
         } else {
             x.className = original;
         }
+    }
+
+    function addHorizontalSwipe (slideName) {
+        document.addEventListener('touchstart', handleTouchStart, false);
+        document.addEventListener('touchend', handleTouchEnd, false);
+
+        var initX = null;
+        const threshold = 100;
+
+        function handleTouchStart(evt) {
+            initX = evt.changedTouches[0].clientX;
+        };
+
+        function handleTouchEnd(evt) {
+            if ( ! initX) {
+                return;
+            }
+
+            var finalX = evt.changedTouches[0].clientX;
+
+            var xDiff = finalX - initX;
+
+            if (Math.abs(xDiff) > threshold) {
+                if (xDiff > 0) {//right
+                    CVJson.plusSlides(1, slideName);
+                }
+                else {//left
+                    CVJson.plusSlides(-1, slideName);
+                }
+            }
+
+            initX = null;
+        };
+
+    }
+
+    function finalize(){
+        for (var f in finalTasks){
+            finalTasks[f]();
+        }
+
     }
 
 
