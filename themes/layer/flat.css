@@ -24,11 +24,12 @@
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    height: 20px;
 }
 
 /* Add an active class to highlight the current page */
@@ -44,8 +45,8 @@
 
 /* Add a dark background on topnav links and the dropdown button on hover */
 .topnav a:hover{
-    background-color: #555;
-    color: white;
+    background-color: #CFFFCF;
+    color: #4CAF50;
 }
 
 #pic-frm {
@@ -64,9 +65,8 @@ h1 span {
 }
 
 #info {
-    width: 100%;
-    margin: 5px;
-    box-sizing: border-box;
+    margin-left: 40%;
+    text-align: left;
 }
 
 #perso {
@@ -140,6 +140,10 @@ h1 span {
     background-repeat: no-repeat;
     margin-right: 10px;
     filter: grayscale(100%) contrast(200%);
+}
+
+#birth::before{
+    background-image: url("../img/violet/birth.png");
 }
 
 #mail::before{
@@ -270,6 +274,12 @@ a {color: blue;}
     #bio {
         width: 90%;
     }
+
+    #info {
+        margin-left: 10%;
+        text-align: left;
+    }
+
     .topnav a:not(:first-child){
         display: none;
     }

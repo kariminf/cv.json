@@ -134,6 +134,10 @@
   margin-right: 10px;
 }
 
+#birth::before{
+  background-image: url("../img/violet/birth.png");
+}
+
 #mail::before{
   background-image: url("../img/violet/mail.png");
 }

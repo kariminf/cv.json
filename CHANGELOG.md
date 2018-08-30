@@ -10,6 +10,10 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
+## Version 1.4.0
+* IMPROVE: layer/flat.css
+* NEW: birthday icon
+
 ## Version 1.3.10 (2018-08-30)
 * NEW: layer theme
 * MODIFY: modify the name to cv.json
