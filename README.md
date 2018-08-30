@@ -8,9 +8,11 @@
 [![Travis](https://img.shields.io/travis/kariminf/cv.json.svg)](https://travis-ci.org/kariminf/cv.json)
 [![npm](https://img.shields.io/npm/dt/cv.json.svg)](https://www.npmjs.com/package/cv.json)
 
-TL;DR: Create your Curriculum Vitae (CV) personal webpage by putting your information on a json file and an almost blank index.html (containing just information about themes)
+**TL;DR**
 
-** Long Version **
+Create your Curriculum Vitae (CV) personal webpage by putting your information on a json file and an almost blank index.html (containing just information about themes)
+
+**Long Version**
 
 When you want to create a personal CV website, you have to put your information into a static HTML file (if you don't want a server based one).
 Then, if you want to change the design, sometimes changing CSS is not enough; you have to change HTML too.
@@ -34,16 +36,19 @@ In other word:
 * I can give you a pie, but instead I give you all the ingredients (json file, html files, template, css) and the recipe (jsonvcard.js) and you cook it yourself
 
 ## Showcasing
-![default black mobile](docs/themes/default/black.m.png)
+
 ![default black pc](docs/themes/default/black.png)
-![default colorful mobile](docs/themes/default/colorful.m.png)
 ![default colorful pc](docs/themes/default/colorful.png)
-![default vertical mobile](docs/themes/default/vertical.m.png)
 ![default vertical pc](docs/themes/default/vertical.png)
-![default violet mobile](docs/themes/default/violet.m.png)
 ![default violet pc](docs/themes/default/violet.png)
+![default black mobile](docs/themes/default/black.m.png)
+![default colorful mobile](docs/themes/default/colorful.m.png)
+![default vertical mobile](docs/themes/default/vertical.m.png)
+![default violet mobile](docs/themes/default/violet.m.png)
 
 For an exhaustive list of available themes, [check THIS](./THEMES.md)
+
+To test these themes directly, [check THIS](https://kariminf.github.io/cv.json/test.html)
 
 ## How it works
 
@@ -66,7 +71,7 @@ Check [the API](https://kariminf.github.io/cv.json/docs/docs)
 
 ### Download from Github
 
-* Download the last release [HERE](https://github.com/kariminf/cv.json/releases/latest)
+* Download the last release [HERE](https://github.com/kariminf/cv.json/releases/latest/cv.json.zip)
 * Extract the files in your project
 * Modify index.html (include theme, style)
 * Modify cv.json (insert your information)
@@ -119,11 +124,10 @@ This can be done using javascript ("cv.json.js") which is called as follows:
 </body>
 </html>
 ```
-The json file ("vcard.json") contains information about the one for whom we want to generate a CV.
+The json file ("cv.json") contains information about the one for whom we want to generate a CV.
 it is self explanatory and easy to fill.
 
 For API documentation, check [this YuiDoc generated documentation](https://kariminf.github.io/cv.json/docs/docs/)
-
 
 Also, if you just want to update the package, don't execute the last instruction.
 Otherwise, it will overwrite your json file (if its name is not cv.json)
@@ -134,8 +138,8 @@ All the C's are here:
 
 * [CODE_OF_CONDUCT](./CONTRIBUTING.md) : How to contribute to this project
 * [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) : Some recommendations must be followed for a healthy development environment.
-* Changelog: [CHANGELOG.md](./CHANGELOG.md) : Changes in every version
-* Credits: [CREDITS.md](./CREDITS.md) : List of contributors
+* [CHANGELOG.md](./CHANGELOG.md) : Changes in every version
+* [CREDITS.md](./CREDITS.md) : List of contributors
 
 ## License
 
