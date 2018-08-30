@@ -19,15 +19,15 @@
             <span id="family">@{perso.family}</span>
           </div>
           <div id="title" class="elem">@{perso.title}</div>
-          <div id="birth" class="elem">@{perso.birthday%s.date1}</div>
         </div>
       </div>
 
       <div id="contact">
         <div class="icons">
-          <div id="mail" class="elem wrap"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
+          <div id="birth" class="elem">@{perso.birthday%s.date1}</div>
+          <div id="mail" class="elem"><a href="mailto:@{perso.email}">@{perso.email}</a></div>
           <div id="tel" class="elem">@{perso.tel}</div>
-          <div id="web" class="elem wrap"><a href="@{perso.web}" target="_blank">@{perso.web}</a></div>
+          <div id="web" class="elem"><a href="@{perso.web}" target="_blank">@{perso.web}</a></div>
           <div id="address" class="elem">@{perso.address}</div>
         </div>
         <div id="social">
@@ -42,6 +42,8 @@
       </div>
 
       <div id="bio">@{perso.bio%r}</div>
+
+      <div class="clear-footer"></div>
 
     </div>
 
@@ -64,6 +66,7 @@
         </div>
         @{exp%be}
       </div>
+      <div class="clear-footer"></div>
     </div>
 
     <div id="educ" class="frame anim">
@@ -79,6 +82,7 @@
         </div>
         @{educ%be}
       </div>
+      <div class="clear-footer"></div>
     </div>
 
     <div id="pub" class="frame anim">
@@ -94,11 +98,12 @@
         <div class="name">@{pub.title}</div>
         <div class="date">@{pub.date%s.date1}</div>
         <div class="publisher">@{pub.publisher}</div>
-        <a href="@{pub.url}" target = "_blank" class = "wrap">@{pub.url}</a>
+        <a href="@{pub.url}" target = "_blank">@{pub.url}</a>
         <div class="desc">@{pub.desc%r}</div>
       </div>
       @{pub%be}
     </div>
+    <div class="clear-footer"></div>
     </div>
 
     <div class="frame anim">
@@ -124,6 +129,7 @@
           @{lang%be}
         </div>
       </div>
+      <div class="clear-footer"></div>
     </div>
 
     <!-- Next and previous buttons -->
@@ -132,13 +138,13 @@
 
   </div>
   <!-- The dots/circles -->
-<div class="dots">
-  <span class="dot active" onclick="CVJson.currentSlide(1, 'frame')"></span>
-  <span class="dot" onclick="CVJson.currentSlide(2, 'frame')"></span>
-  <span class="dot" onclick="CVJson.currentSlide(3, 'frame')"></span>
-  <span class="dot" onclick="CVJson.currentSlide(4, 'frame')"></span>
-  <span class="dot" onclick="CVJson.currentSlide(5, 'frame')"></span>
-</div>
+    <div class="dots">
+      <span class="dot active" onclick="CVJson.currentSlide(1, 'frame')"></span>
+      <span class="dot" onclick="CVJson.currentSlide(2, 'frame')"></span>
+      <span class="dot" onclick="CVJson.currentSlide(3, 'frame')"></span>
+      <span class="dot" onclick="CVJson.currentSlide(4, 'frame')"></span>
+      <span class="dot" onclick="CVJson.currentSlide(5, 'frame')"></span>
+    </div>
   <div id="footer">
     @{page.footer%r}
   </div>

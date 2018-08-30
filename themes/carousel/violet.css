@@ -9,9 +9,8 @@
   margin: 1.25em .25em .25em .25em;
 }
 
-.wrap {
-  word-wrap: break-word;
-  word-break: break-all;
+* {
+  word-break: break-word;
 }
 /************************************************************/
 

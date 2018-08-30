@@ -1,0 +1,322 @@
+/*************************************************************/
+.kfs, #bio, #pub .elem, #educ .elem, #exp .elem, #footer {
+    border-radius: 5px;
+    border: 2px solid yellow;
+}
+
+.kfs, #lang, #skill {
+    padding: 2px;
+    margin: 1.25em .25em .25em .25em;
+}
+
+* {
+
+}
+
+* {
+    box-sizing:border-box;
+    color: white;
+    word-break: break-word;
+}
+
+.content {
+    position: fixed;
+    display: block;
+    margin: 0;
+}
+
+/* Slideshow container */
+.wrapper {
+    max-width: 100%;
+    position: relative;
+    height: 80%;
+}
+
+/* Hide the images by default */
+.frame {
+    display: none;
+    height: 90%;
+    width: 100%;
+    background-color: black;
+    overflow-y: auto;
+}
+
+.first {
+    display: block;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* The dots/bullets/indicators */
+.dots {
+    text-align:center
+}
+
+.dot {
+    cursor:pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.anim {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .1}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .1}
+    to {opacity: 1}
+}
+
+
+/* For mobile phones: */
+#header {
+    width: 100%;
+}
+
+#pic-frm {
+    vertical-align: middle;
+    text-align: center;
+    margin: 5px;
+}
+
+#pic {
+    height: 60hv;
+}
+
+
+#bio {
+    padding: 5px;
+    clear: right;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+#fullname {
+    position: relative;
+    margin: 5px;
+    font-size: 2em;
+}
+
+#name, #family, #title {
+    text-transform: capitalize;
+    text-shadow: 1px 1px black;
+    font-weight: bold;
+    color: yellow;
+    margin-left: 5px;
+}
+
+#title {
+    text-transform:uppercase;
+    margin: 10px;
+}
+
+#skill, #lang {
+    clear: both;
+}
+
+.set :not(#skill) .elem {
+    width: calc( 100% - 20px);
+}
+
+.set .elem {
+    display: inline-block;
+    float: left;
+    margin: .5em;
+    width: calc( 100% - 20px);
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+#birth, #mail, #tel, #web, #address {
+    margin: 3px 0 0 10px;
+}
+
+.icons .elem::before {
+    display:inline-block;
+    height: 1em;
+    width: 1em;
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+#birth::before{
+    background-image: url("../img/violet/birth.png");
+}
+
+#mail::before{
+    background-image: url("../img/violet/mail.png");
+}
+
+#tel::before{
+    background-image: url("../img/violet/phone.png");
+}
+
+#web::before{
+    background-image: url("../img/violet/web.png");
+}
+
+#address::before {
+    background-image: url("../img/violet/home.png");
+}
+
+#wrapper {
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+#social {
+    margin: 10px;
+    text-align: left;
+}
+
+.icons {
+    clear: both;
+}
+
+#scontent a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: 0;
+    background-size: contain;
+}
+
+#scontent a:hover {
+    transform: rotate(360deg);
+    transition: transform 0.2s ease;
+}
+
+#facebook {
+    background-image: url("../img/violet/facebook.png");
+}
+
+#twitter {
+    background-image: url("../img/violet/twitter.png");
+}
+
+#linkedin {
+    background-image: url("../img/violet/linkedin.png");
+}
+
+#gplus {
+    background-image: url("../img/violet/gplus.png");
+}
+
+.barc {
+    display: inline-block;
+    width: 10em;
+    background-color: grey;
+    height: 1em;
+}
+
+.bar-l, .bar-h {
+    display: inline-block;
+    background-color: yellow;
+    height: 100%;
+}
+
+#footer {
+    height: 2em;
+    border: 5px;
+    padding-top: .75em;
+    text-align: center;
+    background-color: yellow;
+    color: white;
+    font-weight: bolder;
+}
+
+#footer a {
+    color: yellow;
+}
+
+.elem .name {
+    font-weight: bold;
+    color: yellow;
+}
+
+.date, .org {
+    font-style: italic;
+    font-weight: bold;
+}
+
+#pub tr:nth-child(odd) {
+    background: violet;
+}
+
+.desc {
+    font-size: .8em;
+    font-style: italic;
+}
+
+#educ .field, .org {
+    font-style: italic;
+    margin-left: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .icons {
+        clear: none;
+    }
+
+    #pic-frm {
+        float: right;
+    }
+
+    .set :not(#skill):not(#lang) .elem {
+        width: 46%;
+        width: calc(50% - 1.5em);
+    }
+
+    #skill .elem,  #lang .elem {
+        width: initial;
+    }
+
+
+}
