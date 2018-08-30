@@ -11,8 +11,10 @@ This will break the projects developed on precedent versions.
 * DEL: Delete or deprecate some functions
 
 ## Version 1.4.0
-* IMPROVE: layer/flat.css
+* IMPROVE: layer/flat.css, carousel/violet
 * NEW: birthday icon
+* NEW: carousel/dos.css carousel/dark.css
+* FIX: percentage inside bars 
 
 ## Version 1.3.10 (2018-08-30)
 * NEW: layer theme
