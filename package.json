@@ -1,6 +1,6 @@
 {
   "name": "cv.json",
-  "version": "1.3.10",
+  "version": "2.0.0",
   "description": "CV webpage dynamically created from a json file and a template",
   "main": "cv.json.js",
   "bin": "install.js",
