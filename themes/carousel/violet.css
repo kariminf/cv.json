@@ -1,317 +1,345 @@
 /*************************************************************/
 .kfs, #bio, #pub .elem, #educ .elem, #exp .elem, #footer {
-  border-radius: 5px;
-  border: 2px solid DarkViolet;
+    border-radius: 5px;
+    border: 2px solid DarkViolet;
 }
 
 .kfs, #lang, #skill {
-  padding: 2px;
-  margin: 1.25em .25em .25em .25em;
+    padding: 2px;
+    margin: 1.25em .25em .25em .25em;
 }
 
 * {
-  word-break: break-word;
+    word-break: break-word;
+    box-sizing:border-box;
 }
 /************************************************************/
 
-* {
-  box-sizing:border-box
-}
-
 .content {
-  position: fixed;
-  display: block;
-  margin: 0;
+    position: fixed;
+    display: block;
+    margin: 0;
 }
 
 /* Slideshow container */
 .wrapper {
-  max-width: 100%;
-  position: relative;
-  height: 80%;
+
 }
 
 /* Hide the images by default */
 .frame {
     display: none;
-    height: 90%;
-    width: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 4em;
     background-color: #FFFFDD;
     overflow-y: auto;
 }
 
 .first {
-  display: block;
+    display: block;
 }
 
 /* Next & previous buttons */
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: DarkViolet;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.8);
 }
 
 
 /* The dots/bullets/indicators */
 .dots {
-  text-align:center
+    position:fixed;
+    left:0;
+    right:0;
+    bottom: 2.25em;
+    text-align:center;
 }
 
 .dot {
-  cursor:pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor:pointer;
+    height: 1em;
+    width: 1em;
+    margin: 0 2px;
+    background-color: thistle;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+    background-color: DarkViolet;
 }
 
 /* Fading animation */
 .anim {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .1}
-  to {opacity: 1}
+    from {opacity: .1}
+    to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .1}
-  to {opacity: 1}
+    from {opacity: .1}
+    to {opacity: 1}
 }
 
-
-/* For mobile phones: */
 #header {
-  width: 100%;
+    width: 100%;
 }
 
 #pic-frm {
-  float: left;
-  vertical-align: middle;
-  text-align: center;
-  margin: 5px;
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    margin: 5px;
 }
 
 #pic {
-  width: 7.5em;
-  height: 11em;
+    width: 7.5em;
+    height: 11em;
 }
 
 
 #bio {
-  padding: 5px;
-  clear: right;
-  margin: 5px;
-  box-sizing: border-box;
+    padding: 5px;
+    clear: right;
+    margin: 5px;
+    box-sizing: border-box;
 }
 
 #fullname {
-  position: relative;
-  margin: 5px;
+    position: relative;
+    margin: 5px;
+    text-align: center;
 }
 
 #name, #family, #title {
-  text-transform: capitalize;
-  text-shadow: 1px 1px black;
-  font-weight: bold;
-  color: DarkViolet;
-  margin-left: 5px;
+    text-transform: capitalize;
+    text-shadow: 1px 1px black;
+    font-weight: bold;
+    color: DarkViolet;
+    margin-left: 5px;
 }
 
 #title {
-  text-transform:uppercase;
-  margin: 10px;
+    text-transform:uppercase;
+    margin: 10px;
+    text-align: center;
 }
 
 #skill, #lang {
-  clear: both;
+    clear: both;
 }
 
 .set :not(#skill) .elem {
-  width: calc( 100% - 20px);
+    width: calc( 100% - 20px);
 }
 
 .set .elem {
-  display: inline-block;
-  float: left;
-  margin: .5em;
-  width: calc( 100% - 20px);
-  box-sizing: border-box;
-  padding: 5px;
+    display: inline-block;
+    float: left;
+    margin: .5em;
+    width: calc( 100% - 20px);
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 #birth, #mail, #tel, #web, #address {
-  margin: 3px 0 0 10px;
+    margin: 3px 0 0 10px;
 }
 
 .icons .elem::before {
-  display:inline-block;
-  height: 1em;
-  width: 1em;
-  content: "";
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-right: 10px;
+    display:inline-block;
+    height: 1em;
+    width: 1em;
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
 }
+
 #birth::before{
-  background-image: url("../img/violet/birth.png");
+    background-image: url("../img/violet/birth.png");
 }
 
 #mail::before{
-  background-image: url("../img/violet/mail.png");
+    background-image: url("../img/violet/mail.png");
 }
 
 #tel::before{
-  background-image: url("../img/violet/phone.png");
+    background-image: url("../img/violet/phone.png");
 }
 
 #web::before{
-  background-image: url("../img/violet/web.png");
+    background-image: url("../img/violet/web.png");
 }
 
 #address::before {
-  background-image: url("../img/violet/home.png");
+    background-image: url("../img/violet/home.png");
 }
 
 #wrapper {
-  padding: 0;
-  width: 100%;
-  display: block;
+    padding: 0;
+    width: 100%;
+    display: block;
 }
 
 #social {
-  margin: 10px;
-  text-align: center;
+    margin: 10px;
+    text-align: center;
 }
 
 .icons {
-  clear: both;
+    clear: both;
 }
 
 #scontent a {
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  margin: 5px;
-  border: 0;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin: 5px;
+    border: 0;
 }
 
 #scontent a:hover {
-  transform: rotate(360deg);
-  transition: transform 0.2s ease;
+    transform: rotate(180deg) scale(0.7, 0.7);
+    transition: transform 0.2s ease;
 }
 
 #facebook {
-  background-image: url("../img/violet/facebook.png");
+    background-image: url("../img/violet/facebook.png");
 }
 
 #twitter {
-  background-image: url("../img/violet/twitter.png");
+    background-image: url("../img/violet/twitter.png");
 }
 
 #linkedin {
-  background-image: url("../img/violet/linkedin.png");
+    background-image: url("../img/violet/linkedin.png");
 }
 
 #gplus {
-  background-image: url("../img/violet/gplus.png");
+    background-image: url("../img/violet/gplus.png");
 }
 
 .barc {
-  display: inline-block;
-  width: 10em;
-  background-color: grey;
-  height: 1em;
+    display: inline-block;
+    width: 10em;
+    background-color: grey;
+    height: 1.25em;
 }
 
 .bar-l, .bar-h {
-  display: inline-block;
-  background-color: DarkViolet;
-  height: 100%;
+    display: inline-block;
+    background-color: DarkViolet;
+    height: 100%;
+}
+
+.bar-v {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    background-color:initial;
+    text-align:center;
 }
 
 #footer {
-  height: 2em;
-  border: 5px;
-  padding-top: .75em;
-  text-align: center;
-  background-color: DarkViolet;
-  color: white;
-  font-weight: bolder;
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height: 2em;
+    padding-top: .5em;
+    text-align: center;
+    background-color: DarkViolet;
+    color: white;
+    font-weight: bolder;
 }
 
 #footer a {
-  color: yellow;
+    color: yellow;
 }
 
 .elem .name {
-  font-weight: bold;
-  color: DarkViolet;
+    font-weight: bold;
+    color: DarkViolet;
 }
 
 .date, .org {
-  font-style: italic;
-  font-weight: bold;
+    font-style: italic;
+    font-weight: bold;
 }
 
 #pub tr:nth-child(odd) {
-  background: violet;
+    background: violet;
 }
 
 .desc {
-  font-size: .8em;
-  font-style: italic;
+    font-size: .8em;
+    font-style: italic;
 }
 
 #educ .field, .org {
-  font-style: italic;
-  margin-left: 1em;
+    font-style: italic;
+    margin-left: 1em;
 }
 
 @media only screen and (min-width: 768px) {
 
-  .icons {
-    clear: none;
-  }
+    /* Icons animations just for PC */
+    #scontent a {
+        transition: all 0.2s ease;
+    }
 
-  .set :not(#skill):not(#lang) .elem {
-    width: 46%;
-    width: calc(50% - 1.5em);
-  }
+    #scontent a:hover {
+        transform: rotate(180deg) scale(0.7, 0.7);
+        transition: transform 0.2s ease;
+    }
 
-   #skill .elem,  #lang .elem {
-    width: initial;
-  }
+    #fullname {
+        font-size: 1.5em;
+    }
+
+    .icons {
+        clear: none;
+    }
+
+    .set :not(#skill):not(#lang) .elem {
+        width: 46%;
+        width: calc(50% - 1.5em);
+    }
+
+    #skill .elem,  #lang .elem {
+        width: initial;
+    }
 
 
 }

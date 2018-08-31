@@ -9,6 +9,7 @@
     <a href="#exp" onclick="CVJson.switchStyle('hmenu', 'topnav', 'responsive')">Experiance</a>
     <a href="#educ" onclick="CVJson.switchStyle('hmenu', 'topnav', 'responsive')">Education</a>
     <a href="#pub" onclick="CVJson.switchStyle('hmenu', 'topnav', 'responsive')">Publication</a>
+    <a href="#skills" onclick="CVJson.switchStyle('hmenu', 'topnav', 'responsive')">Skills</a>
     <a href="javascript:void(0);" class="icon"
     onclick="CVJson.switchStyle('hmenu', 'topnav', 'responsive')">&#9776;</a>
   </div>
@@ -17,7 +18,8 @@
 <div id="clean-header"></div>
 
 <div id="wrapper">
-    <div id="perso">
+
+    <div id="perso" class="sec">
         <div id="pic-frm">
           <img src="@{perso.photo%s.rel}" id="pic" ></img>
         </div>
@@ -42,7 +44,7 @@
 
   <div id="cont">
 
-    <div id="exp" class="kfs">
+    <div id="exp" class="sec">
       <h1><span>Experiance</span></h1>
       <div class="wrapper">
       @{exp%bb}
@@ -64,7 +66,7 @@
     </div>
     </div>
 
-    <div id="educ" class="kfs">
+    <div id="educ" class="sec">
       <h1><span>Education</span></h1>
       <div class="wrapper">
       @{educ%bb}
@@ -80,7 +82,7 @@
     </div>
     </div>
 
-    <div id="pub" class="kfs">
+    <div id="pub" class="sec">
       <h1><span>Publication</span></h1>
       <div class="wrapper">
       @{pub%bb}
@@ -118,24 +120,27 @@
     </div>
     </div>
 
-    <div id="skill" class="kfs">
-      <h1><span>Skills</span></h1>
-      @{skill%bb}
-      <div class="elem">
-        <div class="name">@{skill.title}</div>@{skill.mark%s.theme1}
-      </div>
-      @{skill%be}
+    <div id="skills" class="sec">
+        <div id="skill">
+          <h1><span>Skills</span></h1>
+          @{skill%bb}
+          <div class="elem">
+            <div class="name">@{skill.title}</div>@{skill.mark%s.theme1}
+          </div>
+          @{skill%be}
+        </div>
+
+        <div id="lang">
+          <h1><span>Languages</span></h1>
+          @{lang%bb}
+          <div class="elem">
+            <div class="name">@{lang.name}</div>
+            <div class="mark">@{lang.mark%s.theme1}</div>
+          </div>
+          @{lang%be}
+        </div>
     </div>
 
-    <div id="lang" class="kfs">
-      <h1><span>Languages</span></h1>
-      @{lang%bb}
-      <div class="elem">
-        <div class="name">@{lang.name}</div>
-        <div class="mark">@{lang.mark%s.theme1}</div>
-      </div>
-      @{lang%be}
-    </div>
   </div>
 
   <div id="social">

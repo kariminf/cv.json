@@ -33,7 +33,7 @@ As consequences:
 * Most importantly, the user doesn't have to program anything
 
 In other word:
-* I can give you a pie, but instead I give you all the ingredients (json file, html files, template, css) and the recipe (jsonvcard.js) and you cook it yourself
+* I can give you a pie, but instead I give you all the ingredients (json file, html files, template, css) and the recipe (cv.json.js) and you cook it yourself
 
 ## Showcasing
 

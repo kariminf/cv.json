@@ -235,10 +235,6 @@
     filter: brightness(0) invert(1);
 }
 
-#scontent a:hover {
-    transform: rotate(360deg);
-    transition: transform 0.2s ease;
-}
 
 #facebook {
     background-image: url("../img/violet/facebook.png");
@@ -260,13 +256,22 @@
     display: inline-block;
     width: 10em;
     background-color: grey;
-    height: 1em;
+    height: 1.25em;
+    border: 2px solid white;
 }
 
 .bar-l, .bar-h {
     display: inline-block;
-    background-color: white;
+    background-color: black;
     height: 100%;
+}
+
+.bar-v {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    background-color:initial;
+    text-align:center;
 }
 
 #footer {

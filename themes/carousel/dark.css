@@ -221,11 +221,13 @@ h1 span {
     border: 0;
     background-size: contain;
     filter: invert(100%) hue-rotate(-40deg);
+    transition: all 0.2s ease;
 }
 
 #scontent a:hover {
-    transform: rotate(360deg);
+    transform: scale(1.5,1.5) ;
     transition: transform 0.2s ease;
+    z-index: 2;
 }
 
 #facebook {

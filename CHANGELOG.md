@@ -14,7 +14,8 @@ This will break the projects developed on precedent versions.
 * IMPROVE: layer/flat.css, carousel/violet
 * NEW: birthday icon
 * NEW: carousel/dos.css carousel/dark.css
-* FIX: percentage inside bars 
+* FIX: percentage inside bars
+* ADD: swipe function when using mobile phone (carousel theme)
 
 ## Version 1.3.10 (2018-08-30)
 * NEW: layer theme

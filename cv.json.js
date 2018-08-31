@@ -830,10 +830,10 @@ limitations under the License.
 
             if (Math.abs(xDiff) > threshold) {
                 if (xDiff > 0) {//right
-                    CVJson.plusSlides(1, slideName);
+                    CVJson.plusSlides(-1, slideName);
                 }
                 else {//left
-                    CVJson.plusSlides(-1, slideName);
+                    CVJson.plusSlides(1, slideName);
                 }
             }
 
