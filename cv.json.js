@@ -725,9 +725,10 @@ limitations under the License.
 	 * @param  {string} template the HTML template to be replaced
 	 * @param  {string} marker   the marker which will be replaced in the template
 	 * @param  {string} type     the type of the theme, currently: "bar"
+	 * @param  {Array} vals      A list of Strings
 	 * @return {string}          the HTML content after replacement
 	 */
-	function process_mark(value, template, marker, type){
+	function process_mark(value, template, marker, type, vals){
 		//TODO other types
 		if (! value || value < 1) value = 1;
 		else if (value > 10) value = 10;
@@ -738,6 +739,13 @@ limitations under the License.
         rep += '</div><div class="bar-v" style="width: 100%; position:relative;'; //bar value
         rep += 'left:0;top:-100%;">'; //bar value
 		if(type === "bar-per") rep += perc + "%";
+        else if (type === "bar-vals"){
+            if (vals && vals.length > 1) {
+                //101 to not have index out of boundary
+                let idx = Math.floor(vals.length * perc/101);
+                rep += vals[idx];
+            }
+        }
 		rep += '</div></div>'; //barc
 
 		//console.log("theme: " + rep);

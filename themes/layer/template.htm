@@ -1,7 +1,8 @@
 @{months%v:["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."]}
+@{levels%v:["Beginner", "Elementary", "Intermediate", "Advanced"]}
 @{date1%f:date("mm[ dd<, >]yyyy", vars.months)}
 @{date2%f:date("mm[/]yyyy", vars.months)}
-@{theme1%f:mark("bar")}
+@{theme1%f:mark("bar-vals", vars.levels)}
 @{rel%f:relative}
 <div id="header">
   <div id="hmenu" class="topnav">

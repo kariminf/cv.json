@@ -10,12 +10,15 @@ This will break the projects developed on precedent versions.
 * FIX: Fixing bugs
 * DEL: Delete or deprecate some functions
 
-## Version 1.4.0
+## Version 2.0.0 
 * IMPROVE: layer/flat.css, carousel/violet
 * NEW: birthday icon
 * NEW: carousel/dos.css carousel/dark.css
 * FIX: percentage inside bars
 * ADD: swipe function when using mobile phone (carousel theme)
+* NEW: layer/paged.css
+* IMPROVE: carousel styles (position, etc.)
+* ADD: bars with values functionality (eg. Advanced, Beginner, etc.)
 
 ## Version 1.3.10 (2018-08-30)
 * NEW: layer theme

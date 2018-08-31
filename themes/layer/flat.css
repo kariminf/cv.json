@@ -2,6 +2,7 @@
 
 * {
     word-break: break-word;
+    color: black;
 }
 #header {
     z-index: 2;
@@ -211,7 +212,7 @@ a {color: blue;}
     display: inline-block;
     width: 10em;
     background-color: #EFFFEF;
-    height: 1em;
+    height: 1.25em;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -220,6 +221,17 @@ a {color: blue;}
     display: inline-block;
     background-color: #4CAF50;
     height: 100%;
+    border-radius: 4px;
+}
+
+.bar-v {
+    display: inline-block;
+    background-color: initial;
+    height: 100%;
+    font-weight: bold;
+    font-size: 0.5 em;
+    padding-left: 1em;
+
 }
 
 .elem hr {
