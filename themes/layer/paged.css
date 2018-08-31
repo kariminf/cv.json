@@ -9,25 +9,6 @@ body {
     overflow-x: hidden;
 }
 
-/*
-.sec:not(#perso) {
-    display: none;
-}
-*/
-/*
-.sec::before {
-    display:block;
-    height: 2.5em;
-    content: "";
-}
-
-.sec::after {
-    display:block;
-    height: 4em;
-    content: "";
-}
-*/
-
 #header {
     z-index: 2;
     position: fixed;
@@ -39,23 +20,19 @@ body {
 
 .topnav {
     overflow: hidden;
-    padding-top: 1em;
-    height: 2em;
-    width: 100%;
+    padding: .5em;
     text-align: center;
-    background-color: blue;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-    float: left;
     display: block;
+    float:left;
     color: Tomato;
     text-align: center;
-    margin-left: 1em;
+    margin-left: .5em;
     text-decoration: none;
     font-weight: bolder;
-    z-index: 2;
 }
 
 /* Add an active class to highlight the current page */
@@ -279,6 +256,7 @@ a {color: blue;}
     background-color: white;
     height: 1.25em;
     border-radius: 5px;
+    text-align: left;
 }
 
 .bar-l, .bar-h {
@@ -356,30 +334,24 @@ a {color: blue;}
     #fullname {
         clear: both;
     }
-    .sec {
-        text-align: center;
-    }
 
     #pic-frm {
-        float: none;
-        clear: both;
+        width: 100%;
     }
 
-    .topnav a {
+    #header {
+        left:initial;
+    }
+
+    .topnav a{
         display: none;
     }
-
-    .topnav {
-        position: absolute;
-        text-align: right;
-        background: blue;
-    }
-
 
     .topnav a.icon {
         position: absolute;
         top: 0;
         right:0;
+        width: 2em;
         display: block;
         font-size: 1.5em;
         background-color: Crimson;
@@ -387,20 +359,22 @@ a {color: blue;}
         padding: 0.25em;
     }
 
-    .topnav.responsive a.icon {
-        position: absolute;
-        top: 0;
-        right:0;
-        text-align: right;
-    }
-
-
-    .topnav.responsive a {
-        float: none;
+    .topnav.responsive a:not(.icon) {
+        float:none;
+        padding: 0.5em;
         display: block;
         text-align: left;
-        background-color: grey;
-        z-index: 2;
+        background-color: white;
     }
+
+    .topnav.responsive a:first-child::before {
+        float:none;
+        padding: 0.5em;
+        height: 1.5em;
+        display: block;
+        text-align: left;
+        content: "";
+    }
+
 
 }
