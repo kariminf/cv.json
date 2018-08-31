@@ -308,7 +308,7 @@ limitations under the License.
              match = regex.exec(template);
          }
 
-         console.log("Defined functions:", fcts);
+         //console.log("Defined functions:", fcts);
 
          return html;
      }
@@ -737,7 +737,7 @@ limitations under the License.
 		if(value < 5) rep += '<div class="bar-l" style="width:' + perc + '%">'; //bar low
 		else rep += '<div class="bar-h" style="width:' + perc + '%">'; //bar high
         rep += '</div><div class="bar-v" style="width: 100%; position:relative;'; //bar value
-        rep += 'left:0;top:-100%;">'; //bar value
+        rep += 'left:0;top:-100%; background: initial;">'; //bar value
 		if(type === "bar-per") rep += perc + "%";
         else if (type === "bar-vals"){
             if (vals && vals.length > 1) {

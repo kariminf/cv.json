@@ -187,7 +187,7 @@ a {color: blue;}
 }
 
 #scontent a:hover {
-    transform: rotate(360deg);
+    transform: scale(0.7,0.7);
     transition: transform 0.2s ease;
 }
 
@@ -229,7 +229,8 @@ a {color: blue;}
     background-color: initial;
     height: 100%;
     font-weight: bold;
-    font-size: 0.5 em;
+    font-style: italic;
+    font-size: 0.8em;
     padding-left: 1em;
 
 }
@@ -311,6 +312,6 @@ a {color: blue;}
         display: block;
         text-align: left;
     }
-    */
+
 
 }
