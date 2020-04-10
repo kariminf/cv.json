@@ -1,5 +1,5 @@
 {
-  "name": "cv.json",
+  "name": "@kariminf/cv.json",
   "version": "2.0.0",
   "description": "CV webpage dynamically created from a json file and a template",
   "main": "cv.json.js",
