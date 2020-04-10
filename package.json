@@ -13,6 +13,7 @@
     "personal webpage"
   ],
   "repository": "https://github.com/kariminf/cv.json.git",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
   "license": "Apache-2.0",
   "files": [
