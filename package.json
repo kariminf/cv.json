@@ -33,7 +33,7 @@
     "ncp": "^2.0.0"
   },
   "devDependencies": {
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "yuidoc-marviq-theme": "^0.1.5"
   }
 }
